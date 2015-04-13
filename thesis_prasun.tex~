@@ -1,0 +1,145 @@
+\documentclass[MS,thesis]{iitmdiss}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage[dvips]{graphicx}
+\usepackage{amsmath,amssymb} % easier math formulae, align, subequation
+\usepackage{fullpage}
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{times}
+\usepackage{t1enc}
+\usepackage{epstopdf}
+\usepackage[hypertex]{hyperref}
+\usepackage{pstricks,pst-node,pst-tree,pstricks-add}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{observation}[theorem]{Observation}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{assumption}[theorem]{Assumption}
+                   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\qed}{\rule{7pt}{7pt}}
+\newenvironment{proof}{\noindent{\bf Proof}\hspace*{1em}}{\hfill\qed\bigskip}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\setcounter{tocdepth}{4}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\thesistitle{Degree Sets: Realizability and Extension Problems}
+\def\thesisauthor{Prasun Kumar}
+
+\begin{document}
+\bibliographystyle{plain}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Title page
+
+\title{\thesistitle}
+\author{\thesisauthor}
+\date{May 2013}
+\department{COMPUTER SCIENCE AND ENGINEERING}
+%\nocite{*}
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Certificate
+\certificate
+
+\vspace*{0.5in}
+
+\noindent This is to certify that the thesis titled {\bf {\thesistitle}}, submitted by {\bf {\thesisauthor}}, to the Indian Institute of Technology, Madras, for
+the award of the degree of {\bf Master of Science (by Research)}, is a bonafide record of the research work done by him under my supervision.  The contents of this thesis, in full or in parts, have not been submitted to any other Institute or University for the award of any degree or diploma.
+
+\vspace*{1in}
+\hspace*{-0.25in}
+\begin{singlespace}
+\noindent {\bf Dr. Jayalal Sarma M. N.}\\
+\noindent Research Guide\\ 
+\noindent Assistant Professor\\
+\noindent Dept. of Computer Science and Engineering\\
+\noindent IIT-Madras, 600 036 \\
+\end{singlespace}
+\vspace*{0.20in}
+\noindent Place: Chennai\\ 
+Date:\hspace{1cm}May, 2013
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Acknowledgements
+\acknowledgements
+First and foremost, I would like to express my deepest regards to Dr. Jayalal Sarma M. N. for his excellent guidance and encouragement. I find myself to be lucky enough to get a chance to work with such a fantastic person and a brilliant researcher. I learnt a lot from him, not only on the technical front but also on how to lead a simple yet effective life with very high morales. The spirit and motivation, he bestowed me, cannot be expressed in words. I am indebted to him for his love and concern. His very personality is a great inspiration to me.
+
+I would also like to thank Saurabh Sawlani for all collaborative discussions that we had, and for his very valuable comments.
+
+I also thank my GTC members Prof. C. Pandu Rangan, Prof. S. A. Choudum, Dr. N. S. Narayanswamy, and Dr. Sounaka Mishra for their encouraging remarks and timely advises.
+
+I express my gratitude to the Department of CSE, IIT Madras for providing an excellent environment to carry out my research. I thank all other faculty members of our department for their encouragement in pursuing my work. I extend my thanks to other academic and non-academic staff, and hostel staff members at IIT Madras for providing all the necessary support. 
+
+I am grateful to my friends who had more confidence in me than I had in myself. I specially want to thank Rahul Bharuka, K. Dinesh, Ramakrishna G., Sajin Koroth, Ajeesh Ramanujan, and Rahul Thakur for encouraging me from time to time and giving their valuable comments. I would also like to thank my lab mates and fellow researchers in the department.
+
+There are no words to show my gratitude towards my parents and my family members for their unconditional, everlasting love and support. It is their vision, patience, and guidance that has made me what I am. 
+
+                                                                                                    
+\hspace{12cm}PRASUN KUMAR 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Abstract
+\input{abstract_pk.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Table of contents etc.
+
+\begin{singlespace}
+\tableofcontents
+\thispagestyle{empty}
+
+%\listoftables
+%\addcontentsline{toc}{chapter}{LIST OF TABLES}
+\listoffigures
+\addcontentsline{toc}{chapter}{LIST OF FIGURES}
+\end{singlespace}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Abbreviations
+\input{abbreviations_pk.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Notation
+\input{notations_pk.tex}
+
+\pagenumbering{arabic}
+\input{intro_pk.tex}
+\input{prelims_pk.tex}
+\input{literature_pk.tex}
+\input{conclusion_pk.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% List of papers
+
+\listofpapers
+
+\begin{enumerate}  
+ \item Anup Joshi, and N. S. Narayanswamy, \newblock
+  "On Directed Tree Realizations of Degree Sets", \newblock {\em
+  SoCG 2014, Communicated and Under Review}.
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Bibliography.
+\pagebreak
+\begin{singlespace}
+  \begin{small}
+	\bibliography{bibliography}
+%	\bibliography{iccad}
+  \end{small}
+\end{singlespace}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

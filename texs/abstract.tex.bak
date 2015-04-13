@@ -1,0 +1,11 @@
+\abstract
+
+\noindent KEYWORDS:  \hspace*{0.5em} \parbox[t]{4.4in}{Learning from Demonstrations, Imitation Learning, Inverse Reinforcement Learning, Knows-What-It-Knows Learning}
+
+\vspace*{4pt}
+
+
+Learning from demonstrations  is an expert-to-learner knowledge transfer mechanism that has led to state-of-the-art performances in many practical domains such as autonomous navigation and robotic control. The aim of the learning agent is to \textit{imitate} the expert observing its trajectories. One solution to this problem is inverse reinforcement learning (IRL), where the learner infers a reward function over the states of the Markov Decision Process on which the mentor's demonstrations seem optimal. However, since expert trajectories are not cheap, it becomes crucial to minimize the number of trajectories required to imitate accurately. Moreover, in large state spaces, the agent must generalize knowledge acquired from demonstrations covering few states to the rest of the states confidently. To address these requirements, we propose a reduction of IRL to  classification where determining the separating hyperplane becomes equivalent to learning the reward function itself. Further, we also use the power of this equivalence to propose a Knows-What-It-Knows (KWIK) algorithm for IRL. To this end, we also present a novel definition of admissible KWIK classification algorithms which suit our goal.  The study of IRL in the KWIK framework is of significant practical relevance primarily due to the reduction of burden on the teacher: a) A self-aware learner enables us to avoid making redundant queries and cleverly reduce the sample complexity. b) The onus is now on the learner (and no longer on the teacher) to proactively seek expert assistance and make sure that no undesirable/sub-optimal action is taken.
+ 
+
+\pagebreak

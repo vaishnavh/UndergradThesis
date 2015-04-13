@@ -1,0 +1,1553 @@
+@inproceedings{Lopes:2009:ALR:1617459.1617463,
+ author = {Lopes, Manuel and Melo, Francisco and Montesano, Luis},
+ title = {Active Learning for Reward Estimation in Inverse Reinforcement Learning},
+ booktitle = {Proceedings of the European Conference on Machine Learning and Knowledge Discovery in Databases: Part II},
+ series = {ECML PKDD '09},
+ year = {2009},
+ isbn = {978-3-642-04173-0},
+ location = {Bled, Slovenia},
+ pages = {31--46},
+ numpages = {16},
+ url = {http://dx.doi.org/10.1007/978-3-642-04174-7_3},
+ doi = {10.1007/978-3-642-04174-7_3},
+ acmid = {1617463},
+ publisher = {Springer-Verlag},
+ address = {Berlin, Heidelberg},
+}
+
+
+@inproceedings{Ratliff:2006:MMP:1143844.1143936,
+ author = {Ratliff, Nathan D. and Bagnell, J. Andrew and Zinkevich, Martin A.},
+ title = {Maximum Margin Planning},
+ booktitle = {Proceedings of the 23rd International Conference on Machine Learning},
+ series = {ICML '06},
+ year = {2006},
+ isbn = {1-59593-383-2},
+ location = {Pittsburgh, Pennsylvania},
+ pages = {729--736},
+ numpages = {8},
+ url = {http://doi.acm.org/10.1145/1143844.1143936},
+ doi = {10.1145/1143844.1143936},
+ acmid = {1143936},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+}
+
+@inproceedings{Ziebart:2008:MEI:1620270.1620297,
+ author = {Ziebart, Brian D. and Maas, Andrew and Bagnell, J. Andrew and Dey, Anind K.},
+ title = {Maximum Entropy Inverse Reinforcement Learning},
+ booktitle = {Proceedings of the 23rd National Conference on Artificial Intelligence - Volume 3},
+ series = {AAAI'08},
+ year = {2008},
+ isbn = {978-1-57735-368-3},
+ location = {Chicago, Illinois},
+ pages = {1433--1438},
+ numpages = {6},
+ url = {http://dl.acm.org/citation.cfm?id=1620270.1620297},
+ acmid = {1620297},
+ publisher = {AAAI Press},
+}
+
+
+@inproceedings{Ramachandran:2007:BIR:1625275.1625692,
+ author = {Ramachandran, Deepak and Amir, Eyal},
+ title = {Bayesian Inverse Reinforcement Learning},
+ booktitle = {Proceedings of the 20th International Joint Conference on Artifical Intelligence},
+ series = {IJCAI'07},
+ year = {2007},
+ location = {Hyderabad, India},
+ pages = {2586--2591},
+ numpages = {6},
+ url = {http://dl.acm.org/citation.cfm?id=1625275.1625692},
+ acmid = {1625692},
+ publisher = {Morgan Kaufmann Publishers Inc.},
+ address = {San Francisco, CA, USA},
+}
+
+@article{DBLP:journals/corr/abs-1206-5264,
+  author    = {Gergely Neu and
+               Csaba Szepesv{\'{a}}ri},
+  title     = {Apprenticeship Learning using Inverse Reinforcement Learning and Gradient
+               Methods},
+  journal   = {CoRR},
+  volume    = {abs/1206.5264},
+  year      = {2012},
+  url       = {http://arxiv.org/abs/1206.5264},
+  timestamp = {Wed, 10 Oct 2012 21:28:53 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/corr/abs-1206-5264},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@inproceedings{conf/pkdd/KleinPGP13,
+  added-at = {2013-08-30T00:00:00.000+0200},
+  author = {Klein, Edouard and Piot, Bilal and Geist, Matthieu and Pietquin, Olivier},
+  biburl = {http://www.bibsonomy.org/bibtex/281f9fff4d6500d7fe2c622a2a3ce1aa6/dblp},
+  booktitle = {ECML/PKDD (1)},
+  editor = {Blockeel, Hendrik and Kersting, Kristian and Nijssen, Siegfried and Zelezný, Filip},
+  ee = {http://dx.doi.org/10.1007/978-3-642-40988-2_1},
+  keywords = {dblp},
+  pages = {1-16},
+  publisher = {Springer},
+  series = {Lecture Notes in Computer Science},
+  timestamp = {2013-08-30T00:00:00.000+0200},
+  title = {A Cascaded Supervised Learning Approach to Inverse Reinforcement Learning.},
+  url = {http://dblp.uni-trier.de/db/conf/pkdd/pkdd2013-1.html#KleinPGP13},
+  volume = 8188,
+  year = 2013
+}
+
+
+
+@inproceedings{DBLP:conf/nips/ChoiK12,
+  author    = {Jaedeug Choi and
+               Kee{-}Eung Kim},
+  title     = {Nonparametric Bayesian Inverse Reinforcement Learning for Multiple
+               Reward Functions},
+  booktitle = {Advances in Neural Information Processing Systems 25: 26th Annual
+               Conference on Neural Information Processing Systems 2012. Proceedings
+               of a meeting held December 3-6, 2012, Lake Tahoe, Nevada, United States.},
+  pages     = {314--322},
+  year      = {2012},
+  url       = {http://papers.nips.cc/paper/4737-nonparametric-bayesian-inverse-reinforcement-learning-for-multiple-reward-functions},
+  timestamp = {Thu, 11 Dec 2014 17:34:07 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/nips/ChoiK12},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@inproceedings{DBLP:conf/nips/KimFPP13,
+  author    = {Beomjoon Kim and
+               Amir Massoud Farahmand and
+               Joelle Pineau and
+               Doina Precup},
+  title     = {Learning from Limited Demonstrations},
+  booktitle = {Advances in Neural Information Processing Systems 26: 27th Annual
+               Conference on Neural Information Processing Systems 2013. Proceedings
+               of a meeting held December 5-8, 2013, Lake Tahoe, Nevada, United States.},
+  pages     = {2859--2867},
+  year      = {2013},
+  url       = {http://papers.nips.cc/paper/4918-learning-from-limited-demonstrations},
+  timestamp = {Fri, 31 Jan 2014 12:11:40 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/nips/KimFPP13},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+
+@proceedings{DBLP:conf/nips/2013,
+  editor    = {Christopher J. C. Burges and
+               L{\'{e}}on Bottou and
+               Zoubin Ghahramani and
+               Kilian Q. Weinberger},
+  title     = {Advances in Neural Information Processing Systems 26: 27th Annual
+               Conference on Neural Information Processing Systems 2013. Proceedings
+               of a meeting held December 5-8, 2013, Lake Tahoe, Nevada, United States},
+  year      = {2013},
+  url       = {http://papers.nips.cc/book/advances-in-neural-information-processing-systems-26-2013},
+  timestamp = {Fri, 31 Jan 2014 12:11:40 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/nips/2013},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@inproceedings{DBLP:journals/jmlr/RossB10,
+  author    = {St{\'{e}}phane Ross and
+               Drew Bagnell},
+  title     = {Efficient Reductions for Imitation Learning},
+  booktitle = {Proceedings of the Thirteenth International Conference on Artificial
+               Intelligence and Statistics, {AISTATS}2010, Chia Laguna Resort, Sardinia,
+               Italy, May 13-15, 2010},
+  pages     = {661--668},
+  year      = {2010},
+  url       = {http://www.jmlr.org/proceedings/papers/v9/ross10a.html},
+  timestamp = {Thu, 11 Sep 2014 07:28:56 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/jmlr/RossB10},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@proceedings{DBLP:conf/aistats/2010,
+  editor    = {Yee Whye Teh and
+               D. Mike Titterington},
+  title     = {Proceedings of the Thirteenth International Conference on Artificial
+               Intelligence and Statistics, {AISTATS}2010, Chia Laguna Resort, Sardinia,
+               Italy, May 13-15, 2010},
+  series    = {{JMLR}Proceedings},
+  volume    = {9},
+  publisher = {JMLR.org},
+  year      = {2010},
+  url       = {http://jmlr.org/proceedings/papers/v9/},
+  timestamp = {Thu, 11 Sep 2014 07:28:56 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/aistats/2010},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@INPROCEEDINGS{Cakmak11activelearning,
+    author = {Maya Cakmak and Andrea L. Thomaz},
+    title = {Active learning with mixed query types in learning from demonstration},
+    booktitle = {in Proc. of the ICML Workshop on New Developments in Imitation Learning},
+    year = {2011}
+}
+
+@inproceedings{DBLP:conf/icra/SilverBS12,
+  author    = {David Silver and
+               J. Andrew Bagnell and
+               Anthony Stentz},
+  title     = {Active learning from demonstration for robust autonomous navigation},
+  booktitle = {{IEEE}International Conference on Robotics and Automation, {ICRA}
+               2012, 14-18 May, 2012, St. Paul, Minnesota, {USA}},
+  pages     = {200--207},
+  year      = {2012},
+  url       = {http://dx.doi.org/10.1109/ICRA.2012.6224757},
+  doi       = {10.1109/ICRA.2012.6224757},
+  timestamp = {Thu, 19 Jul 2012 08:58:39 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/icra/SilverBS12},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+
+
+@inproceedings{DBLP:conf/pkdd/PiotGP13,
+  author    = {Bilal Piot and
+               Matthieu Geist and
+               Olivier Pietquin},
+  title     = {Learning from Demonstrations: Is It Worth Estimating a Reward Function?},
+  booktitle = {Machine Learning and Knowledge Discovery in Databases - European Conference,
+               {ECML}{PKDD}2013, Prague, Czech Republic, September 23-27, 2013,
+               Proceedings, Part {I}},
+  pages     = {17--32},
+  year      = {2013},
+  url       = {http://dx.doi.org/10.1007/978-3-642-40988-2_2},
+  doi       = {10.1007/978-3-642-40988-2_2},
+  timestamp = {Fri, 30 Aug 2013 11:03:55 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/pkdd/PiotGP13},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@proceedings{DBLP:conf/pkdd/2013-1,
+  editor    = {Hendrik Blockeel and
+               Kristian Kersting and
+               Siegfried Nijssen and
+               Filip Zelezn{\'{y}}},
+  title     = {Machine Learning and Knowledge Discovery in Databases - European Conference,
+               {ECML}{PKDD}2013, Prague, Czech Republic, September 23-27, 2013,
+               Proceedings, Part {I}},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {8188},
+  publisher = {Springer},
+  year      = {2013},
+  url       = {http://dx.doi.org/10.1007/978-3-642-40988-2},
+  doi       = {10.1007/978-3-642-40988-2},
+  isbn      = {978-3-642-40987-5},
+  timestamp = {Fri, 30 Aug 2013 11:01:47 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/pkdd/2013-1},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@inproceedings{DBLP:conf/aaai/JudahFTG14,
+  author    = {Kshitij Judah and
+               Alan Paul Fern and
+               Prasad Tadepalli and
+               Robby Goetschalckx},
+  title     = {Imitation Learning with Demonstrations and Shaping Rewards},
+  booktitle = {Proceedings of the Twenty-Eighth {AAAI}Conference on Artificial Intelligence,
+               July 27 -31, 2014, Qu{\'{e}}bec City, Qu{\'{e}}bec, Canada.},
+  pages     = {1890--1896},
+  year      = {2014},
+  url       = {http://www.aaai.org/ocs/index.php/AAAI/AAAI14/paper/view/8643},
+  timestamp = {Thu, 31 Jul 2014 09:00:19 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/aaai/JudahFTG14},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@proceedings{DBLP:conf/aaai/2014,
+  editor    = {Carla E. Brodley and
+               Peter Stone},
+  title     = {Proceedings of the Twenty-Eighth {AAAI}Conference on Artificial Intelligence,
+               July 27 -31, 2014, Qu{\'{e}}bec City, Qu{\'{e}}bec, Canada},
+  publisher = {{AAAI}Press},
+  year      = {2014},
+  url       = {http://www.aaai.org/Library/AAAI/aaai14contents.php},
+  isbn      = {978-1-57735-661-5},
+  timestamp = {Thu, 31 Jul 2014 08:59:54 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/aaai/2014},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+
+@MISC{Rao_11a,
+    author = {Rajesh P. N. Rao and Aaron P. Shon and Andrew N},
+    title = {11 A Bayesian model of imitation in infants and robots},
+    year = {2011}
+}
+
+@inproceedings{Shon:2007:AIL:1619645.1619767,
+ author = {Shon, Aaron P. and Verma, Deepak and Rao, Rajesh P. N.},
+ title = {Active Imitation Learning},
+ booktitle = {Proceedings of the 22Nd National Conference on Artificial Intelligence - Volume 1},
+ series = {AAAI'07},
+ year = {2007},
+ isbn = {978-1-57735-323-2},
+ location = {Vancouver, British Columbia, Canada},
+ pages = {756--762},
+ numpages = {7},
+ url = {http://dl.acm.org/citation.cfm?id=1619645.1619767},
+ acmid = {1619767},
+ publisher = {AAAI Press},
+}
+
+@article{DBLP:journals/corr/abs-1210-4876,
+  author    = {Kshitij Judah and
+               Alan Fern and
+               Thomas G. Dietterich},
+  title     = {Active Imitation Learning via Reduction to {I.I.D.}Active Learning},
+  journal   = {CoRR},
+  volume    = {abs/1210.4876},
+  year      = {2012},
+  url       = {http://arxiv.org/abs/1210.4876},
+  timestamp = {Fri, 02 Nov 2012 14:53:03 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/corr/abs-1210-4876},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@inproceedings{DBLP:conf/ilp/NatarajanOJKKT13,
+  author    = {Sriraam Natarajan and
+               Phillip Odom and
+               Saket Joshi and
+               Tushar Khot and
+               Kristian Kersting and
+               Prasad Tadepalli},
+  title     = {Accelerating Imitation Learning in Relational Domains via Transfer
+               by Initialization},
+  booktitle = {Inductive Logic Programming - 23rd International Conference, {ILP}
+               2013, Rio de Janeiro, Brazil, August 28-30, 2013, Revised Selected
+               Papers},
+  pages     = {64--75},
+  year      = {2013},
+  url       = {http://dx.doi.org/10.1007/978-3-662-44923-3_5},
+  doi       = {10.1007/978-3-662-44923-3_5},
+  timestamp = {Wed, 24 Sep 2014 14:14:12 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/ilp/NatarajanOJKKT13},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@proceedings{DBLP:conf/ilp/2013,
+  editor    = {Gerson Zaverucha and
+               V{\'{\i}}tor Santos Costa and
+               Aline Paes},
+  title     = {Inductive Logic Programming - 23rd International Conference, {ILP}
+               2013, Rio de Janeiro, Brazil, August 28-30, 2013, Revised Selected
+               Papers},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {8812},
+  publisher = {Springer},
+  year      = {2014},
+  url       = {http://dx.doi.org/10.1007/978-3-662-44923-3},
+  doi       = {10.1007/978-3-662-44923-3},
+  isbn      = {978-3-662-44922-6},
+  timestamp = {Wed, 24 Sep 2014 14:13:34 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/ilp/2013},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@inproceedings{DBLP:conf/nips/HeDE12,
+  author    = {He He and
+               Hal Daum{\'{e}}III and
+               Jason Eisner},
+  title     = {Imitation Learning by Coaching},
+  booktitle = {Advances in Neural Information Processing Systems 25: 26th Annual
+               Conference on Neural Information Processing Systems 2012. Proceedings
+               of a meeting held December 3-6, 2012, Lake Tahoe, Nevada, United States.},
+  pages     = {3158--3166},
+  year      = {2012},
+  url       = {http://papers.nips.cc/paper/4545-imitation-learning-by-coaching},
+  timestamp = {Thu, 11 Dec 2014 17:34:07 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/nips/HeDE12},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@inproceedings{DBLP:conf/humanoids/RatliffBS07,
+  author    = {Nathan D. Ratliff and
+               James A. Bagnell and
+               Siddhartha S. Srinivasa},
+  title     = {Imitation learning for locomotion and manipulation},
+  booktitle = {2007 7th {IEEE-RAS}International Conference on Humanoid Robots, November
+               29th - December 1st, Pittsburgh, PA, {USA}},
+  pages     = {392--397},
+  year      = {2007},
+  url       = {http://dx.doi.org/10.1109/ICHR.2007.4813899},
+  doi       = {10.1109/ICHR.2007.4813899},
+  timestamp = {Mon, 21 May 2012 17:29:38 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/humanoids/RatliffBS07},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@proceedings{DBLP:conf/humanoids/2007,
+  title     = {2007 7th {IEEE-RAS}International Conference on Humanoid Robots, November
+               29th - December 1st, Pittsburgh, PA, {USA}},
+  publisher = {{IEEE}},
+  year      = {2007},
+  url       = {http://ieeexplore.ieee.org/xpl/mostRecentIssue.jsp?punumber=4807937},
+  isbn      = {978-1-4244-1861-9},
+  timestamp = {Mon, 21 May 2012 17:28:29 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/humanoids/2007},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@article{DBLP:journals/jmlr/ChoiK11,
+  author    = {Jaedeug Choi and
+               Kee{-}Eung Kim},
+  title     = {Inverse Reinforcement Learning in Partially Observable Environments},
+  journal   = {Journal of Machine Learning Research},
+  volume    = {12},
+  pages     = {691--730},
+  year      = {2011},
+  url       = {http://dl.acm.org/citation.cfm?id=2021028},
+  timestamp = {Thu, 01 Dec 2011 14:06:59 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/jmlr/ChoiK11},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@article{Boularias:2013:ALF:2438096.2438125,
+ author = {Boularias, Abdeslam and Chaib-Draa, Brahim},
+ title = {Apprenticeship Learning with Few Examples},
+ journal = {Neurocomput.},
+ issue_date = {March, 2013},
+ volume = {104},
+ month = mar,
+ year = {2013},
+ issn = {0925-2312},
+ pages = {83--96},
+ numpages = {14},
+ url = {http://dx.doi.org/10.1016/j.neucom.2012.11.002},
+ doi = {10.1016/j.neucom.2012.11.002},
+ acmid = {2438125},
+ publisher = {Elsevier Science Publishers B. V.},
+ address = {Amsterdam, The Netherlands, The Netherlands},
+ keywords = {Bootstrapping, Imitation learning, Inverse reinforcement learning, Transfer learning},
+}
+
+
+@inproceedings{DBLP:conf/icml/SzitaS10,
+  author    = {Istvan Szita and
+               Csaba Szepesv{\'{a}}ri},
+  title     = {Model-based reinforcement learning with nearly tight exploration complexity
+               bounds},
+  booktitle = {Proceedings of the 27th International Conference on Machine Learning
+               (ICML-10), June 21-24, 2010, Haifa, Israel},
+  pages     = {1031--1038},
+  year      = {2010},
+  url       = {http://www.icml2010.org/papers/546.pdf},
+  timestamp = {Fri, 16 Dec 2011 12:43:25 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/icml/SzitaS10},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@article{Strehl:2009:RLF:1577069.1755867,
+ author = {Strehl, Alexander L. and Li, Lihong and Littman, Michael L.},
+ title = {Reinforcement Learning in Finite MDPs: PAC Analysis},
+ journal = {J. Mach. Learn. Res.},
+ issue_date = {12/1/2009},
+ volume = {10},
+ month = dec,
+ year = {2009},
+ issn = {1532-4435},
+ pages = {2413--2444},
+ numpages = {32},
+ url = {http://dl.acm.org/citation.cfm?id=1577069.1755867},
+ acmid = {1755867},
+ publisher = {JMLR.org},
+}
+
+
+@inproceedings{DBLP:journals/jmlr/SzitaS11,
+  author    = {Istv{\'{a}}n Szita and
+               Csaba Szepesv{\'{a}}ri},
+  title     = {Agnostic {KWIK}learning and efficient approximate reinforcement learning},
+  booktitle = {{COLT}2011 - The 24th Annual Conference on Learning Theory, June
+               9-11, 2011, Budapest, Hungary},
+  pages     = {739--772},
+  year      = {2011},
+  url       = {http://www.jmlr.org/proceedings/papers/v19/szita11a/szita11a.pdf},
+  timestamp = {Thu, 11 Sep 2014 07:28:56 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/jmlr/SzitaS11},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@proceedings{DBLP:conf/colt/2011,
+  editor    = {Sham M. Kakade and
+               Ulrike von Luxburg},
+  title     = {{COLT}2011 - The 24th Annual Conference on Learning Theory, June
+               9-11, 2011, Budapest, Hungary},
+  series    = {{JMLR}Proceedings},
+  volume    = {19},
+  publisher = {JMLR.org},
+  year      = {2011},
+  url       = {http://jmlr.org/proceedings/papers/v19/},
+  timestamp = {Thu, 11 Sep 2014 07:28:56 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/colt/2011},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@article{Li:2011:KKF:1968770.1968789,
+ author = {Li, Lihong and Littman, Michael L. and Walsh, Thomas J. and Strehl, Alexander L.},
+ title = {Knows What It Knows: A Framework for Self-aware Learning},
+ journal = {Mach. Learn.},
+ issue_date = {March     2011},
+ volume = {82},
+ number = {3},
+ month = mar,
+ year = {2011},
+ issn = {0885-6125},
+ pages = {399--443},
+ numpages = {45},
+ url = {http://dx.doi.org/10.1007/s10994-010-5225-4},
+ doi = {10.1007/s10994-010-5225-4},
+ acmid = {1968789},
+ publisher = {Kluwer Academic Publishers},
+ address = {Hingham, MA, USA},
+ keywords = {Active learning, Computational learning theory, Exploration, Knows What It Knows (KWIK), Mistake bound, Probably Approximately Correct (PAC), Reinforcement learning},
+}
+
+@inproceedings{Li:2008:KKF:1390156.1390228,
+ author = {Li, Lihong and Littman, Michael L. and Walsh, Thomas J.},
+ title = {Knows What It Knows: A Framework for Self-aware Learning},
+ booktitle = {Proceedings of the 25th International Conference on Machine Learning},
+ series = {ICML '08},
+ year = {2008},
+ isbn = {978-1-60558-205-4},
+ location = {Helsinki, Finland},
+ pages = {568--575},
+ numpages = {8},
+ url = {http://doi.acm.org/10.1145/1390156.1390228},
+ doi = {10.1145/1390156.1390228},
+ acmid = {1390228},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+}
+
+
+@book{Dubhashi:2012:CMA:2207816,
+ author = {Dubhashi, Devdatt P. and Panconesi, Alessandro},
+ title = {Concentration of Measure for the Analysis of Randomized Algorithms},
+ year = {2012},
+ isbn = {1107606608, 9781107606609},
+ publisher = {Cambridge University Press},
+ address = {New York, NY, USA},
+}
+
+@article{DBLP:journals/jmlr/JakschOA10,
+  author    = {Thomas Jaksch and
+               Ronald Ortner and
+               Peter Auer},
+  title     = {Near-optimal Regret Bounds for Reinforcement Learning},
+  journal   = {Journal of Machine Learning Research},
+  volume    = {11},
+  pages     = {1563--1600},
+  year      = {2010},
+  url       = {http://portal.acm.org/citation.cfm?id=1859902},
+  timestamp = {Fri, 01 Apr 2011 14:32:51 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/jmlr/JakschOA10},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+
+@article{DBLP:journals/corr/OsbandR14,
+  author    = {Ian Osband and
+               Benjamin Van Roy},
+  title     = {Near-optimal Regret Bounds for Reinforcement Learning in Factored
+               MDPs},
+  journal   = {CoRR},
+  volume    = {abs/1403.3741},
+  year      = {2014},
+  url       = {http://arxiv.org/abs/1403.3741},
+  timestamp = {Tue, 01 Apr 2014 11:56:46 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/corr/OsbandR14},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@article{Auer:2002:FAM:599614.599677,
+ author = {Auer, Peter and Cesa-Bianchi, Nicol\`{o}and Fischer, Paul},
+ title = {Finite-time Analysis of the Multiarmed Bandit Problem},
+ journal = {Mach. Learn.},
+ issue_date = {May-June 2002},
+ volume = {47},
+ number = {2-3},
+ month = may,
+ year = {2002},
+ issn = {0885-6125},
+ pages = {235--256},
+ numpages = {22},
+ url = {http://dx.doi.org/10.1023/A:1013689704352},
+ doi = {10.1023/A:1013689704352},
+ acmid = {599677},
+ publisher = {Kluwer Academic Publishers},
+ address = {Hingham, MA, USA},
+ keywords = {adaptive allocation rules, bandit problems, finite horizon regret},
+}
+
+@article{Li:2010:RRL:1891651.1891669,
+ author = {Li, Lihong and Littman, Michael L.},
+ title = {Reducing Reinforcement Learning to KWIK Online Regression},
+ journal = {Annals of Mathematics and Artificial Intelligence},
+ issue_date = {April     2010},
+ volume = {58},
+ number = {3-4},
+ month = apr,
+ year = {2010},
+ issn = {1012-2443},
+ pages = {217--237},
+ numpages = {21},
+ url = {http://dx.doi.org/10.1007/s10472-010-9201-2},
+ doi = {10.1007/s10472-010-9201-2},
+ acmid = {1891669},
+ publisher = {Kluwer Academic Publishers},
+ address = {Hingham, MA, USA},
+ keywords = {68T05, Exploration, Knows What It Knows (KWIK), Online regression, PAC-MDP, Reinforcement learning, Value function approximation},
+}
+
+@inproceedings{DBLP:conf/nips/TaylorPP08,
+  author    = {Jonathan Taylor and
+               Doina Precup and
+               Prakash Panangaden},
+  title     = {Bounding Performance Loss in Approximate {MDP}Homomorphisms},
+  booktitle = {Advances in Neural Information Processing Systems 21, Proceedings
+               of the Twenty-Second Annual Conference on Neural Information Processing
+               Systems, Vancouver, British Columbia, Canada, December 8-11, 2008},
+  pages     = {1649--1656},
+  year      = {2008},
+  url       = {http://papers.nips.cc/paper/3423-bounding-performance-loss-in-approximate-mdp-homomorphisms},
+  timestamp = {Thu, 11 Dec 2014 17:34:08 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/nips/TaylorPP08},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@proceedings{DBLP:conf/nips/2008,
+  editor    = {Daphne Koller and
+               Dale Schuurmans and
+               Yoshua Bengio and
+               L{\'{e}}on Bottou},
+  title     = {Advances in Neural Information Processing Systems 21, Proceedings
+               of the Twenty-Second Annual Conference on Neural Information Processing
+               Systems, Vancouver, British Columbia, Canada, December 8-11, 2008},
+  publisher = {Curran Associates, Inc.},
+  year      = {2009},
+  url       = {http://papers.nips.cc/book/advances-in-neural-information-processing-systems-21-2008},
+  timestamp = {Thu, 11 Dec 2014 17:34:08 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/nips/2008},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+
+@article{DBLP:journals/corr/abs-1207-4114,
+  author    = {Norman Ferns and
+               Prakash Panangaden and
+               Doina Precup},
+  title     = {Metrics for Finite Markov Decision Processes},
+  journal   = {CoRR},
+  volume    = {abs/1207.4114},
+  year      = {2012},
+  url       = {http://arxiv.org/abs/1207.4114},
+  timestamp = {Wed, 10 Oct 2012 21:28:54 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/corr/abs-1207-4114},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@inproceedings{DBLP:conf/pkdd/MeloL10,
+  author    = {Francisco S. Melo and
+               Manuel Lopes},
+  title     = {Learning from Demonstration Using {MDP}Induced Metrics},
+  booktitle = {Machine Learning and Knowledge Discovery in Databases, European Conference,
+               {ECML}{PKDD}2010, Barcelona, Spain, September 20-24, 2010, Proceedings,
+               Part {II}},
+  pages     = {385--401},
+  year      = {2010},
+  url       = {http://dx.doi.org/10.1007/978-3-642-15883-4_25},
+  doi       = {10.1007/978-3-642-15883-4_25},
+  timestamp = {Fri, 20 Aug 2010 09:21:10 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/pkdd/MeloL10},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@proceedings{DBLP:conf/pkdd/2010-2,
+  editor    = {Jos{\'{e}}L. Balc{\'{a}}zar and
+               Francesco Bonchi and
+               Aristides Gionis and
+               Mich{\`{e}}le Sebag},
+  title     = {Machine Learning and Knowledge Discovery in Databases, European Conference,
+               {ECML}{PKDD}2010, Barcelona, Spain, September 20-24, 2010, Proceedings,
+               Part {II}},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {6322},
+  publisher = {Springer},
+  year      = {2010},
+  url       = {http://dx.doi.org/10.1007/978-3-642-15883-4},
+  doi       = {10.1007/978-3-642-15883-4},
+  isbn      = {978-3-642-15882-7},
+  timestamp = {Fri, 20 Aug 2010 09:08:15 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/pkdd/2010-2},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@inproceedings{DBLP:conf/icml/WalshSLD10,
+  author    = {Thomas J. Walsh and
+               Kaushik Subramanian and
+               Michael L. Littman and
+               Carlos Diuk},
+  title     = {Generalizing Apprenticeship Learning across Hypothesis Classes},
+  booktitle = {Proceedings of the 27th International Conference on Machine Learning
+               (ICML-10), June 21-24, 2010, Haifa, Israel},
+  pages     = {1119--1126},
+  year      = {2010},
+  url       = {http://www.icml2010.org/papers/475.pdf},
+  timestamp = {Fri, 16 Dec 2011 12:43:25 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/icml/WalshSLD10},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@proceedings{DBLP:conf/icml/2010,
+  editor    = {Johannes F{\"{u}}rnkranz and
+               Thorsten Joachims},
+  title     = {Proceedings of the 27th International Conference on Machine Learning
+               (ICML-10), June 21-24, 2010, Haifa, Israel},
+  publisher = {Omnipress},
+  year      = {2010},
+  isbn      = {978-1-60558-907-7},
+  timestamp = {Fri, 16 Dec 2011 12:43:25 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/icml/2010},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@inproceedings{DBLP:conf/icra/BoulariasC10,
+  author    = {Abdeslam Boularias and
+               Brahim Chaib{-}draa},
+  title     = {Apprenticeship learning via soft local homomorphisms},
+  booktitle = {{IEEE}International Conference on Robotics and Automation, {ICRA}
+               2010, Anchorage, Alaska, USA, 3-7 May 2010},
+  pages     = {2971--2976},
+  year      = {2010},
+  url       = {http://dx.doi.org/10.1109/ROBOT.2010.5509717},
+  doi       = {10.1109/ROBOT.2010.5509717},
+  timestamp = {Thu, 26 Aug 2010 06:01:47 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/icra/BoulariasC10},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+
+@inproceedings{Sorg:2009:TVS:1558109.1558114,
+ author = {Sorg, Jonathan and Singh, Satinder},
+ title = {Transfer via Soft Homomorphisms},
+ booktitle = {Proceedings of The 8th International Conference on Autonomous Agents and Multiagent Systems - Volume 2},
+ series = {AAMAS '09},
+ year = {2009},
+ isbn = {978-0-9817381-7-8},
+ location = {Budapest, Hungary},
+ pages = {741--748},
+ numpages = {8},
+ url = {http://dl.acm.org/citation.cfm?id=1558109.1558114},
+ acmid = {1558114},
+ publisher = {International Foundation for Autonomous Agents and Multiagent Systems},
+ address = {Richland, SC},
+ keywords = {Markov decision process, homomorphism, transfer learning},
+}
+
+@inproceedings{Konidaris:2006:ASK:1143844.1143906,
+ author = {Konidaris, George and Barto, Andrew},
+ title = {Autonomous Shaping: Knowledge Transfer in Reinforcement Learning},
+ booktitle = {Proceedings of the 23rd International Conference on Machine Learning},
+ series = {ICML '06},
+ year = {2006},
+ isbn = {1-59593-383-2},
+ location = {Pittsburgh, Pennsylvania},
+ pages = {489--496},
+ numpages = {8},
+ url = {http://doi.acm.org/10.1145/1143844.1143906},
+ doi = {10.1145/1143844.1143906},
+ acmid = {1143906},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+}
+
+@inproceedings{Randlov:1998:LDB:645527.757766,
+ author = {Randl{\o}v, Jette and Alstr{\o}m, Preben},
+ title = {Learning to Drive a Bicycle Using Reinforcement Learning and Shaping},
+ booktitle = {Proceedings of the Fifteenth International Conference on Machine Learning},
+ series = {ICML '98},
+ year = {1998},
+ isbn = {1-55860-556-8},
+ pages = {463--471},
+ numpages = {9},
+ url = {http://dl.acm.org/citation.cfm?id=645527.757766},
+ acmid = {757766},
+ publisher = {Morgan Kaufmann Publishers Inc.},
+ address = {San Francisco, CA, USA},
+}
+
+
+@INPROCEEDINGS{And92shapingas,
+    author = {Vijaykumar Gullapalli And and Vijaykumar Gullapalli and Andrew G. Barto},
+    title = {Shaping As A Method For Accelerating Reinforcement Learning},
+    booktitle = {In Proceedings of the 1992 IEEE International Symposium on Intelligent Control},
+    year = {1992},
+    pages = {554--559},
+    publisher = {IEEE}
+}
+
+@inproceedings{Ng:1999:PIU:645528.657613,
+ author = {Ng, Andrew Y. and Harada, Daishi and Russell, Stuart J.},
+ title = {Policy Invariance Under Reward Transformations: Theory and Application to Reward Shaping},
+ booktitle = {Proceedings of the Sixteenth International Conference on Machine Learning},
+ series = {ICML '99},
+ year = {1999},
+ isbn = {1-55860-612-2},
+ pages = {278--287},
+ numpages = {10},
+ url = {http://dl.acm.org/citation.cfm?id=645528.657613},
+ acmid = {657613},
+ publisher = {Morgan Kaufmann Publishers Inc.},
+ address = {San Francisco, CA, USA},
+}
+
+
+@inproceedings{DBLP:conf/nips/SyedS10,
+  author    = {Umar Syed and
+               Robert E. Schapire},
+  title     = {A Reduction from Apprenticeship Learning to Classification},
+  booktitle = {Advances in Neural Information Processing Systems 23: 24th Annual
+               Conference on Neural Information Processing Systems 2010. Proceedings
+               of a meeting held 6-9 December 2010, Vancouver, British Columbia,
+               Canada.},
+  pages     = {2253--2261},
+  year      = {2010},
+  url       = {http://papers.nips.cc/paper/4180-a-reduction-from-apprenticeship-learning-to-classification},
+  timestamp = {Thu, 11 Dec 2014 17:34:08 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/nips/SyedS10},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@proceedings{DBLP:conf/nips/2010,
+  editor    = {John D. Lafferty and
+               Christopher K. I. Williams and
+               John Shawe{-}Taylor and
+               Richard S. Zemel and
+               Aron Culotta},
+  title     = {Advances in Neural Information Processing Systems 23: 24th Annual
+               Conference on Neural Information Processing Systems 2010. Proceedings
+               of a meeting held 6-9 December 2010, Vancouver, British Columbia,
+               Canada},
+  publisher = {Curran Associates, Inc.},
+  year      = {2010},
+  url       = {http://papers.nips.cc/book/advances-in-neural-information-processing-systems-23-2010},
+  timestamp = {Thu, 11 Dec 2014 17:34:08 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/nips/2010},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+
+@inproceedings{Syed:2008:ALU:1390156.1390286,
+ author = {Syed, Umar and Bowling, Michael and Schapire, Robert E.},
+ title = {Apprenticeship Learning Using Linear Programming},
+ booktitle = {Proceedings of the 25th International Conference on Machine Learning},
+ series = {ICML '08},
+ year = {2008},
+ isbn = {978-1-60558-205-4},
+ location = {Helsinki, Finland},
+ pages = {1032--1039},
+ numpages = {8},
+ url = {http://doi.acm.org/10.1145/1390156.1390286},
+ doi = {10.1145/1390156.1390286},
+ acmid = {1390286},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+}
+
+
+@proceedings{DBLP:conf/nips/2012,
+  editor    = {Peter L. Bartlett and
+               Fernando C. N. Pereira and
+               Christopher J. C. Burges and
+               L{\'{e}}on Bottou and
+               Kilian Q. Weinberger},
+  title     = {Advances in Neural Information Processing Systems 25: 26th Annual
+               Conference on Neural Information Processing Systems 2012. Proceedings
+               of a meeting held December 3-6, 2012, Lake Tahoe, Nevada, United States},
+  year      = {2012},
+  url       = {http://papers.nips.cc/book/advances-in-neural-information-processing-systems-25-2012},
+  timestamp = {Thu, 11 Dec 2014 17:34:07 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/nips/2012},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+
+@article{DBLP:journals/corr/Bubeck14,
+  author    = {S{\'{e}}bastien Bubeck},
+  title     = {Theory of Convex Optimization for Machine Learning},
+  journal   = {CoRR},
+  volume    = {abs/1405.4980},
+  year      = {2014},
+  url       = {http://arxiv.org/abs/1405.4980},
+  timestamp = {Mon, 02 Jun 2014 08:30:36 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/corr/Bubeck14},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@inproceedings{Kolter:2009:NEP:1553374.1553441,
+ author = {Kolter, J. Zico and Ng, Andrew Y.},
+ title = {Near-Bayesian Exploration in Polynomial Time},
+ booktitle = {Proceedings of the 26th Annual International Conference on Machine Learning},
+ series = {ICML '09},
+ year = {2009},
+ isbn = {978-1-60558-516-1},
+ location = {Montreal, Quebec, Canada},
+ pages = {513--520},
+ numpages = {8},
+ url = {http://doi.acm.org/10.1145/1553374.1553441},
+ doi = {10.1145/1553374.1553441},
+ acmid = {1553441},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+}
+
+
+@inproceedings{DBLP:conf/isaim/LiWL06,
+  author    = {Lihong Li and
+               Thomas J. Walsh and
+               Michael L. Littman},
+  title     = {Towards a Unified Theory of State Abstraction for MDPs},
+  booktitle = {International Symposium on Artificial Intelligence and Mathematics
+               {(ISAIM}2006), Fort Lauderdale, Florida, USA, January 4-6, 2006},
+  year      = {2006},
+  url       = {http://anytime.cs.umass.edu/aimath06/proceedings/P21.pdf},
+  timestamp = {Thu, 09 Feb 2012 21:43:34 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/isaim/LiWL06},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@proceedings{DBLP:conf/isaim/2006,
+  title     = {International Symposium on Artificial Intelligence and Mathematics
+               {(ISAIM}2006), Fort Lauderdale, Florida, USA, January 4-6, 2006},
+  year      = {2006},
+  url       = {http://anytime.cs.umass.edu/aimath06/proceedings.html},
+  timestamp = {Thu, 09 Feb 2012 21:40:48 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/isaim/2006},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@inproceedings{Castro:2009:ERF:1661445.1661711,
+ author = {Castro, Pablo Samuel and Panangaden, Prakash and Precup, Doina},
+ title = {Equivalence Relations in Fully and Partially Observable Markov Decision Processes},
+ booktitle = {Proceedings of the 21st International Jont Conference on Artifical Intelligence},
+ series = {IJCAI'09},
+ year = {2009},
+ location = {Pasadena, California, USA},
+ pages = {1653--1658},
+ numpages = {6},
+ url = {http://dl.acm.org/citation.cfm?id=1661445.1661711},
+ acmid = {1661711},
+ publisher = {Morgan Kaufmann Publishers Inc.},
+ address = {San Francisco, CA, USA},
+}
+
+@inproceedings{DBLP:conf/ecp/GivanLD97,
+  author    = {Robert Givan and
+               Sonia M. Leach and
+               Thomas L. Dean},
+  title     = {Bounded Parameter Markov Decision Processes},
+  booktitle = {Recent Advances in {AI}Planning, 4th European Conference on Planning,
+               ECP'97, Toulouse, France, September 24-26, 1997, Proceedings},
+  pages     = {234--246},
+  year      = {1997},
+  url       = {http://dx.doi.org/10.1007/3-540-63912-8_89},
+  doi       = {10.1007/3-540-63912-8_89},
+  timestamp = {Fri, 01 Mar 2013 10:43:52 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/ecp/GivanLD97},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@proceedings{DBLP:conf/ecp/1997,
+  editor    = {Sam Steel and
+               Rachid Alami},
+  title     = {Recent Advances in {AI}Planning, 4th European Conference on Planning,
+               ECP'97, Toulouse, France, September 24-26, 1997, Proceedings},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {1348},
+  publisher = {Springer},
+  year      = {1997},
+  isbn      = {3-540-63912-8},
+  timestamp = {Mon, 13 Jan 2003 12:58:22 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/ecp/1997},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@inproceedings{DBLP:conf/colt/BernsteinS08,
+  author    = {Andrey Bernstein and
+               Nahum Shimkin},
+  title     = {Adaptive Aggregation for Reinforcement Learning with Efficient Exploration:
+               Deterministic Domains},
+  booktitle = {21st Annual Conference on Learning Theory - {COLT}2008, Helsinki,
+               Finland, July 9-12, 2008},
+  pages     = {323--334},
+  year      = {2008},
+  url       = {http://colt2008.cs.helsinki.fi/papers/11-Bernstein.pdf},
+  timestamp = {Fri, 19 Apr 2013 15:14:27 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/colt/BernsteinS08},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@proceedings{DBLP:conf/colt/2008,
+  editor    = {Rocco A. Servedio and
+               Tong Zhang},
+  title     = {21st Annual Conference on Learning Theory - {COLT}2008, Helsinki,
+               Finland, July 9-12, 2008},
+  publisher = {Omnipress},
+  year      = {2008},
+  timestamp = {Fri, 19 Apr 2013 15:14:27 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/colt/2008},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@inproceedings{DBLP:conf/smc/HwangCJ12,
+  author    = {Kao{-}Shing Hwang and
+               Yu{-}Jen Chen and
+               Wei{-}Cheng Jiang},
+  title     = {Adaptive state aggregation for reinforcement learning},
+  booktitle = {Proceedings of the {IEEE}International Conference on Systems, Man,
+               and Cybernetics, {SMC}2012, Seoul, Korea (South), October 14-17,
+               2012},
+  pages     = {2452--2456},
+  year      = {2012},
+  url       = {http://dx.doi.org/10.1109/ICSMC.2012.6378111},
+  doi       = {10.1109/ICSMC.2012.6378111},
+  timestamp = {Tue, 18 Dec 2012 22:05:36 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/smc/HwangCJ12},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+@proceedings{DBLP:conf/smc/2012,
+  title     = {Proceedings of the {IEEE}International Conference on Systems, Man,
+               and Cybernetics, {SMC}2012, Seoul, Korea (South), October 14-17,
+               2012},
+  publisher = {{IEEE}},
+  year      = {2012},
+  url       = {http://ieeexplore.ieee.org/xpl/mostRecentIssue.jsp?punumber=6362338},
+  isbn      = {978-1-4673-1713-9},
+  timestamp = {Tue, 18 Dec 2012 22:05:19 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/smc/2012},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@article{DBLP:journals/anor/Ortner13,
+  author    = {Ronald Ortner},
+  title     = {Adaptive aggregation for reinforcement learning in average reward
+               Markov decision processes},
+  journal   = {Annals {OR}},
+  volume    = {208},
+  number    = {1},
+  pages     = {321--336},
+  year      = {2013},
+  url       = {http://dx.doi.org/10.1007/s10479-012-1064-y},
+  doi       = {10.1007/s10479-012-1064-y},
+  timestamp = {Tue, 27 Aug 2013 15:35:43 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/anor/Ortner13},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@inproceedings{DBLP:conf/alt/Ortner07,
+  author    = {Ronald Ortner},
+  title     = {Pseudometrics for State Aggregation in Average Reward Markov Decision
+               Processes},
+  booktitle = {Algorithmic Learning Theory, 18th International Conference, {ALT}
+               2007, Sendai, Japan, October 1-4, 2007, Proceedings},
+  pages     = {373--387},
+  year      = {2007},
+  url       = {http://dx.doi.org/10.1007/978-3-540-75225-7_30},
+  doi       = {10.1007/978-3-540-75225-7_30},
+  timestamp = {Wed, 24 Oct 2007 15:22:58 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/alt/Ortner07},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@proceedings{DBLP:conf/alt/2007,
+  editor    = {Marcus Hutter and
+               Rocco A. Servedio and
+               Eiji Takimoto},
+  title     = {Algorithmic Learning Theory, 18th International Conference, {ALT}
+               2007, Sendai, Japan, October 1-4, 2007, Proceedings},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {4754},
+  publisher = {Springer},
+  year      = {2007},
+  isbn      = {978-3-540-75224-0},
+  timestamp = {Wed, 24 Oct 2007 15:22:58 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/alt/2007},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@inproceedings{DBLP:conf/ewrl/ValkoGL12,
+  author    = {Michal Valko and
+               Mohammad Ghavamzadeh and
+               Alessandro Lazaric},
+  title     = {Semi-Supervised Apprenticeship Learning},
+  booktitle = {Proceedings of the Tenth European Workshop on Reinforcement Learning,
+               {EWRL}2012, Edinburgh, Scotland, June, 2012},
+  pages     = {131--142},
+  year      = {2012},
+  url       = {http://jmlr.org/proceedings/papers/v24/valko12a.html},
+  timestamp = {Tue, 16 Dec 2014 16:47:59 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/ewrl/ValkoGL12},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@proceedings{DBLP:conf/ewrl/2012,
+  editor    = {Marc Peter Deisenroth and
+               Csaba Szepesv{\'{a}}ri and
+               Jan Peters},
+  title     = {Proceedings of the Tenth European Workshop on Reinforcement Learning,
+               {EWRL}2012, Edinburgh, Scotland, June, 2012},
+  series    = {{JMLR}Proceedings},
+  volume    = {24},
+  publisher = {JMLR.org},
+  year      = {2012},
+  url       = {http://jmlr.org/proceedings/papers/v24/},
+  timestamp = {Tue, 16 Dec 2014 16:47:59 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/ewrl/2012},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@inproceedings{Abbeel:2004:ALV:1015330.1015430,
+ author = {Abbeel, Pieter and Ng, Andrew Y.},
+ title = {Apprenticeship Learning via Inverse Reinforcement Learning},
+ booktitle = {Proceedings of the Twenty-first International Conference on Machine Learning},
+ series = {ICML '04},
+ year = {2004},
+ isbn = {1-58113-838-5},
+ location = {Banff, Alberta, Canada},
+ pages = {1--},
+ url = {http://doi.acm.org/10.1145/1015330.1015430},
+ doi = {10.1145/1015330.1015430},
+ acmid = {1015430},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+}
+
+
+@article{Chernova:2009:IPL:1622716.1622717,
+ author = {Chernova, Sonia and Veloso, Manuela},
+ title = {Interactive Policy Learning Through Confidence-based Autonomy},
+ journal = {J. Artif. Int. Res.},
+ issue_date = {January 2009},
+ volume = {34},
+ number = {1},
+ month = jan,
+ year = {2009},
+ issn = {1076-9757},
+ pages = {1--25},
+ numpages = {25},
+ url = {http://dl.acm.org/citation.cfm?id=1622716.1622717},
+ acmid = {1622717},
+ publisher = {AI Access Foundation},
+ address = {USA},
+}
+
+@inproceedings{DBLP:conf/uai/JudahFD12,
+  author    = {Kshitij Judah and
+               Alan Fern and
+               Thomas G. Dietterich},
+  title     = {Active Imitation Learning via Reduction to {I.I.D.}Active Learning},
+  booktitle = {Proceedings of the Twenty-Eighth Conference on Uncertainty in Artificial
+               Intelligence, Catalina Island, CA, USA, August 14-18, 2012},
+  pages     = {428--437},
+  year      = {2012},
+  url       = {http://uai.sis.pitt.edu/displayArticleDetails.jsp?mmnu=1&smnu=2&article_id=2304&proceeding_id=28},
+  timestamp = {Mon, 22 Oct 2012 10:46:09 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/uai/JudahFD12},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@proceedings{DBLP:conf/uai/2012,
+  editor    = {Nando de Freitas and
+               Kevin P. Murphy},
+  title     = {Proceedings of the Twenty-Eighth Conference on Uncertainty in Artificial
+               Intelligence, Catalina Island, CA, USA, August 14-18, 2012},
+  publisher = {{AUAI}Press},
+  year      = {2012},
+  url       = {http://uai.sis.pitt.edu/displayArticles.jsp?mmnu=1&smnu=1&proceeding_id=28},
+  timestamp = {Mon, 22 Oct 2012 10:45:49 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/uai/2012},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@inproceedings{DBLP:conf/icml/AbernethyAKD13,
+  author    = {Jacob Abernethy and
+               Kareem Amin and
+               Michael Kearns and
+               Moez Draief},
+  title     = {Large-Scale Bandit Problems and {KWIK}Learning},
+  booktitle = {Proceedings of the 30th International Conference on Machine Learning,
+               {ICML}2013, Atlanta, GA, USA, 16-21 June 2013},
+  pages     = {588--596},
+  year      = {2013},
+  url       = {http://jmlr.org/proceedings/papers/v28/abernethy13.html},
+  timestamp = {Thu, 11 Sep 2014 07:28:55 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/icml/AbernethyAKD13},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@proceedings{DBLP:conf/icml/2013,
+  title     = {Proceedings of the 30th International Conference on Machine Learning,
+               {ICML}2013, Atlanta, GA, USA, 16-21 June 2013},
+  series    = {{JMLR}Proceedings},
+  volume    = {28},
+  publisher = {JMLR.org},
+  year      = {2013},
+  url       = {http://jmlr.org/proceedings/papers/v28/},
+  timestamp = {Thu, 11 Sep 2014 07:28:55 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/icml/2013},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+
+@inproceedings{DBLP:conf/nips/StrehlL07,
+  author    = {Alexander L. Strehl and
+               Michael L. Littman},
+  title     = {Online Linear Regression and Its Application to Model-Based Reinforcement
+               Learning},
+  booktitle = {Advances in Neural Information Processing Systems 20, Proceedings
+               of the Twenty-First Annual Conference on Neural Information Processing
+               Systems, Vancouver, British Columbia, Canada, December 3-6, 2007},
+  pages     = {1417--1424},
+  year      = {2007},
+  url       = {http://papers.nips.cc/paper/3197-online-linear-regression-and-its-application-to-model-based-reinforcement-learning},
+  timestamp = {Thu, 11 Dec 2014 17:34:08 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/nips/StrehlL07},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@proceedings{DBLP:conf/nips/2007,
+  editor    = {John C. Platt and
+               Daphne Koller and
+               Yoram Singer and
+               Sam T. Roweis},
+  title     = {Advances in Neural Information Processing Systems 20, Proceedings
+               of the Twenty-First Annual Conference on Neural Information Processing
+               Systems, Vancouver, British Columbia, Canada, December 3-6, 2007},
+  publisher = {Curran Associates, Inc.},
+  year      = {2008},
+  url       = {http://papers.nips.cc/book/advances-in-neural-information-processing-systems-20-2007},
+  timestamp = {Thu, 11 Dec 2014 17:34:07 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/nips/2007},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@article{DBLP:journals/jmlr/Auer02,
+  author    = {Peter Auer},
+  title     = {Using Confidence Bounds for Exploitation-Exploration Trade-offs},
+  journal   = {Journal of Machine Learning Research},
+  volume    = {3},
+  pages     = {397--422},
+  year      = {2002},
+  url       = {http://www.jmlr.org/papers/v3/auer02a.html},
+  timestamp = {Thu, 05 Feb 2004 13:43:02 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/jmlr/Auer02},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+
+@article{DBLP:journals/sigir/Hofmann13,
+  author    = {Katja Hofmann},
+  title     = {Fast and reliable online learning to rank for information retrieval},
+  journal   = {{SIGIR}Forum},
+  volume    = {47},
+  number    = {2},
+  pages     = {140},
+  year      = {2013},
+  url       = {http://doi.acm.org/10.1145/2568388.2568413},
+  doi       = {10.1145/2568388.2568413},
+  timestamp = {Wed, 12 Feb 2014 09:03:53 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/journals/sigir/Hofmann13},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@inproceedings{DBLP:conf/icml/YueJ09,
+  author    = {Yisong Yue and
+               Thorsten Joachims},
+  title     = {Interactively optimizing information retrieval systems as a dueling
+               bandits problem},
+  booktitle = {Proceedings of the 26th Annual International Conference on Machine
+               Learning, {ICML}2009, Montreal, Quebec, Canada, June 14-18, 2009},
+  pages     = {1201--1208},
+  year      = {2009},
+  url       = {http://doi.acm.org/10.1145/1553374.1553527},
+  doi       = {10.1145/1553374.1553527},
+  timestamp = {Mon, 29 Sep 2014 17:13:49 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/icml/YueJ09},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@proceedings{DBLP:conf/icml/2009,
+  editor    = {Andrea Pohoreckyj Danyluk and
+               L{\'{e}}on Bottou and
+               Michael L. Littman},
+  title     = {Proceedings of the 26th Annual International Conference on Machine
+               Learning, {ICML}2009, Montreal, Quebec, Canada, June 14-18, 2009},
+  series    = {{ACM}International Conference Proceeding Series},
+  volume    = {382},
+  publisher = {{ACM}},
+  year      = {2009},
+  isbn      = {978-1-60558-516-1},
+  timestamp = {Tue, 16 Jun 2009 10:29:19 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/icml/2009},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@proceedings{DBLP:conf/icml/2009,
+  editor    = {Andrea Pohoreckyj Danyluk and
+               L{\'{e}}on Bottou and
+               Michael L. Littman},
+  title     = {Proceedings of the 26th Annual International Conference on Machine
+               Learning, {ICML}2009, Montreal, Quebec, Canada, June 14-18, 2009},
+  series    = {{ACM}International Conference Proceeding Series},
+  volume    = {382},
+  publisher = {{ACM}},
+  year      = {2009},
+  isbn      = {978-1-60558-516-1},
+  timestamp = {Tue, 16 Jun 2009 10:29:19 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/icml/2009},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@inproceedings{DBLP:conf/alt/Busa-FeketeH14,
+  author    = {R{\'{o}}bert Busa{-}Fekete and
+               Eyke H{\"{u}}llermeier},
+  title     = {A Survey of Preference-Based Online Learning with Bandit Algorithms},
+  booktitle = {Algorithmic Learning Theory - 25th International Conference, {ALT}
+               2014, Bled, Slovenia, October 8-10, 2014. Proceedings},
+  pages     = {18--39},
+  year      = {2014},
+  url       = {http://dx.doi.org/10.1007/978-3-319-11662-4_3},
+  doi       = {10.1007/978-3-319-11662-4_3},
+  timestamp = {Thu, 02 Oct 2014 10:55:35 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/alt/Busa-FeketeH14},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@proceedings{DBLP:conf/alt/2014,
+  editor    = {Peter Auer and
+               Alexander Clark and
+               Thomas Zeugmann and
+               Sandra Zilles},
+  title     = {Algorithmic Learning Theory - 25th International Conference, {ALT}
+               2014, Bled, Slovenia, October 8-10, 2014. Proceedings},
+  series    = {Lecture Notes in Computer Science},
+  volume    = {8776},
+  publisher = {Springer},
+  year      = {2014},
+  url       = {http://dx.doi.org/10.1007/978-3-319-11662-4},
+  doi       = {10.1007/978-3-319-11662-4},
+  isbn      = {978-3-319-11661-7},
+  timestamp = {Thu, 02 Oct 2014 10:52:56 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/alt/2014},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+
+@inproceedings{Cesa-Bianchi:2009:RBC:1553374.1553390,
+ author = {Cesa-Bianchi, Nicol\`{o}and Gentile, Claudio and Orabona, Francesco},
+ title = {Robust Bounds for Classification via Selective Sampling},
+ booktitle = {Proceedings of the 26th Annual International Conference on Machine Learning},
+ series = {ICML '09},
+ year = {2009},
+ isbn = {978-1-60558-516-1},
+ location = {Montreal, Quebec, Canada},
+ pages = {121--128},
+ numpages = {8},
+ url = {http://doi.acm.org/10.1145/1553374.1553390},
+ doi = {10.1145/1553374.1553390},
+ acmid = {1553390},
+ publisher = {ACM},
+ address = {New York, NY, USA}
+}
+
+
+@article{Dekel:2012:SSA:2503308.2503327,
+ author = {Dekel, Ofer and Gentile, Claudio and Sridharan, Karthik},
+ title = {Selective Sampling and Active Learning from Single and Multiple Teachers},
+ journal = {J. Mach. Learn. Res.},
+ issue_date = {January 2012},
+ volume = {13},
+ number = {1},
+ month = sep,
+ year = {2012},
+ issn = {1532-4435},
+ pages = {2655--2697},
+ numpages = {43},
+ url = {http://dl.acm.org/citation.cfm?id=2503308.2503327},
+ acmid = {2503327},
+ publisher = {JMLR.org},
+ keywords = {crowdsourcing, label-efficient, online learning, regret},
+}
+
+
+@inproceedings{judah2011active,
+  title={Active imitation learning via state queries},
+  author={Judah, Kshitij and Fern, Alan and Dietterich, Thomas},
+  year={2011}
+}
+
+
+@article{Valiant:1984:TL:1968.1972,
+ author = {Valiant, L. G.},
+ title = {A Theory of the Learnable},
+ journal = {Commun. ACM},
+ issue_date = {Nov. 1984},
+ volume = {27},
+ number = {11},
+ month = nov,
+ year = {1984},
+ issn = {0001-0782},
+ pages = {1134--1142},
+ numpages = {9},
+ url = {http://doi.acm.org/10.1145/1968.1972},
+ doi = {10.1145/1968.1972},
+ acmid = {1972},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {inductive inference, probabilistic models of learning, propositional expressions},
+}
+
+@inproceedings{Littlestone:1987:LQI:1382440.1383019,
+ author = {Littlestone, Nick},
+ title = {Learning Quickly when Irrelevant Attributes Abound: A New Linear-threshold Algorithm},
+ booktitle = {Proceedings of the 28th Annual Symposium on Foundations of Computer Science},
+ series = {SFCS '87},
+ year = {1987},
+ isbn = {0-8186-0807-2},
+ pages = {68--77},
+ numpages = {10},
+ url = {http://dx.doi.org/10.1109/SFCS.1987.37},
+ doi = {10.1109/SFCS.1987.37},
+ acmid = {1383019},
+ publisher = {IEEE Computer Society},
+ address = {Washington, DC, USA},
+}
+
+@inproceedings{DBLP:conf/nips/SayediZB10,
+  author    = {Amin Sayedi and
+               Morteza Zadimoghaddam and
+               Avrim Blum},
+  title     = {Trading off Mistakes and Don't-Know Predictions},
+  booktitle = {Advances in Neural Information Processing Systems 23: 24th Annual
+               Conference on Neural Information Processing Systems 2010. Proceedings
+               of a meeting held 6-9 December 2010, Vancouver, British Columbia,
+               Canada.},
+  pages     = {2092--2100},
+  year      = {2010},
+  url       = {http://papers.nips.cc/paper/4142-trading-off-mistakes-and-dont-know-predictions},
+  timestamp = {Thu, 11 Dec 2014 17:34:08 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/nips/SayediZB10},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+
+
+@proceedings{DBLP:conf/nips/2010,
+  editor    = {John D. Lafferty and
+               Christopher K. I. Williams and
+               John Shawe{-}Taylor and
+               Richard S. Zemel and
+               Aron Culotta},
+  title     = {Advances in Neural Information Processing Systems 23: 24th Annual
+               Conference on Neural Information Processing Systems 2010. Proceedings
+               of a meeting held 6-9 December 2010, Vancouver, British Columbia,
+               Canada},
+  publisher = {Curran Associates, Inc.},
+  year      = {2010},
+  url       = {http://papers.nips.cc/book/advances-in-neural-information-processing-systems-23-2010},
+  timestamp = {Thu, 11 Dec 2014 17:34:08 +0100},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/nips/2010},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@inproceedings{Littlestone:1989:OBL:93335.93365,
+ author = {Littlestone, Nick},
+ title = {From On-line to Batch Learning},
+ booktitle = {Proceedings of the Second Annual Workshop on Computational Learning Theory},
+ series = {COLT '89},
+ year = {1989},
+ isbn = {1-55860-086-8},
+ location = {Santa Cruz, California, USA},
+ pages = {269--284},
+ numpages = {16},
+ url = {http://dl.acm.org/citation.cfm?id=93335.93365},
+ acmid = {93365},
+ publisher = {Morgan Kaufmann Publishers Inc.},
+ address = {San Francisco, CA, USA},
+}
+
+@article{Blum:1994:SDM:196751.196815,
+ author = {Blum, Avrim L.},
+ title = {Separating Distribution-Free and Mistake-Bound Learning Models over the Boolean Domain},
+ journal = {SIAM J. Comput.},
+ issue_date = {Oct. 1994},
+ volume = {23},
+ number = {5},
+ month = oct,
+ year = {1994},
+ issn = {0097-5397},
+ pages = {990--1000},
+ numpages = {11},
+ url = {http://dx.doi.org/10.1137/S009753979223455X},
+ doi = {10.1137/S009753979223455X},
+ acmid = {196815},
+ publisher = {Society for Industrial and Applied Mathematics},
+ address = {Philadelphia, PA, USA},
+ keywords = {learning models, machine learning theory, one-way functions},
+}
+
+
+@inproceedings{Ng:2000:AIR:645529.657801,
+ author = {Ng, Andrew Y. and Russell, Stuart J.},
+ title = {Algorithms for Inverse Reinforcement Learning},
+ booktitle = {Proceedings of the Seventeenth International Conference on Machine Learning},
+ series = {ICML '00},
+ year = {2000},
+ isbn = {1-55860-707-2},
+ pages = {663--670},
+ numpages = {8},
+ url = {http://dl.acm.org/citation.cfm?id=645529.657801},
+ acmid = {657801},
+ publisher = {Morgan Kaufmann Publishers Inc.},
+ address = {San Francisco, CA, USA},
+}
+
+
+
+@inproceedings{DBLP:conf/icra/GrollmanJ07,
+  author    = {Daniel H. Grollman and
+               Odest Chadwicke Jenkins},
+  title     = {Dogged Learning for Robots},
+  booktitle = {2007 {IEEE} International Conference on Robotics and Automation, {ICRA}
+               2007, 10-14 April 2007, Roma, Italy},
+  pages     = {2483--2488},
+  publisher = {{IEEE}},
+  year      = {2007},
+  url       = {http://dx.doi.org/10.1109/ROBOT.2007.363692},
+  doi       = {10.1109/ROBOT.2007.363692},
+  timestamp = {Wed, 20 Jun 2007 15:07:54 +0200},
+  biburl    = {http://dblp.uni-trier.de/rec/bib/conf/icra/GrollmanJ07},
+  bibsource = {dblp computer science bibliography, http://dblp.org}
+}
+
+@inproceedings{Chernova:2007:CPL:1329125.1329407,
+ author = {Chernova, Sonia and Veloso, Manuela},
+ title = {Confidence-based Policy Learning from Demonstration Using Gaussian Mixture Models},
+ booktitle = {Proceedings of the 6th International Joint Conference on Autonomous Agents and Multiagent Systems},
+ series = {AAMAS '07},
+ year = {2007},
+ isbn = {978-81-904262-7-5},
+ location = {Honolulu, Hawaii},
+ pages = {233:1--233:8},
+ articleno = {233},
+ numpages = {8},
+ url = {http://doi.acm.org/10.1145/1329125.1329407},
+ doi = {10.1145/1329125.1329407},
+ acmid = {1329407},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {imitation, learning from demonstration, robotics},
+} 

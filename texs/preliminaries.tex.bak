@@ -1,0 +1,209 @@
+\section{Markov Decision Processes}
+
+The environment in a reinforcement learning problem is often modeled as a \textbf{Markov Decision Process} (MDP) which provides framework for representing the sequential decisions that an agent takes in the environment, the feedback signals that the environment provides, and the states that the environment transitions to. \\
+
+\begin{dfn}
+Formally, an MDP is a five-tuple $(\mathcal{S},\mathcal{A},T,R, \gamma)$ where 
+\begin{itemize}
+\item $\mathcal{S}$ is the set of states that the environment can be in. This set can either be discrete or continuous and can be parametrized in any form. This is formally called  the \textbf{state space}.
+\item $\mathcal{A}$, or the \textbf{action space},  is the set of actions that the agent can perform. 
+\item $T$ defines the \textbf{transitions} of the model as enforced by the environment. $\mathcal{T} \in (\mathcal{P}_{\mathcal{S}})^{\mathcal{S} \times \mathcal{A}}$, i.e., $\mathcal{P}_{\mathcal{S}}$ is a probability distribution over the states. That is, if at state $s \in \mathcal{S}$, the agent performs an action $a \in \mathcal{A}$, the agent goes to a next state $s' \in \mathcal{S}$ with probability defined by $T(s' | s,a)$.
+\item $R \in \mathbb{R}^{\mathcal{S} \times \mathcal{A}}$ defines the rewards that the environment provides to the agent. That is, if at state $s \in \mathcal{S}$, the agent performs an action $a \in \mathcal{A}$ it sees a reward of $R(s,a)$. $R$ can usually be defined as a distribution whose expected value is known. 
+\item $\gamma \in (0,1)$ is a term that determines how the cumulative sum of rewards is calculated over a long term. While we will mathematically discuss the significance of $\gamma$ in the definition of \textbf{return}, for now we will claim that when $\gamma$ is lower, the cumulative sum gives more weight to the immediate rewards.
+\end{itemize}
+\end{dfn}
+
+The \textbf{dynamics} of the MDP as implied by the above 5-tuple is such that the system proceeds in discrete \textbf{timesteps} $t = 0, 1, \hdots $. The agent is said to be at state $s_t \in \mathcal{S}$ at a given timestep $t$ and it executes action $a_t \in \mathcal{A}$ at that state. On execution of the action, the environment provides a noisy reward whose expectation is $R(s_t,a_t)$ and takes the agent to the state $s_{t+1} \in \mathcal{S}$ which is a random variable that obeys the distribution $T(s_{t+1} | s_t, a_t)$.\\
+
+The reader must note that throughout this discussion we have subtly assumed that the environment is \textbf{\textit{markov}}. That is, the environment behaves in such  a way that the state and the reward signals it provides at timestep $t+1$ is dependent only on the state and rewards at time $t$. 
+
+We will now define the notion of return which is used to \textit{evaluate} the actions taken by the agent in terms of the rewards that it observes. 
+
+
+
+\begin{dfn}
+The \textbf{return} of the agent at timestep $t$ is defined as:
+\[
+R_t \defeq \displaystyle\sum\limits_{\tau = 0}^{\infty} \gamma^{\tau} r_{t+\tau}
+\]
+\end{dfn}
+
+Observe that the return $R_t$ is a random variable whose distribution is dependent on many factors. First, it is dependent on the actions that the agent takes at every timestep that follow $t$. Second, it depends on the stochasticity in the state-action transitions that is defined by the environment. Third, it is dependent on the reward distributions that are defined for every state-action pair of the environment. 
+
+
+\section{Policy and Value Functions}
+\begin{dfn}
+A \textbf{deterministic policy} $\pi: \mathcal{S} \to \mathcal{A}$ is a mapping from states to actions in the MDP. 
+\end{dfn}
+
+A policy of this form is the language that is used to describe the \textit{behaviour} of an agent. 
+
+
+\begin{dfn}
+The \textbf{stationary distribution} $d_{\pi}: \mathcal{S} \to \mathbb{R}$ of a policy $\pi$ is a probability distribution over the states $\mathcal{S}$ such that $\forall s, s' \in \mathcal{S}$:
+
+\begin{equation}
+		d_{\pi}(s') =  \sum_{s \in \mathcal{S}} d_{\pi}(s)T(s' | s,\pi(s))
+\end{equation}
+The stationary distribution of $\pi$ also denotes the following:
+\begin{equation}
+		d_{\pi}(s) = \lim\limits_{t \to \infty} Pr(s_t = s | \pi)
+\end{equation}
+
+where $s_t$ refers to the state reached at time $t$ by following policy $\pi$ on the MDP.
+\end{dfn}
+
+
+
+We will now describe value functions which form the means of evaluating the goodness of a policy. 
+
+
+
+
+\begin{dfn}
+The \textbf{value function} $V_M^{\pi}: \mathcal{S} \to \mathbb{R}$ of a policy $\pi$ is defined as:
+\[
+V_M^{\pi}(s) \defeq \mathbb{E}_{\pi}[R_0 | s_0 = s]
+\] 
+\end{dfn}
+
+
+The expectation in the above definition takes into account the randomness in the rewards and the transitions, and also the policy $\pi$ that the agent follows in order to pick actions at every state. \\
+
+While a value function helps us understand how rewarding a state is under a policy, we would also like to see how rewarding an action is under a policy. Thus, we would like to define what is called as the \textbf{state-action value} function. \\
+
+\begin{dfn}
+The \textbf{state-action value function}  $Q_M^{\pi}: \mathcal{S} \times \mathcal{A} \to \mathbb{R}$ of a policy $\pi$ is defined as:
+\[
+Q_M^{\pi}(s,a) \defeq \mathbb{E}_{\pi}[R_0 | s_0 = s, a_0 = a]
+\] 
+\end{dfn}
+
+The expectation in the above definition takes into account the randomness in the rewards and the transitions, and also the policy $\pi$ that the agent follows in order to pick actions at every state but the initial state $s_0$. \\
+
+In the rest of this work, we may use $Q^{\pi}$ in place of $Q^{\pi}_M$, whenever it is understood that we are dealing with a single MDP $M$.\\
+
+
+Before proceeding to the inverse reinforcement learning problem, it is essential to understand what an optimal policy is.
+
+\begin{dfn}
+An \textbf{optimal policy}   $\pi^*$ of an MDP $M$ is such that $\forall s \in \mathcal{S}$
+\[
+V_{M}^{\pi^*}(s) = \max\limits_{\pi} V_{M}^{\pi}(s) 
+\] 
+\end{dfn}
+
+For the sake of simplicity, we will use $V^{*}$ to refer to the optimal value function.  
+We will now define near-optimality of a state-action pair. We look at this because for the main problem that we consider in this work, we would like to produce a policy that is near-optimal with respect the underlying rewards. 
+
+\begin{dfn}
+At a state $s \in \mathcal{S}$, we say that for a policy $\pi$, action $a$ is $\epsilon-$optimal, if:
+\[
+Q_M^{\pi}(s,a) \geq V^*_M(s) - \epsilon
+\]
+\end{dfn}
+
+\subsection{Bellman Equations}
+While the definitions for the value functions provided a closed form representation, we will now present equations, called as the Bellman Equation, that related the value functions for one state to the other.
+
+
+\begin{equation}
+\begin{array}{rcl}
+V_{M}^{\pi}(s) &=& R(s, \pi(s)) + \gamma \sum\limits_{s' \in \mathcal{S}} T(s'|s,\pi(s)) V^{\pi}_M (s') \\
+Q_{M}^{\pi}(s,a) &=& R(s, a) + \gamma \sum\limits_{s'} T(s'|s,\pi(s)) \max\limits_{a' \in \mathcal{A}} Q^{\pi}_M (s',a') \\
+
+\end{array}
+\end{equation}
+
+
+\section{Parametrized Reward/Value Functions}
+\label{sec:formal_generalization}
+In Section \ref{sec:generalization}, we discussed how rewards that are specified as a linear combination of features helps us in generalizing. We formally describe the set up here. \\
+
+We assume that we are given the $k-$dimensional feature encoding of the \textit{reward} on all state-action pairs as $\Phi_R: \mathcal{S}\times \mathcal{A} \to \mathbb{R}^k$. A given task is specified by an underlying weight vector $\vec{\theta}$ such that $R(s,a) = \vec{\theta}^T \Phi_R(s,a$, $\forall (s,a) \in \mathcal{S}\times \mathcal{A}$. \\
+
+We must note that for any policy $\pi$, the value functions can similarly be parametrized as it is a linear combination of these rewards.\\
+
+\begin{equation}
+\begin{array}{rcl}
+Q_{M}^{\pi}(s,a) &=& \mathbb{E}_{\pi}[\sum_{t = 0}^{\infty} \gamma^{t}R(s_t, a_t)| s_0 =s, a_0 =a] \\
+&=&   \mathbb{E}_{\pi}[\sum_{t = 0}^{\infty} \gamma^{t}\vec{\theta}^T \Phi_R(s_t,a_t)| s_0 =s, a_0 =a]\\
+&=& \vec{\theta}^T  \mathbb{E}_{\pi}[\sum_{t = 0}^{\infty} \gamma^{t}\Phi_R(s_t,a_t)| s_0 =s, a_0 =a]\\
+&\defeq & \vec{\theta}^T \Phi_Q^{\pi}(s,a)
+\end{array}
+\end{equation} 
+
+
+
+
+
+\section{Inverse Reinforcement Learning}
+
+\begin{dfn}
+A demonstration $d$ can either be a state-action pair $(s,a)$ or a sequence of state-action pairs $(s_1,a_1),(s_2,a_2),(s_3,a_3) \hdots (s_n,a_n)$ generated by a trajectory in the MDP. That is, the sequence obeys that transition function of the MDP.
+\end{dfn}
+
+Throughout our discussion we will refer to a state-action pair as a demonstration. 
+
+We are now ready to describe the inverse reinforcement learning problem.
+\begin{dfn}
+Given an MDP without the reward functions $M \backslash R$ i.e., $(\mathcal{S}, \mathcal{A}, T, \gamma)$ and a set of demonstrations of the expert $\mathcal{D}$ which usually is a set of sequences of state-action pairs, the objective of \textbf{inverse reinforcement learning} is to estimate the reward function as $\hat{R}$ such that some function of $\hat{R}$, $M \backslash R$ and $\mathcal{D}$ is optimized. The objective function usually corresponds to the likelihood of observing $\mathcal{D}$ given the parameters of $\hat{R}$ and $M\backslash R$. 
+\end{dfn}
+
+
+
+
+\subsection{Problem of Multiple Optimal Solutions}
+\label{sec:multiple_solutions}
+A challenge in inverse reinforcement learning is that often there are many solutions to the reward functions that will explain the demonstrations by the expert that have been so far - for example, a reward setting of zero on all actions will always make the expert demonstrations optimal! However, not all these solutions are `meaningful' and help us generalize meaningfully. This issue is addressed in many ways in literature.\\
+
+One way this can be tackled is by \textbf{adding more constraints} to the optimization problem that solves the rewards. These constraints mostly necessitate the solution to provide more guarantees with regard to the demonstrations that have been made. For example, the rewards must be such that every demonstration is near-optimal. \\
+
+Another way this is solved is by enforcing structural constraints on the reward function such as the inearly parameterized rewards that was discussed in the previous section. Another solution would be to \textit{regularize} the rewards and ensure that the magnitude of the rewards is within certain bounds. 
+
+
+\section{Knows-What-It-Knows Learning Framework}
+\label{sec:kwik_prel}
+We will now define the problem and learning protocol for \textit{Knows-What-It-Knows} learning. A KWIK algorithm is an algorithm that abides by this protocol for learning. The definition of the protocol inherently provides a way of evaluating these algorithms by way of knowing the guarantees these algorithms provide. 
+
+\begin{dfn}
+A \textbf{KWIK problem} is a 5-tuple $(\mathcal{X}, \mathcal{Y}, \mathcal{Z}, \mathcal{H}, h^*)$ where
+\begin{itemize}
+\item $\mathcal{X}$ is the input space
+\item $\mathcal{Y}$ is the output space
+\item $\mathcal{Z}$ is the set of observations
+\item $\mathcal{H} \subseteq \mathcal{Y}^{\mathcal{X}}$ is the hypothesis space
+\item $h^* \in \mathcal{Y}^{\mathcal{X}}$ is an unknown \textbf{target} function
+\end{itemize}
+\end{dfn}
+
+For theoretical purposes, we assume that the problem is \textit{\textbf{realizable}} in that the target function belongs to our hypothesis set i.e., $h^* \in \mathcal{H}$. We will now define the KWIK protocol.
+\begin{dfn}
+The \textbf{KWIK protocol} consists of a \textbf{learner} and an adversarial \textbf{environment}. 
+The protocol defines a \textbf{run} as follows:
+\begin{itemize}
+\item $\mathcal{X}, \mathcal{Y}, \mathcal{Z}, \mathcal{H}$ are all agreed upon by both the learner and the environment. Both the entities are also aware of two parameters: $\epsilon \in (0,1)$, the accuracy parameter, and $\delta \in (0,1)$, the confidence parameter.
+\todo{Add image}
+\item The environment chooses $h^* \in \mathcal{H}$ adversarially.
+\item The protocol now proceeds in timesteps, and for each timestep $t$:
+\begin{itemize}
+\item The adversarial environment picks an input $x_t  \in \mathcal{X}$ and informs the learner. 
+\item The learner predicts either a \textbf{valid output}  $\hat{y}_t \in \mathcal{Y}$ or produces a $\perp$ (\textbf{don't know}).
+\item If the learner's output is $\perp$, the environment allows the learner to observe $z_t \in \mathcal{Z}$. The KWIK protocol does not specify a relation between $z_t$ and $y_t = h^*(x_t)$ but it is assumed that they are dependent in such a way that learning is facilitated. For example $\mathbb{E}[Z_t] = y_t$ where $Z_t$ is a random variable whose realization is  $z_t$.
+\end{itemize}
+\end{itemize}
+\end{dfn}
+
+In our discussion, we will use the words `\textbf{\textit{environment}}' and ` \textbf{\textit{teacher}}' interchangeably. This is because the environment is our source of learning as it provides us observations. \\ 
+
+We now define KWIK-learnability, a notion that helps us in defining a class of problems that are KWIK-learnable for which algorithms with appropriate guarantees can be provided. 
+
+\begin{dfn}
+We say that given the problem $(\mathcal{X}, \mathcal{Y}, \mathcal{Z}, \mathcal{H}, h^*)$, $\mathcal{H}$ is \textbf{KWIK-learnable} if there exists an algorithm $\textbf{A}$ such that for any $0 < \epsilon, \delta < 1$, the algorithm satisfies the following two conditions with at least probability $1-\delta$ for any KWIK run of the algorithm:
+\begin{itemize}
+\item \textbf{Accuracy Condition}: If $\hat{y}_t \neq \perp$, the output but be $\epsilon$-accurate.
+\item \textbf{Sample Complexity}: The number of $\perp$ produced by the learner during a run must be upper bounded by a function $B(\epsilon, \delta, \text{dim}(\mathcal{H}))$ - \textbf{the KWIK bound} - which is function of $1\epsilon$, $1/\delta$, and dim$(\mathcal{H})$ where dim$(\mathcal{H})$ is an evaluation of the dimensionality of the hypothesis space. When $B(\epsilon, \delta, \text{dim}(\mathcal{H}))$ is polynomial in terms of the three parameters then we call the hypothesis class $\mathcal{H}$ \textbf{efficiently KWIK-learnable}.
+\end{itemize}
+\end{dfn}
+
+

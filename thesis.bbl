@@ -1,0 +1,241 @@
+\begin{thebibliography}{28}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname url\endcsname\relax
+  \def\url#1{{\tt #1}}\fi
+\expandafter\ifx\csname urlprefix\endcsname\relax\def\urlprefix{URL }\fi
+
+\bibitem[{Abbeel and Ng(2004)}]{Abbeel:2004:ALV:1015330.1015430}
+{\bf Abbeel, P.} and {\bf A.~Y. Ng}, Apprenticeship learning via inverse
+  reinforcement learning.
+\newblock {\em In\/} {\em Proceedings of the Twenty-first International
+  Conference on Machine Learning\/}, ICML '04. ACM, New York, NY, USA, 2004.
+\newblock ISBN 1-58113-838-5.
+\newblock \urlprefix\url{http://doi.acm.org/10.1145/1015330.1015430}.
+
+\bibitem[{Auer(2002)}]{DBLP:journals/jmlr/Auer02}
+{\bf Auer, P.} (2002).
+\newblock Using confidence bounds for exploitation-exploration trade-offs.
+\newblock {\em Journal of Machine Learning Research\/}, {\bf 3}, 397--422.
+\newblock \urlprefix\url{http://www.jmlr.org/papers/v3/auer02a.html}.
+
+\bibitem[{Blum(1994)}]{Blum:1994:SDM:196751.196815}
+{\bf Blum, A.~L.} (1994).
+\newblock Separating distribution-free and mistake-bound learning models over
+  the boolean domain.
+\newblock {\em SIAM J. Comput.\/}, {\bf 23}(5), 990--1000.
+\newblock ISSN 0097-5397.
+\newblock \urlprefix\url{http://dx.doi.org/10.1137/S009753979223455X}.
+
+\bibitem[{Boularias and Chaib{-}draa(2010)}]{DBLP:conf/icra/BoulariasC10}
+{\bf Boularias, A.} and {\bf B.~Chaib{-}draa}, Apprenticeship learning via soft
+  local homomorphisms.
+\newblock {\em In\/} {\em {IEEE}International Conference on Robotics and
+  Automation, {ICRA} 2010, Anchorage, Alaska, USA, 3-7 May 2010\/}. 2010.
+\newblock \urlprefix\url{http://dx.doi.org/10.1109/ROBOT.2010.5509717}.
+
+\bibitem[{Cesa-Bianchi and
+  Orabona(2009)}]{Cesa-Bianchi:2009:RBC:1553374.1553390}
+{\bf Cesa-Bianchi, C., Nicol\`{o}and~Gentile} and {\bf F.~Orabona}, Robust
+  bounds for classification via selective sampling.
+\newblock {\em In\/} {\em Proceedings of the 26th Annual International
+  Conference on Machine Learning\/}, ICML '09. ACM, New York, NY, USA, 2009.
+\newblock ISBN 978-1-60558-516-1.
+\newblock \urlprefix\url{http://doi.acm.org/10.1145/1553374.1553390}.
+
+\bibitem[{Chernova and Veloso(2007)}]{Chernova:2007:CPL:1329125.1329407}
+{\bf Chernova, S.} and {\bf M.~Veloso}, Confidence-based policy learning from
+  demonstration using gaussian mixture models.
+\newblock {\em In\/} {\em Proceedings of the 6th International Joint Conference
+  on Autonomous Agents and Multiagent Systems\/}, AAMAS '07. ACM, New York, NY,
+  USA, 2007.
+\newblock ISBN 978-81-904262-7-5.
+\newblock \urlprefix\url{http://doi.acm.org/10.1145/1329125.1329407}.
+
+\bibitem[{Chernova and Veloso(2009)}]{Chernova:2009:IPL:1622716.1622717}
+{\bf Chernova, S.} and {\bf M.~Veloso} (2009).
+\newblock Interactive policy learning through confidence-based autonomy.
+\newblock {\em J. Artif. Int. Res.\/}, {\bf 34}(1), 1--25.
+\newblock ISSN 1076-9757.
+\newblock \urlprefix\url{http://dl.acm.org/citation.cfm?id=1622716.1622717}.
+
+\bibitem[{Ferns {\em et~al.\/}(2012)Ferns, Panangaden, and
+  Precup}]{DBLP:journals/corr/abs-1207-4114}
+{\bf Ferns, N.}, {\bf P.~Panangaden}, and {\bf D.~Precup} (2012).
+\newblock Metrics for finite markov decision processes.
+\newblock {\em CoRR\/}, {\bf abs/1207.4114}.
+\newblock \urlprefix\url{http://arxiv.org/abs/1207.4114}.
+
+\bibitem[{Grollman and Jenkins(2007)}]{DBLP:conf/icra/GrollmanJ07}
+{\bf Grollman, D.~H.} and {\bf O.~C. Jenkins}, Dogged learning for robots.
+\newblock {\em In\/} {\em 2007 {IEEE} International Conference on Robotics and
+  Automation, {ICRA} 2007, 10-14 April 2007, Roma, Italy\/}. {IEEE}, 2007.
+\newblock \urlprefix\url{http://dx.doi.org/10.1109/ROBOT.2007.363692}.
+
+\bibitem[{Judah {\em et~al.\/}(2011)Judah, Fern, and
+  Dietterich}]{judah2011active}
+{\bf Judah, K.}, {\bf A.~Fern}, and {\bf T.~Dietterich}, Active imitation
+  learning via state queries.
+\newblock 2011.
+
+\bibitem[{Judah {\em et~al.\/}(2012{\natexlab{{\em a\/}}})Judah, Fern, and
+  Dietterich}]{DBLP:journals/corr/abs-1210-4876}
+{\bf Judah, K.}, {\bf A.~Fern}, and {\bf T.~G. Dietterich} (2012{\natexlab{{\em
+  a\/}}}).
+\newblock Active imitation learning via reduction to {I.I.D.}active learning.
+\newblock {\em CoRR\/}, {\bf abs/1210.4876}.
+\newblock \urlprefix\url{http://arxiv.org/abs/1210.4876}.
+
+\bibitem[{Judah {\em et~al.\/}(2012{\natexlab{{\em b\/}}})Judah, Fern, and
+  Dietterich}]{DBLP:conf/uai/JudahFD12}
+{\bf Judah, K.}, {\bf A.~Fern}, and {\bf T.~G. Dietterich}, Active imitation
+  learning via reduction to {I.I.D.}active learning.
+\newblock {\em In\/} {\em Proceedings of the Twenty-Eighth Conference on
+  Uncertainty in Artificial Intelligence, Catalina Island, CA, USA, August
+  14-18, 2012\/}. 2012{\natexlab{{\em b\/}}}.
+\newblock
+  \urlprefix\url{http://uai.sis.pitt.edu/displayArticleDetails.jsp?mmnu=1&smnu=2&article_id=2304&proceeding_id=28}.
+
+\bibitem[{Li {\em et~al.\/}(2011)Li, Littman, Walsh, and
+  Strehl}]{Li:2011:KKF:1968770.1968789}
+{\bf Li, L.}, {\bf M.~L. Littman}, {\bf T.~J. Walsh}, and {\bf A.~L. Strehl}
+  (2011).
+\newblock Knows what it knows: A framework for self-aware learning.
+\newblock {\em Mach. Learn.\/}, {\bf 82}(3), 399--443.
+\newblock ISSN 0885-6125.
+\newblock \urlprefix\url{http://dx.doi.org/10.1007/s10994-010-5225-4}.
+
+\bibitem[{Littlestone(1987)}]{Littlestone:1987:LQI:1382440.1383019}
+{\bf Littlestone, N.}, Learning quickly when irrelevant attributes abound: A
+  new linear-threshold algorithm.
+\newblock {\em In\/} {\em Proceedings of the 28th Annual Symposium on
+  Foundations of Computer Science\/}, SFCS '87. IEEE Computer Society,
+  Washington, DC, USA, 1987.
+\newblock ISBN 0-8186-0807-2.
+\newblock \urlprefix\url{http://dx.doi.org/10.1109/SFCS.1987.37}.
+
+\bibitem[{Littlestone(1989)}]{Littlestone:1989:OBL:93335.93365}
+{\bf Littlestone, N.}, From on-line to batch learning.
+\newblock {\em In\/} {\em Proceedings of the Second Annual Workshop on
+  Computational Learning Theory\/}, COLT '89. Morgan Kaufmann Publishers Inc.,
+  San Francisco, CA, USA, 1989.
+\newblock ISBN 1-55860-086-8.
+\newblock \urlprefix\url{http://dl.acm.org/citation.cfm?id=93335.93365}.
+
+\bibitem[{Lopes {\em et~al.\/}(2009)Lopes, Melo, and
+  Montesano}]{Lopes:2009:ALR:1617459.1617463}
+{\bf Lopes, M.}, {\bf F.~Melo}, and {\bf L.~Montesano}, Active learning for
+  reward estimation in inverse reinforcement learning.
+\newblock {\em In\/} {\em Proceedings of the European Conference on Machine
+  Learning and Knowledge Discovery in Databases: Part II\/}, ECML PKDD '09.
+  Springer-Verlag, Berlin, Heidelberg, 2009.
+\newblock ISBN 978-3-642-04173-0.
+\newblock \urlprefix\url{http://dx.doi.org/10.1007/978-3-642-04174-7_3}.
+
+\bibitem[{Melo and Lopes(2010)}]{DBLP:conf/pkdd/MeloL10}
+{\bf Melo, F.~S.} and {\bf M.~Lopes}, Learning from demonstration using
+  {MDP}induced metrics.
+\newblock {\em In\/} {\em Machine Learning and Knowledge Discovery in
+  Databases, European Conference, {ECML}{PKDD}2010, Barcelona, Spain, September
+  20-24, 2010, Proceedings, Part {II}\/}. 2010.
+\newblock \urlprefix\url{http://dx.doi.org/10.1007/978-3-642-15883-4_25}.
+
+\bibitem[{Ng and Russell(2000)}]{Ng:2000:AIR:645529.657801}
+{\bf Ng, A.~Y.} and {\bf S.~J. Russell}, Algorithms for inverse reinforcement
+  learning.
+\newblock {\em In\/} {\em Proceedings of the Seventeenth International
+  Conference on Machine Learning\/}, ICML '00. Morgan Kaufmann Publishers Inc.,
+  San Francisco, CA, USA, 2000.
+\newblock ISBN 1-55860-707-2.
+\newblock \urlprefix\url{http://dl.acm.org/citation.cfm?id=645529.657801}.
+
+\bibitem[{Ramachandran and Amir(2007)}]{Ramachandran:2007:BIR:1625275.1625692}
+{\bf Ramachandran, D.} and {\bf E.~Amir}, Bayesian inverse reinforcement
+  learning.
+\newblock {\em In\/} {\em Proceedings of the 20th International Joint
+  Conference on Artifical Intelligence\/}, IJCAI'07. Morgan Kaufmann Publishers
+  Inc., San Francisco, CA, USA, 2007.
+\newblock \urlprefix\url{http://dl.acm.org/citation.cfm?id=1625275.1625692}.
+
+\bibitem[{Ross and Bagnell(2010)}]{DBLP:journals/jmlr/RossB10}
+{\bf Ross, S.} and {\bf D.~Bagnell}, Efficient reductions for imitation
+  learning.
+\newblock {\em In\/} {\em Proceedings of the Thirteenth International
+  Conference on Artificial Intelligence and Statistics, {AISTATS}2010, Chia
+  Laguna Resort, Sardinia, Italy, May 13-15, 2010\/}. 2010.
+\newblock
+  \urlprefix\url{http://www.jmlr.org/proceedings/papers/v9/ross10a.html}.
+
+\bibitem[{Sayedi {\em et~al.\/}(2010)Sayedi, Zadimoghaddam, and
+  Blum}]{DBLP:conf/nips/SayediZB10}
+{\bf Sayedi, A.}, {\bf M.~Zadimoghaddam}, and {\bf A.~Blum}, Trading off
+  mistakes and don't-know predictions.
+\newblock {\em In\/} {\em Advances in Neural Information Processing Systems 23:
+  24th Annual Conference on Neural Information Processing Systems 2010.
+  Proceedings of a meeting held 6-9 December 2010, Vancouver, British Columbia,
+  Canada.\/}. 2010.
+\newblock
+  \urlprefix\url{http://papers.nips.cc/paper/4142-trading-off-mistakes-and-dont-know-predictions}.
+
+\bibitem[{Silver {\em et~al.\/}(2012)Silver, Bagnell, and
+  Stentz}]{DBLP:conf/icra/SilverBS12}
+{\bf Silver, D.}, {\bf J.~A. Bagnell}, and {\bf A.~Stentz}, Active learning
+  from demonstration for robust autonomous navigation.
+\newblock {\em In\/} {\em {IEEE}International Conference on Robotics and
+  Automation, {ICRA} 2012, 14-18 May, 2012, St. Paul, Minnesota, {USA}\/}.
+  2012.
+\newblock \urlprefix\url{http://dx.doi.org/10.1109/ICRA.2012.6224757}.
+
+\bibitem[{Sorg and Singh(2009)}]{Sorg:2009:TVS:1558109.1558114}
+{\bf Sorg, J.} and {\bf S.~Singh}, Transfer via soft homomorphisms.
+\newblock {\em In\/} {\em Proceedings of The 8th International Conference on
+  Autonomous Agents and Multiagent Systems - Volume 2\/}, AAMAS '09.
+  International Foundation for Autonomous Agents and Multiagent Systems,
+  Richland, SC, 2009.
+\newblock ISBN 978-0-9817381-7-8.
+\newblock \urlprefix\url{http://dl.acm.org/citation.cfm?id=1558109.1558114}.
+
+\bibitem[{Strehl and Littman(2007)}]{DBLP:conf/nips/StrehlL07}
+{\bf Strehl, A.~L.} and {\bf M.~L. Littman}, Online linear regression and its
+  application to model-based reinforcement learning.
+\newblock {\em In\/} {\em Advances in Neural Information Processing Systems 20,
+  Proceedings of the Twenty-First Annual Conference on Neural Information
+  Processing Systems, Vancouver, British Columbia, Canada, December 3-6,
+  2007\/}. 2007.
+\newblock
+  \urlprefix\url{http://papers.nips.cc/paper/3197-online-linear-regression-and-its-application-to-model-based-reinforcement-learning}.
+
+\bibitem[{Syed and Schapire(2010)}]{DBLP:conf/nips/SyedS10}
+{\bf Syed, U.} and {\bf R.~E. Schapire}, A reduction from apprenticeship
+  learning to classification.
+\newblock {\em In\/} {\em Advances in Neural Information Processing Systems 23:
+  24th Annual Conference on Neural Information Processing Systems 2010.
+  Proceedings of a meeting held 6-9 December 2010, Vancouver, British Columbia,
+  Canada.\/}. 2010.
+\newblock
+  \urlprefix\url{http://papers.nips.cc/paper/4180-a-reduction-from-apprenticeship-learning-to-classification}.
+
+\bibitem[{Valiant(1984)}]{Valiant:1984:TL:1968.1972}
+{\bf Valiant, L.~G.} (1984).
+\newblock A theory of the learnable.
+\newblock {\em Commun. ACM\/}, {\bf 27}(11), 1134--1142.
+\newblock ISSN 0001-0782.
+\newblock \urlprefix\url{http://doi.acm.org/10.1145/1968.1972}.
+
+\bibitem[{Walsh {\em et~al.\/}(2010)Walsh, Subramanian, Littman, and
+  Diuk}]{DBLP:conf/icml/WalshSLD10}
+{\bf Walsh, T.~J.}, {\bf K.~Subramanian}, {\bf M.~L. Littman}, and {\bf
+  C.~Diuk}, Generalizing apprenticeship learning across hypothesis classes.
+\newblock {\em In\/} {\em Proceedings of the 27th International Conference on
+  Machine Learning (ICML-10), June 21-24, 2010, Haifa, Israel\/}. 2010.
+\newblock \urlprefix\url{http://www.icml2010.org/papers/475.pdf}.
+
+\bibitem[{Ziebart {\em et~al.\/}(2008)Ziebart, Maas, Bagnell, and
+  Dey}]{Ziebart:2008:MEI:1620270.1620297}
+{\bf Ziebart, B.~D.}, {\bf A.~Maas}, {\bf J.~A. Bagnell}, and {\bf A.~K. Dey},
+  Maximum entropy inverse reinforcement learning.
+\newblock {\em In\/} {\em Proceedings of the 23rd National Conference on
+  Artificial Intelligence - Volume 3\/}, AAAI'08. AAAI Press, 2008.
+\newblock ISBN 978-1-57735-368-3.
+\newblock \urlprefix\url{http://dl.acm.org/citation.cfm?id=1620270.1620297}.
+
+\end{thebibliography}

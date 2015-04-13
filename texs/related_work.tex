@@ -1,0 +1,535 @@
+\todo{Give an introduction to how this is organized}
+
+\todo{Go through my reports for other citations}
+\section{Related Learning Models}
+
+In order to appreciate the features and restrictions of KWIK better, it would be worthwhile to familiarize the reader with two other learning models: the Probably Approximately Correct learning framework (PAC) \citet{Valiant:1984:TL:1968.1972}, and the mistake bound framework (MB) \citet{Littlestone:1987:LQI:1382440.1383019}. 
+
+
+\subsection{Probably Approximately Correct Learning}
+As described in a previous chapter, the PAC model does not apply to online learning; when the learner is provided a \textit{batch} of data offline, we would be interested in its PAC guarantees. Crucial to the PAC framework is the underlying unknown distribution $\mathcal{D}$ from which training and testing sample points are drawn independently. Let $h^*$ be the target function chosen from the hypothesis space $\mathcal{H}$. In the training phase,  a set of points are drawn $i.i.d$ from $\mathcal{X} \times \mathcal{Y}$, where $\mathcal{X}$ and $\mathcal{Y}$ are the input and output spaces respectively. The algorithm learns from this a hypothesis $\hat{h}$. We require that with probability \textit{at least} $1-\delta$, this hypothesis is $\epsilon-$accurate on the distribution $\mathcal{D}$. By $\epsilon-$accurate we require that the probability of the prediction going wrong  on an input point drawn from $\mathcal{D}$ is less than $\epsilon$.
+\begin{equation}
+\mathbb{E}_{x \sim D} \left[\mathbb{I}(h^*(x) \neq \hat{h}(x))\right] \leq \epsilon
+\end{equation}
+Thus, the requirement of an $\epsilon,\delta-$ PAC learner can be formally written as, $\forall h^*$, for \textit{any} run of the algorithm, the learner must learn $\hat{h}$ such that:
+\begin{equation}
+Pr \left( \mathbb{E}_{x \sim D} \left[\mathbb{I}(h^*(x) \neq \hat{h}(x))\right] \leq \epsilon
+ \right) \geq 1 - \delta
+\end{equation}
+
+Note that we use $h^*(x) \neq \hat{h}(x)$, which might be rational to apply on discrete-valued output space. If the function has a continuous output, we might want to adjust this requirement accordingly. Nevertheless, the spirit of this definition is that the error is \textit{not pointwise}, but is averaged over the input space according to the distribution. \\
+
+One must understand the dynamics that control the failure probability $\delta$. There are two factors that might force the algorithm to fail. First, it might be some randomness in the algorithm itself that might result in it learning a bad function. Second, it might be misfortune in the sampling phase which resulted in a bad representative set of points being sampled from $\mathcal{D}$ on which the algorithm is trained. However, we know that when sufficient number of points are sampled, this `misfortune' is very unlikely to occur. \\
+
+\subsection{Mistake Bound Model}
+The mistake bound model, like KWIK, is appropriate for online learning. The difference here is that the learner is not required to \textit{self-aware} i.e., aware of its mistakes. In KWIK, recall that whenever the learner has to predict it must be \textit{completely sure} that it is going to be $\epsilon-$accurate on the point prediction. However, in the MB model we do not enforce the learner to know that it is making a mistake. The learner makes a prediction and the teacher provides observations on its own in order to correct the learner whenever it goes wrong. The guarantee that the algorithm must provide is that it must make a small, finite number of mistakes (i.e., $\sum_{t=1}^{\infty} \mathbb{I}(\hat{y} \neq y)$) throughout any run of the algorithm for any target function chosen adversarially. \\
+
+
+\todo{Image}
+
+
+\subsection{KWIK-MB learning}
+From the work of \citet{Littlestone:1989:OBL:93335.93365}  it can be understood that MB learning is harder than PAC; and similarly from the work of \citet{Blum:1994:SDM:196751.196815}, we understand that KWIK learning is harder than MB itself. \citet{DBLP:conf/nips/SayediZB10} have studied a model called as KWIK-MB which lies between the latter spectrum ranging from MB to KWIK learning models. The KWIK-MB learner has the privilege of making mistakes and also producing \textit{don't know}s. That is, whenever the learner makes a prediction it can so happen that it goes wrong - the teacher interferes to correct it appropriately. However, this can happen only finitely many times upper-bounded by a parameter $k$. In order to make sure that it does not make too many mistakes, the learner has to carefully withdraw from making a prediction whenever it can; and this is when it outputs a $\perp$.
+
+The beauty of this model is that, while the above description gives the perspective that the $\perp$ outputs are a refuge from making too many mistakes, one may also look at it the other way round. The learner, in order to avoid producing too many \textit{don't know}s decides to boldly make a prediction at times. The number of times this prediction can go wrong is at most $k$. Hence, the mistakes can be seen as a relaxation on the KWIK-restriction. \\ 
+
+\citet{DBLP:conf/nips/SayediZB10}  have also provided an analysis of learning a  linear separator in the KWIK-MB model. The algorithm they propose assumes that the points of the two classes are inherently separated by a width of $\gamma$ and the KWIK-bound and itself depends on this value. We will later see how our proposed KWIK-classification algorithm can be compared and contrasted with the assumptions of this algorithm. \\
+\todo{Why classification? Motivate.}
+
+
+\subsection{KWIK online linear regression}
+\todo{Caution the reader}
+We will now discuss the work of \citet{DBLP:conf/nips/StrehlL07}  who have presented a KWIK online regression algorithm. Understanding the KWIK linear regression algorithm gives us insights about the style of a potential KWIK classification algorithm which we will discuss in a later chapter. \\
+
+In the linear regression problem we assume that the input space is $\mathbb{R}^n$ and the output space is $\mathbb{R}$. For any input point $\vec{x} \in \mathbb{R}^n$, if an observation $z \in \mathbb{R}$ is made, we assume that $\mathbb{E}[z] = \vec{\theta}_{E}^T \vec{x}$. That is, the teacher provides a noisy output whose expectation is linearly dependent on the features of the input point. \\
+
+The algorithm works in the following fashion: at any timestep, we know that if the learner produces a \textit{don't know} ($\perp$), the teacher provides learning experience by providing an observation of the output. Thus, before deciding on what to do, the learner uses the aggregate of all learning experiences it has had so far, and evaluates how `far' away these experiences are from the current input point. If the experiences are sufficiently close to the input, we know that if we were to predict from the experience, we would not make a large error. 
+
+At any timestep $t$ of the algorithm, assume that the learner would have acquired learning experience from $m < t$ points  corresponding to some $m$ timesteps in which it produced a $\perp$ so far.  Let $X_t \in \mathbb{R}^{m \times n}$ denote these $m$ input points, and $\vec{z} \in \mathbb{R}^m$ denote the corresponding $m$ observations of the teacher.  We can apply singular value decomposition to $X^{T}X$ as it is symmetric and positive semi-definite.  
+\begin{equation}
+X^TX = U \Lambda U^T
+\end{equation}
+
+
+Here $U \in \mathbb{R}^{n \times n}$ and consists of $\vec{u}_1, \vec{u}_2 \hdots \vec{u}_n$ column vectors. Also, $\Lambda$ is a diagonal matrix containing the eigenvalues $\lambda_1, \lambda_2 \hdots \lambda_k$. Let $\lambda_1 \geq \lambda_2 \hdots \geq \lambda_k \geq 1 \geq \lambda_k+1 \geq \hdots \lambda_n \geq 0 $. We will now consider only those eigenvectors that have an eigenvalue above $1$ i.e., the vectors corresponding to $\lambda_1, \lambda_2 \hdots \lambda_k$. Let $\bar{U} = [\vec{u}_1 ,\vec{u}_2, \hdots \vec{u}_n]$ and $\bar{\Lambda} = \text{diag}(\lambda_1, \lambda_2, \hdots \lambda_k)$. 
+
+At timestep $t$ when the learner faces the new input $\vec{x}_t$, the algorithm now evaluates the `closeness' of the experience using two parameters:
+
+\begin{equation}
+\label{eq:q}
+\tilde{\vec{q}} \defeq X \bar{U}\bar{\Lambda}^{-1} \bar{U}^T \vec{x}_t 
+\end{equation}
+
+
+\begin{equation}
+\label{eq:u}
+\tilde{\vec{u}} \defeq [0, \hdots, 0, \vec{u}_{k+1}^T \vec{x}_t, \hdots \vec{u}_{n}^T \vec{x}_t]
+\end{equation}
+
+Note that $\bar{U} \in \mathbb{R}^{n \times k}$, $\bar{\Lambda} \in \mathbb{R}^{k \times k}$, $\tilde{\vec{q}}$. 
+
+The decision of whether a \textit{don't know} is produced or not depends on whether $||\tilde{\vec{q}}||_2  > \alpha_1$ and $||\tilde{\vec{u}} ||_2 > \alpha_2$ where $\alpha_1, \alpha_2$ are appropriately chosen constants. The algorithm is formally presented below.
+
+\begin{algorithm}[H]
+\caption{KWIK Online Linear Regression}
+\label{alg:linreg}
+\begin{algorithmic}
+\Require {Problem $P = (\mathcal{X}, \mathcal{Y},\mathcal{Z}, \mathcal{H}, \vec{\theta_E}), \epsilon, \delta, \alpha_1, \alpha_2$}
+	\State $X = [\;]$
+	\State $\vec{z} = [\;]$
+    \For{$t=1,2,\hdots$}
+		\State Environment picks $\vec{x}_t \in \mathcal{X}$
+		\State Compute $\tilde{\vec{u}}$, $\tilde{\vec{q}}$ according to Equations \eqref{eq:q}, eqref{eq:u}		
+		\If{$||\tilde{\vec{q}}||_2  \leq \alpha_1$ and $||\tilde{\vec{u}} ||_2 \leq \alpha_2$} 
+			\State  $\vec{\hat{\theta}} \gets {\arg\min}_{\vec{\theta} \in \mathbb{R}^n: ||vec{\theta}||_2 \leq 1} ||X\vec{\theta} - \vec{z}||_2^2$
+			\State Learner outputs $\hat{\vec{\theta}}^T \vec{x}_t$
+		\Else
+			\State Learner outputs $\perp$
+			\State Environment produces observation $z_t$ such that $\mathbb{E}[z_t] = \vec{\theta_E}^T \vec{x}_t$
+			\State Add $\vec{x}_t^T$ as a new row to $X$
+			\State Add $z_t$ as a new element to vector $\vec{z}$
+		\EndIf
+    \EndFor
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{Sketch of Theoretical Analysis}
+The KWIK bound of this algorithm turns out to be $\tilde{\mathcal{O}}\left(n^3/\epsilon^4\right)$
+when $\alpha_1$ and $\alpha_2$ are set appropriately. It will be useful to understand how the algorithm is analyzed to affirm its guarantees. 
+\citet{Li:2011:KKF:1968770.1968789} provide a detailed proof for the correctness of the above algorithm under appropriate parameter settings. \\
+
+\subsubsection{Proof of Correctness}
+
+The essence of the proof for correctness is that, if $||\tilde{\vec{q}}||_2  \leq \alpha_1$ and $||\tilde{\vec{u}} ||_2 \leq \alpha_2$, then it can \textit{\textbf{not}} be the case that the prediction that the algorithm makes is far off from the true answer. In other words, the algorithm is $\epsilon$-accurate whenever it makes a valid prediction. \\
+
+The first step to proving this is showing that if the above condition on the parameters were true, \textit{and if the algorithm's output is not $\epsilon$-accurate}, then $\Delta_{E}(\hat{\vec{\theta}}) \defeq \sqrt{ \sum_{i=1}^{m} \left((\vec{\theta} - \hat{\vec{\theta}}) ^T \vec{x}_i \right)^2}$, the `true' error on the training data, must be large. We call this the \textit{true} error because this is the error of our predictions with respect to the true values of the outputs on the training data, and not with respect to the noisy observations of the training data. 
+
+The second step to the proof is showing that when this true error on the training data is  sufficiently large, then the \textit{empirical} error of the estimated parameter on the training data - which is $\sqrt{\sum_{i=1}^{m} (\hat{\vec{\theta}}  ^T \vec{x}_i - z_i})^2 $ - is larger than the empirical error of the true parameter on the training data,  $\sqrt{\sum_{i=1}^{m} (\vec{\theta}  ^T \vec{x}_i - z_i})^2 $ \textit{with high probability}. We say `with high probability' because we use the Hoeffding bound (Lemma \ref{lemma:hoeffding_bound}) here to make claims about the deviation of the sum of many random variables $z_i$ from the sum of their corresponding expectations $\vec{\theta}^T \vec{x}_i$. 
+
+The proof is completed by claiming that when the prediction is not $\epsilon-$accurate, and hence when the true error is sufficiently large, the true parameter minimizes the empirical error better than the our own estimate. This is a contradiction because we have determined our estimate as a minimizer of the empirical error itself. Hence, to avoid this contradiction, it has to be the case that the prediction by the algorithm, when valid, has to also be $\epsilon-$accurate.\\ 
+
+\subsubsection{Proof for KWIK Bound}
+The first step towards bounding $m$, the number of \textit{don't know}'s for this algorithm in terms of $n, \epsilon, \delta $is to derive a bound in terms of $n, \alpha_1, \alpha_2$. This is done using Lemma 13 of \citet{DBLP:journals/jmlr/Auer02} which provides an upper bound on $\sum_t ||\tilde{\vec{q}}_t||$ and $\sum_t ||\tilde{\vec{u}}_t||$ in terms of $m$ and $n$ and by using the conditions of the algorithm which provide a lower bound on 	$\tilde{\vec{q}}_t||$ and $\sum_t ||\tilde{\vec{u}}_t||$  in terms of $\alpha_1, \alpha_2$. 
+
+Now, all we need to do is to determine an appropriate setting for $\alpha_1$ and $\alpha_2$ in terms of $n, \epsilon, \delta$ such that the total failure probability is $\delta$. This leads to the polynomial bound as has been claimed earlier. The tricky part in doing this is determining the number of times the \textit{high-probability} condition is applied so that we can set a sufficiently small failure probability for it on using the union bound (Lemma \ref{lemma:union_bound}). We skip the details here though they are insightful for they are not eventually relevant to the problem. 
+
+
+
+
+
+\subsection{Selective Sampling}
+\label{sec:selec_sampling}
+We discuss in this section in sufficient detail the work of \citet{Cesa-Bianchi:2009:RBC:1553374.1553390} in what is called as \textit{selective sampling}. Selective sampling is an approach that parallels the KWIK protocol. The online learner makes queries whenever it wants to abstain from producing a sample. However, their guarantees are not as formalized/rigid as the KWIK protocol. 
+
+A major difference between their work and in our way of defining classification is that they make stronger assumptions about the noise of the teacher - that the noise in the observations provided by the teacher is a linear function of the distance from the classifier. That is, if $\vec{\theta}_E$ was the classifier and $\vec{x}_t$ the point seen at time $t$, then the teacher's observation $Y_t$ for the label is such that $\mathbb{E}[Y_t] = {\vec{\theta}_E}^T \vec{x}_{t}$.  	The actual label for the point however is $\text{SGN}({\vec{\theta}}^T\vec{x}_t)$.\\
+
+The algorithm maintains an estimate of the classifer as follows:
+
+\begin{equation}
+\label{eq:selec}
+\hat{\vec{\theta}} \defeq (I + S_{t-1}S_{t-1}^T + \vec{x}_t \vec{x}_t ^T)^{-1} S_{t-1} \vec{Y}_{t-1}
+\end{equation}
+
+where:
+
+\begin{itemize}
+\item $N_{t-1}$ is the number of points seen so for on which queries were made.
+\item $S_{t-1} = \left[\vec{x}_1', \vec{x}_2' \hdots \vec{x}_{N_{t-1}'} \right] \in \mathbb{R}^{k \times N_{t-1}}$ is  a matrix containing the points on which observations were made.
+\item $\vec{Y}_{t-1} \in \mathbb{R}^{N_{t-1} \times 1}$ is a vector containing the teacher's answers to  the queries made until now.
+\end{itemize}
+
+
+For the sake of simplicity, we will define $A_t \defeq (I + S_{t-1}S_{t-1}^T + \vec{x}_t \vec{x}_t ^T)$
+We will have to define a few more terms which will be used in the conditions that will be checked for querying. 
+
+\begin{equation}
+\begin{array}{rcl}
+B_t &=& {\vec{\theta}_E}^T (I + \vec{x}_t \vec{x}_t^T)A_t^{-1}\vec{x_t} \\
+r_t &=& \vec{x}_t^T A_t^{-1} \vec{x}_t \\
+\vec{q}_t &=& S_{t-1}^T A_{t}^{-1} \vec{x}_t \\
+s_t &=& || A_t^{-1} \vec{x}_t||_2 \\ 
+\end{array}
+\end{equation}
+
+In the above equations note that $B_t$ is an `unknown' variable dependent on the true classifier's value. 
+
+In Equation \eqref{eq:selec}, observe that $\hat{\vec{\theta}}_t$ is a random variable dependent on the noise of the teacher. Thus, what is the expectation of $\hat{\vec{\theta}}_t ^T \vec{x_t}$? This forms the crux of the algorithm. 
+\begin{equation}
+\begin{array}{rcl}
+\mathbb{E}[\hat{\vec{\theta}}_t^T\vec{x}_t)] &=& \mathbb{E}[\hat{\vec{\theta}}_t ^T]\vec{x}_t \\
+&=& \mathbb{E}[((I + S_{t-1}S_{t-1}^T + \vec{x}_t \vec{x}_t ^T)^{-1} S_{t-1} \vec{Y}_{t-1})^T]\vec{x}_t \\
+&=& \mathbb{E}[\vec{Y}_{t-1}^T S_{t-1}^T \left((I + S_{t-1}S_{t-1}^T + \vec{x}_t \vec{x}_t ^T)^{-1} \right)^T ]\vec{x}_t \\
+&=& \mathbb{E}[\vec{Y}_{t-1}^T ] S_{t-1}^T (I + S_{t-1}S_{t-1}^T + \vec{x}_t \vec{x}_t ^T)^{-1} \vec{x}_t \\
+&=& {\vec{\theta}_E}^T S_{t-1}S_{t-1}^T (I + S_{t-1}S_{t-1}^T + \vec{x}_t \vec{x}_t ^T)^{-1} \vec{x}_t \\
+&=& {\vec{\theta}*}^T \vec{x}_t - \vec{\theta}^T(I + \vec{x}_t ^T \vec{x}_t)(I + S_{t-1}S_{t-1}^T + \vec{x}_t \vec{x}_t ^T)^{-1} \vec{x}_t\\
+&=& {\vec{\theta}_E}^T \vec{x}_t - B_t
+\end{array}
+\end{equation} 
+
+Thus, $B_t$ is an unknown value that denotes the \textit{bias} in our estimate of the point's label. We can however have upper bounds on the value of $B_t$ through the following inequalities:
+\begin{equation}
+\begin{array}{rcl}
+|B_t| &\leq & r_t + s_t \\
+s_t &\leq & \sqrt{r_t}
+\end{array}
+\end{equation} 
+
+Now we will also need a concentration bound on the probability that $\hat{\vec{\theta}}_t^T\vec{x}_t$ is too far away from its expected value.
+
+\begin{equation}
+Pr\left(|\hat{\vec{\theta}}_t^T\vec{x}_t + B_t - {\vec{\theta}_E}^T\vec{x}_t| \geq \epsilon \right) \leq 2\exp \left( -\frac{\epsilon^2}{2 ||\vec{q}_t||_2^2}\right)
+\end{equation}
+
+Thus we can need to consider the upperbound on $B_t$ while accounting for the error in our prediction. The algorithm is given below. 
+
+  
+\begin{algorithm}[H]
+\caption{Selective sampling algorithm}
+\label{alg:selectsampler}
+\begin{algorithmic}
+\Require {Problem $P = (\mathcal{X}, \mathcal{Y},\mathcal{Z}, \mathcal{H}, \vec{\theta^*}), \epsilon, \delta$}
+	\State $\vec{\theta} = \vec{0}$
+	
+    \For{$t=1,2,\hdots$}
+		\State Environment picks $\vec{x}_t \in \mathcal{X}$
+		\If{$\left[\epsilon - r_t - s_T\right]_{+} \leq ||\vec{q}_t||_2 \sqrt{2\ln\left( \frac{t(t+1)}{\delta} \right)}$} 
+			\State Learner outputs $\perp$
+			\State Environment produces observation $y_t$ such that $\mathbb{E}[y_t] = \vec{\theta_E}^T \vec{x}_t$
+			\State Update $\hat{\vec{\theta}}_t$ using Equation \eqref{eq:selec}
+		\Else
+			\State Predict $\text{SGN} (\hat{\vec{\theta}}_t^T \vec{x}_t)$
+		\EndIf
+    \EndFor
+\end{algorithmic}
+\end{algorithm}
+
+
+Apart from making strong assumptions about the noise, the algorithm also makes \textbf{unbounded number of queries} in any run of the algorithm. The authors prove that after $T$ steps of the algorithm, the number of queries that would have been issued is:
+\begin{equation}
+\mathcal{O}\left( \frac{k}{\epsilon^2} \left(\ln \frac{T}{\delta}\right) \ln \frac{\ln (T/\delta)}{\epsilon}\right)
+\end{equation}
+
+The advantage that this algorithm however provides over the KWIK linear regression (\ref{alg:linreg}) is that the sample complexity varies with the dimensionality $k$ as $\tilde{\mathcal{O}}(k/\epsilon^2)$
+
+
+
+
+\section{Inverse Reinforcement Learning}
+\label{irlsection}
+In the following section, we briefly discuss a few algorithms for inverse reinforcement learning. The aim of this discussion is to familiarize the reader with the standard approaches to solving the IRL problem. Following this section, we will survey literature on the active learning approaches to IRL, and also imitation learning in general.
+
+
+
+\subsection{Characterization of the Solution Set}
+ \citet{Ng:2000:AIR:645529.657801} derive the necessary and sufficient condition on the reward function $R: \mathcal{S} \to \mathbb{R}$ (now represented as $\vec{R} \in \mathbb{R}^{|\mathcal{S}|}$) for which a given policy $\pi$ will be optimal. The analysis can be extended to rewards define on the space $\mathcal{S} \times \mathcal{A}$ which we do not present here. The reader must be careful not to confuse the below discussion with the case where rewards are define for each state-action pair.
+ 
+ \begin{thm}
+ If $\vec{R} \in \mathbb{R}^{|\mathcal{S}|}$  the vector of rewards over the states in $\mathcal{S}$, and if $\vec{T}_{\pi}$ represents the transition matrix for any policy $\pi$, then for some $\pi$ to be optimal, we require that $\forall \pi \neq \pi(s)$:
+ \begin{equation}
+ (\vec{T}_{\pi}- \vec{T}_{\pi'})(\vec{I} - \gamma \vec{T}_{\pi})^{-1}\vec{R}  \succcurlyeq 0
+ \end{equation}
+ \end{thm}
+ 
+ 
+The above theorem can be proved by making use of the following expression for the value functions:
+
+\begin{equation}
+\vec{V}^{\pi} = (\vec{I} -  \gamma\vec{T}_{\pi})^{-1}\vec{R}
+\end{equation}
+
+and by using the fact that $\forall \pi' \neq \pi$:
+
+\begin{equation}
+\vec{T}_{\pi}\vec{V}^{\pi} \succcurlyeq \vec{T}_{\pi'}\vec{V}^{\pi} 
+\end{equation}
+
+\subsection{Problem of Multiple Optimal Solutions}
+Recollect that in Section \ref{sec:multiple_solutions}, we saw that the IRL problem can have multiple solutions. For example, here $\vec{R} = \vec{0}$ belongs to the solution set of every problem! Thus, the solution set characterized as above may not necessarily be a singleton set. 
+ \citet{Ng:2000:AIR:645529.657801} describe constraints that can be considered in order to shrink the above solution set to a single reward vector. 
+ 
+ One natural constraint would be to necessitate that the rewards result in a unique optimal policy. This will certainly eliminate $\vec{R} = \vec{0}$ as candidates. This might still not save us from multiple solutions. Another way to address this would be to ask for solutions that make any perturbation of the corresponding policy very bad. If $\pi$ is the policy learned on $\vec{R}$, this requirement  can be translated to maximizing:
+ \[
+ \sum_{s \in \mathcal{S}} \left( Q^{\pi}(s, \pi(s)) - \max\limits_{a \in \mathcal{A}, a\neq \pi(s)} Q^{\pi}(s,a) \right)
+ \] 
+
+Another constraint that they discuss is adding a penalty of $\lambda ||\vec{R}||_1$ to the above objective which will help us regularize the solution. Thus, they pose the IRL problem as an optimization problem:
+
+\begin{equation}
+\begin{array}{rll}
+\text{maximize} & \displaystyle\sum\limits_{s \in \mathcal{S}} \min\limits_{a \in \mathcal{A}, a \neq \pi(s)} (\vec{T}^{s}_{\pi}- \vec{T}^{s}_{a})(\vec{I} - \gamma \vec{T}_{\pi})^{-1}\vec{R}  - \lambda ||\vec{R}||_1 &\\
+\text{s.t.} &  (\vec{T}_{\pi}- \vec{T}_{\pi'})(\vec{I} - \gamma \vec{T}_{\pi})^{-1}\vec{R}  \succcurlyeq 0 & \forall \pi' \neq \pi \\
+& ||\vec{R}||_{\infty} \leq R_{max}
+\end{array}
+\end{equation}
+
+
+\subsection{Inverse Reinforcement Learning with Parametrized Rewards}
+
+
+
+ In Section \ref{sec:generalization}, recall that we discussed how parametrizing the reward functions helps us in generalizing. We also formally presented this notion in Section \ref{sec:formal_generalization}. 
+ 
+% \citet{Ng:2000:AIR:645529.657801} consider this setup and provide a linear programming formulation similar to that in the previous section:
+% 
+%\begin{equation}
+%\begin{array}{rll}
+%\text{maximize} & \sum\limits_{i=1}^{k} p\left( \hat{V}^{\pi_E}  - \hat{V}^{\pi} \right) &\\
+%\text{s.t.} & |\alpha_i| \leq 1 & i = 1,2, \hdots d
+%\end{array}
+%\end{equation} 
+ 
+ 
+ Under the assumption that $\Phi_R$ is provided in the MDP model, \citet{Abbeel:2004:ALV:1015330.1015430} infer $\hat{\vec{\theta}}$ (the weight parameter for the rewards) that results in \textbf{feature expectations} close to that demonstrated by the expert. 
+
+To understand this, first note that every parameter setting $\hat{\vec{\theta}}$ (where we assume that $||\hat{\vec{\theta}}||_2 \leq 1$), corresponds to some policy $\pi(\hat{\vec{\theta}})$ computed to be optimal on the rewards $\hat{\vec{\theta}}^T R(s,a)$, $\forall (s,a) \in \mathcal{S} \times \mathcal{A}$. Next, every policy $\pi(\hat{\vec{\theta}})$ corresponds to what is called a feature expectation vector:
+\begin{equation}
+\vec{\mu}_{\pi(\vec{\theta})} =\mathbb{E}_{\pi}[\sum_{t=0}^{\infty} \gamma^t \Phi_R(s_t,a_t)] \in \mathbb{R}^k
+\end{equation}
+
+Hence, every $\hat{\vec{\theta}}$ corresponds to some feature expectation vector. The feature expectation vector can be seen as the expected discounted value of the policy across each dimension of the parametrized representation of the rewards.  One must also relate this term to the \textit{true}  value of a policy: 
+\begin{equation}
+ \vec{\theta}_E ^T \vec{\mu}_{\pi(\hat{\vec{\theta}})} = \mathbb{E}_{\pi(\hat{\vec{\theta}})}\left[V_{\pi(\vec{\theta}_E)}(s)\right]
+\end{equation}
+Note that throughout the discussion we will use the qualifier \textit{true} to indicate that the quantity being referred to is the expert's.  We call a parameter setting $\hat{\vec{\theta}}$  to be $\epsilon-$optimal when:
+\begin{equation}
+\mathbb{E}_{\pi({\vec{\theta}_E})}\left[V_{\pi(\vec{\theta}_E)}(s)\right]  - \mathbb{E}_{\pi(\hat{\vec{\theta}})}\left[V_{\pi(\vec{\theta}_E)}(s)\right] \leq \epsilon
+\end{equation}
+
+
+The objective of \citet{Abbeel:2004:ALV:1015330.1015430}  is to find $\hat{\vec{\theta}}$ such that the resultant policy is $\epsilon$-optimal with respect to the true parameter $\vec{\theta}_E$. This is done by ensuring that the corresponding feature expectation is $\epsilon-$approximate to the empirical feature expectation as seen from the demonstrations $\hat{\vec{\mu}}$. That is:
+
+\begin{equation}
+|| \mu_{\pi(\hat{\vec{\theta}})}  - \mu_{\pi(\vec{\theta}_E)} ||_2 \leq \epsilon
+\end{equation}
+
+We use $\hat{\vec{\mu}}$ as an empirical estimate of $\mu_{\pi(\vec{\theta}_E)}$. If sufficient demonstrations are seen, one can know with high probability the error in this estimate and hence can appropriately adjust the analysis to account for this error.
+
+What the above results in is that, \textit{whatever be the true parameter $\vec{\theta}_E$}, the policy optimal on the inferred $\hat{\vec{\theta}}$ is $\epsilon$-optimal with respect to $\vec{\theta}_E$. This is evident from the following: 
+
+\begin{equation}
+\begin{array}{rcl}
+|\mathbb{E}_{\pi(\hat{\vec{\theta})}}[V_{\pi({\vec{\theta}_E)}}(s)] - \mathbb{E}_{\pi({\vec{\theta}_E)}}[V_{\pi({\vec{\theta}_E)}}(s)] &=& | \vec{\theta}_E^T \mu_{\pi(\hat{\vec{\theta}})} - \vec{\theta}_E^T \mu_{\pi(\vec{\theta}_E)} |\\
+&\leq& || \vec{\theta}_E ||_2 || \mu_{\pi(\hat{\vec{\theta}})}  - \mu_{\pi(\vec{\theta}_E)} ||_2\\
+&\leq& 1 \cdot \epsilon = \epsilon
+\end{array}
+\end{equation}
+
+The algorithm is summarized below. 
+
+\begin{algorithm}[H]
+\caption{Apprenticeship Learning via Inverse Reinforcement Learning}
+\begin{algorithmic}
+\Require {Empirical estimate of expert feature expections $\hat{\vec{\mu}}$}
+	\State $\pi_0 \gets $ Randomly initialized policy
+	\State Candidate policy pool $\Pi \gets \left\lbrace \pi_0 \right\rbrace$ 
+    \For{$i=1,2,\hdots$}
+		\State $t_i \gets \max_{\vec{\theta}: || \vec{\theta}||_2 \leq 1} \min_{\pi \in \Pi} \vec{\theta}^T (\hat{\vec{\mu}} - \vec{\mu}_{\pi})$
+		\State $\vec{\theta}_i \gets \vec{\theta} $ that corresponds to the above maximum 
+		\State Break if $t_i \leq \epsilon$
+		\State Compute $\pi_{i}$ optimal on ${\vec{\theta}_{i}}$ 
+		\State $\Pi \gets \Pi \cup \left\lbrace \pi_i \right\rbrace$ 
+    \EndFor
+\end{algorithmic}
+\end{algorithm}
+
+The algorithm returns a pool of policies such that for every setting of $\vec{\theta}_E$, some policy in the pool has an $\epsilon-$accurate feature expectation. Beyond this, \citet{Abbeel:2004:ALV:1015330.1015430} provide ways to either manually select our `favorite' policy from the pool or automatically aggregate these. 
+
+The authors provide theoretical results for the sample complexity and the time complexity of the algorithm. The sample complexity which is of interest to us is:
+\begin{equation}
+\frac{2k}{(\epsilon(1-\gamma))^2}\ln \left(\frac{2k}{\delta}\right)
+\end{equation}
+Though the algorithm requires only $k \ln k$ samples where $k$ is the dimensionality of the state representation, the solution does not consider active learning approach which is the main motivation of our work. 
+
+
+\subsection{Bayesian Inverse Reinforcement Learning}
+\label{sec:bayesian}
+While the above algorithms look for a point solution to an optimization problem that models IRL, \citet{Ramachandran:2007:BIR:1625275.1625692} consider a bayesian approach to the problem i.e., 	can we provide a probability distribution over all possible solutions such that the distribution denotes how likely the point is the true solution? 
+
+The motivation behind Bayesian IRL is firstly the fact that a single solution to IRL is not possible without artificial constraints - which arises from a lack of information. A probability distribution over all possible solutions would hence be of interest to us. 
+
+Furthermore, in the bayesian setup, since we work with a \textbf{\textit{posterior distribution}} (the final distribution over the solution space) that is derived
+ from a \textbf{\textit{prior}} (the belief over the solution space with know information) and the \textit{\textbf{likelihood} }(the expert demonstrations), we are now in a position to include \textit{\textbf{prior domain knowledge}} about the system. 
+ 
+For a specific setting of rewards $\vec{R} \in \mathbb{R}^{|\mathcal{S} \times \mathcal{A}|}$, the \textbf{likelihood} of the demonstrations \[\mathcal{D} = \left\lbrace (s_1,a_1)  ,  (s_2,a_2), \hdots (s_N, a_N) \right\rbrace\] which can be decomposed into state-action pairs (under the assumption that the policy is stationary) is expressed as:
+
+\begin{equation}
+Pr(\mathcal{D} | \vec{R}) = \displaystyle\prod_{(s,a) \in \mathcal{D}} Pr( (s,a) | \vec{R})
+\end{equation}
+
+Now, $\forall$ $(s,a) \in \mathcal{S} \times \mathcal{A}$, we can assume a dependence of $Pr( (s,a) | \vec{R})$ on $Q^{\pi(\vec{R})}_{M}(s,a)$ where $\pi(\vec{R})$ is understood be the optimal policy on $\vec{R}$.  Finally,  we are interested in the following term:
+
+\begin{equation}
+Pr(\vec{R} | \mathcal{D}) = \frac{Pr(\mathcal{D}| \vec{R}) Pr(\vec{R})}{Pr(\mathcal{D})}
+\end{equation}
+
+\subsection{Maximum Entropy Inverse Reinforcement Learning}
+When sub-optimal behaviour is demonstrated by the expert, many different distributions of policy match the feature expectation estimates that are discussed in \citet{Abbeel:2004:ALV:1015330.1015430}. Which distribution over the policies is the \textit{best}? To determine this, \citet{Ziebart:2008:MEI:1620270.1620297} employ the principle of maximum entropy. 
+
+\citet{Ziebart:2008:MEI:1620270.1620297} assume a parametrization of the distribution over the \textit{paths} from which the demonstrations have been produced. This parametrization is such that paths with equal returns are given equal probabilities and paths with greater returns are given exponentially greater probabilities. The IRL problem now boils down to determining rewards that produces a distribution over the different paths which maximizes the likelihood of the demonstrations. The technical details of this work is beyond the scope of this thesis. \\
+
+
+\section{Active Imitation Learning}
+
+In the following section, we will provide a complete survey of the literature on active learning for imitation learning. Recall that imitation learning as such can be approached in two different ways: the \textit{model-free} `supervised learning' approach and the \textit{model-based} inverse reinforcement learning approach. We will see that heuristics have been proposed to solve either of these problems. However, theoretical analyses have been provided only for active learning in the model-free classification based approach. There has been no formal theoretical understanding on \textit{active online algorithms} for IRL. Parallel to the discussion of the works related to our contribution, we will also discuss how our contribution differs from earlier work. Thus, the reader is strongly advised to appreciate.\\
+
+
+
+
+\subsection{Active Model-free Imitation Learning}
+\label{sec:judah_active}
+Recall that in model free learning the learning agent simply tries to label states with actions based using \textit{supervised} by the expert's demonstrations. The approach is that a multi-label classifier examines input which are state-action pairs from the demonstrations, and then generalizes this mapping across all states. This classifier could possibly a PAC classifier which provides an $(\epsilon,\delta)-$guarantee. 
+
+The traditional approach to model-free imitation learning as discussed by \citet{DBLP:conf/nips/SyedS10} would be to learn a classifier over the distribution $d_{\pi_E}$. A PAC learner would provide a learned policy $\hat{\pi}$ the guarantee that with high probability $1-\delta$, when a state is picked according to $d_{\pi_E}$, the probability of executing the wrong action is less than $\epsilon$. However, the learning agent will be following the policy $\hat{\pi}$ which it learned. Thus, the error it will be committing while executing it going to be the probability of executing a wrong action given that the state is picked from $d_{\hat{\pi}}$. It can be shown that this discrepancy between the \textit{training} distribution - the stationary distribution of $\pi_E$ - and the \textit{testing} distribution - the stationary distribution of the learning agent- results in a mistake of $T\epsilon^2$, where $T$ is the episode length. 
+
+\citet{DBLP:journals/jmlr/RossB10} propose the \textit{forward training algorithm}  (Algorithm $\ref{alg:forwardtraining}$) to address this issue.  In the forward training algorithm, which is a passive imitation learning algorithm,  a passive learner learns iteratively from the distribution over states that is generated by the currently learned by the policy. Remember that a passive learner requires the distribution to give $(\epsilon,\delta)-$PAC guarantees. Thus, the algorithm learns a non-stationary policy. \footnote{A non-stationary policy is one which follows policy $\pi_t$ at timestep $t$.} For timestep $t$, the forward training algorithm iteratively learns $\pi_t$ from the state distribution induced by $\pi_{t-1}$ with $t$ increasing from $1$ uptil $T$. 
+
+The authors show that the worst case guarantees for this algorithm is still the same as the traditional appraoch i.e., $T^2\epsilon$.  However there are conditions where practically this algorithm outdoes the naive approach. \\
+
+\begin{algorithm}[H]
+\caption{Forward Training Algorithm}
+\label{alg:forwardtraining}
+\begin{algorithmic}
+\Require {MDP $M$}
+\State Initialize $\pi_1^0, \hdots \pi_{T}^0$
+\For{$t$ in $0 \hdots T$}
+	\State Sample many T-step trajectories using $\pi_1^t, \pi_2^t \hdots \pi_T^t$
+	\State Generate $\mathcal{D} = {(s_i, \pi_E(s_i))}$, the state action pairs seen at timestep $i$ in all the trajectories
+	\State Train classifier on $\mathcal{D}$ to produce $\pi_{i}^{i}$
+	\State $\forall j \neq i$, $\pi_j^i = \pi_j^{i-1}$
+\EndFor
+
+\Return{$\pi_1^T, \hdots \pi_{T}^T$}
+\end{algorithmic}
+\end{algorithm}
+
+
+\citet{DBLP:journals/corr/abs-1210-4876} study the problem of active learning for model-free imitation learning. While a  passive learner is dependent on the distribution in that it needs to optimize its performance with respect to the distribution, the active learner is dependent on the distribution also for the fact that it can optimize its active queries intelligently. For this reason, the authors show that using an active learner in place of a passive learning in the conventional approach of \citet{DBLP:conf/nips/SyedS10} does not help the purpose as it results in making many queries to mimic the expert's distribution for each $t$. On the other hand, if we were to follow the forward training approach to depend on the distribution induced by the policy learned so far  we will save a number of queries. Thus, \citet{DBLP:journals/corr/abs-1210-4876} show that the learner in the forward training algorithm can simply be replaced by an active learner. The active forward training algorithm is given by 
+\begin{equation}
+\hat{\pi}_t = L_a(\epsilon,\frac{\delta}{T},d^t_{\hat{\pi}_{t-1}})
+\end{equation}
+
+where $L_a$ is an active learner. 
+
+
+Our work is motivated here by the fact that this algorithm applies to model-free imitation learning and is also not considered in an \textit{interactive} \textit{online} framework. 
+
+
+
+\subsubsection{Bad State Responses}
+\label{sec:bad_state}
+\citet{judah2011active} study a modified active learning model for the model-free imitation learning problem. Here, the teacher can inform the learner whether its active query is `useless'. A query is termed useless if it is a query on a state that is never \textit{realized}. The authors cite an example: when the agent is learning to fly a helicopter, it is not meaningful to query on the state of an unrecoverable fall. The expert advice in fact might be poor in such states. Or, the advice might be too complicated to imitate and hence we will be attempting to learn something difficult for no purpose. 
+The authors propose that Bayesian active learning can be used to solve the problem from here. The advantage that these bad state responses gives is that according to the teacher \textit{any} policy that it may follow these states correspond to the \textit{same} answer (`bad'). Thus, if the learner detects that a certain state when queried will correspond to the same answer regardless of the policy of the teacher, the learner will avoid querying on this state. \\
+
+
+\subsubsection{Interactive Policy Learning through Confidence-Based Autonomy}
+\label{sec:interactive}
+Closest to our goal of actively querying for demonstrations depending on the agent's \textit{confidence} about its inference, is the work of  \citet{Chernova:2009:IPL:1622716.1622717} and \citet{Chernova:2007:CPL:1329125.1329407}, who have explored learning from demonstrations as an \textit{\textbf{interactive policy learning}} process where the agent takes autonomous decisions based on its confidence and depends on expert advice when it determines that its confidence is insufficient. 
+
+\citet{Chernova:2007:CPL:1329125.1329407} use a set of Gaussian Mixture Models that help the agent model the uncertainty in the demonstrations seen so far. The GMM set provides a means for statistically analysing uncertainty and quantifying confidence.  \citet{Chernova:2009:IPL:1622716.1622717} introduce the idea of occasionally getting teacher's \textit{corrective} advice.  Thus the process of learning consists of two parts: \textit{confidence execution} and \textit{corrective demonstration}. In the former, the agent executes an action if it is confident that it is able to draw well from experience. Otherwise, the agent requests for expert help. In the latter, the teacher can \textit{voluntarily} improve the policy learned by the agent through a demonstration. 
+
+Also very similar to this work on interactive policy learning is the dogged learning framework for robots \citet{DBLP:conf/icra/GrollmanJ07} which also provides a protocol for teacher intervention and selectively executing policy autonomously. It has to be noted that these works pertain only to the \textbf{model-free} class of imitation learning algorithms that use a classifier to learn state-action mappings. Thus, the algorithm does not utilize the complete power of generalization in the form of rewards. The only kind of generalization that occurs is by drawing information from state-action pairs that have very similar features. \\
+
+As part of the confidence execution algorithm (refer Algorithm \ref{alg:confidence_autonomy}),  two different situations  force the learner to ask for help. First, the learner could have reached a completely \textit{unfamiliar} state. Second, the learner could have reached a state where its own knowledge is \textit{ambiguous}. \citet{Chernova:2009:IPL:1622716.1622717} also provide heuristics that help evaluate this ambiguity and unfamiliarity. These techniques involve examining the distance and labels of  nearest neighbors of the point . The heuristics provided maintain a parameter called $\tau_{dist}$ and $\tau{conf}$ for determining when a state is highly unfamiliar and when there is little confidence in the state's label due to overlap of labels.
+
+The corrective demonstration component of the algorithm is provided because of the concern that the classifier might \textit{over-generalize} and \textit{over-confidently} execute. Thus, mistakes are bound to happen which need to be corrected. They authors therefore provide a framework wherein the teacher can intervene and correct these mistakes. While here the \textbf{onus is on the teacher to correct mistakes}, what we aim in our work is a framework where the learner is more self-aware in that it never makes mistakes and hence the teacher no longer has to intervene voluntarily. If at all the does go wrong, we would like to make sure that these mistakes are bounded. However, we have not explored this relaxation yet. \\
+
+
+\begin{algorithm}[H]
+\caption{ Confidence-Based Autonomy algorithm: Confident Execution and Corrective
+Demonstration}
+\label{alg:confidence_autonomy}
+\begin{algorithmic}
+\Require {Environment, Teacher, Learner, Classifier $\mathcal{C}$}
+\State $\tau_{conf} \gets \infty$
+\State $\tau_{dist} \gets 0$
+\While{True}
+	\State $s \gets$ Current State
+	\State $d \gets$ Distance threshold of $s$
+	\State $c \gets$ Confidence threshold of $s$
+	\State $a \gets \mathcal{C}(s)$
+	\If{$c > \tau_{conf}$ and $d < \tau_{dist}$}
+		\State Execute $a$
+	
+	\Else
+		\State $a \gets $ Demonstration from Teacher
+		\State Update $\mathcal{C}$ with $(s,a)$
+		\State Update $\tau_{dist}, \tau_{conf}$
+		\State Execute $a$
+	\EndIf
+\EndWhile
+\end{algorithmic}
+\end{algorithm}
+
+ 
+
+\subsection{Active Inverse Reinforcement Learning}
+
+\subsubsection{Active LfD for Robust Autonomous Navigation}
+\label{sec:navigation}
+\citet{DBLP:conf/icra/SilverBS12} study the problem of active learning from demonstrations for the special case of navigation where we have a notion of a start and goal states. 
+The authors study both model-free and model-based approaches to this problem. In the model-based approach they consider the setup where each state-action pair is assigned a \textbf{\textit{cost}} that is parametrized. What is assumed here is that these cost parametrizations somehow encapsulate the structure of the MDP. Recall that this cost parametrization is essentially $\vec{\Phi}_Q$. \\
+
+The way this work looks at two different factors that have to be considered for querying on a state. These factors which they call as \textit{novelty} and \textit{uncertainty} are equivalent to  
+\textit{unfamiliar} and \textit{ambiguous} knowledge that are discussed in  \citet{Chernova:2009:IPL:1622716.1622717}. To query for knowledge that is novel, the authors propose that we must ask the expert for a demonstration from a start state to a goal state that are chosen in such a way that the path between these two traverses through unseen states when tread according to the current cost hypothesis. Every time a query is made, the cost hypothesis is understood to be updated. 
+
+To query for reducing uncertainty in the knowledge, we assume that the uncertainty can be first of all modelled. Once it is modelled, we could ask for demonstrations between start and goal states chosen such that the plan according to the current cost hypothesis passes through uncertain states. Alternatively, we could choose these states in such a way that the plan under the current hypothesis is the most variant under the uncertainty in the costs. 
+
+While the authors provide interesting heuristics to tackle the problem of active learning for cost-based approaches, the work lacks explicit guarantees specific to a given MDP problem - which is what we aim at in our work. 
+
+\subsubsection{Active Learning in Bayesian Inverse Reinforcement Learning}
+\label{sec:active_bayesian}
+In contrast to most other work in active learning for learning from demonstrations, \citet{Lopes:2009:ALR:1617459.1617463} explicitly deal with inverse reinforcement learning; the authors propose heuristics to make queries to the expert for demonstrations on arbitrary state and update its inference about the rewards. 
+
+Their idea is anchored on bayesian IRL algorithms. We have seen in Section \ref{sec:bayesian} that Bayesian IRL algorithms provide posterior distributions over the reward functions based on the set of demonstrations. \citet{Lopes:2009:ALR:1617459.1617463} use this effectively to evaluate the need for querying on a state. We might be tempted to state that we must query on the state where the distribution over the rewards is not `concentrated' (has high entropy). However, this is not a strong notion as it is the learned policy that eventually matters to us from a given reward setting; two very different reward setting could still lead to  the same policy. Thus, the authors state that the state with the most entropy over the action to be chosen with respect to the posterior reward distribution is the state that has to be queried on. \\
+
+
+\begin{algorithm}[H]
+\caption{ Active Inverse Reinforcement Learning Protocol}
+\label{alg:active_irl}
+\begin{algorithmic}
+\Require {Prior demonstration $\mathcal{D}$}
+\While{True}
+\State Estimate posterior $Pr(\vec{R}| \mathcal{D})$
+\For{$s$ in $\mathcal{S}$}
+	\State Compute $\hat{H}(s)$, the entropy over the policy at $s$
+\EndFor
+\State Query expert for action at $s^* = \arg \max_{s} \hat{H}(s)$
+\State Expert returns $a^*$
+\State $\mathcal{D} = \mathcal{D} \cup \left\lbrace(s^*,a^*)\right\rbrace$ 
+\EndWhile
+\end{algorithmic}
+\end{algorithm}
+
+Our work however differs on various aspects from the above protocol. First, we do not make the assumption that the learner can query on any state. Many of the states may not be realizable at all. We make a stricter assumption that we can query the expert only on the state that we are currently in.
+
+ Next, we provide a lot of autonomy to the learner in that the learner can decide to execute an action on its own. However, the work that we described above makes many offline queries which are not thoroughly guaranteed to be \textit{useful} queries. The usefulness of a query can be evaluated in two ways. First, the learner might end up querying on states where  the entropy over the policy at a state underestimates the confidence of the current policy on the state. Thus, though we actually know what to do, we think we do not know what to do, and hence make a query! This is the prime factor that KWIK provides us.
+ 
+ Secondly, even if the high entropy at a state matches a low level of confidence at the state, learning a demonstration at the state may not help us learn anything much for the remaining part of the state space.  The state we queried on might be an unrealizable state that is far different from all the other states that we are not able to generalize further. These issues have not been considered in their work. \\
+
+
+
+\subsection{Generalization in Apprenticeship Learning}
+In this section we summarize how various works have approached the problem of generalization in imitation learning differently. We have already seen that \citet{Chernova:2009:IPL:1622716.1622717} and \citet{Chernova:2007:CPL:1329125.1329407} use ideas from classification algorithms that take care of generalizing and also evaluating the generalization for model-free algorithms. \citet{DBLP:journals/corr/abs-1210-4876} use the active PAC-learner routine which abstracts away the process of generalization and in turn provides $(\epsilon, \delta)-$guarantees. 
+
+We must note that the generalization inherent in the model-free approach to IRL is poorer when compared to that inherent to IRL algorithms because the MDP structure is made  use of in IRL algorithms.  However, IRL methods do not explicitly generalize - the parametrization encapsulates the process of generalization across unseen states neatly.  However, it is essential to understand this better in order to give theoretical guarantees for these algorithms. It is this lack of understanding that prevents us from bounding the number of queries that the active learner asks in \citet{Lopes:2009:ALR:1617459.1617463}. \\
+
+
+\citet{DBLP:conf/icra/BoulariasC10} consider the IRL problem under the constraint that the trajectories provided span a small part of the subspace. The authors first assume that the learner constructs a partial policy covering a small part of the MDP seen by the expert trajectories. Next, this policy is somehow generalized across the whole state space. While this can be the final policy that we want, we could also use this policy to generate more trajectories and perform an IRL algorithm. 
+
+In order to \textit{transfer} the expert's policy (that covers the demonstrated space) to the undemonstrated space, the authors use a technique called as \textit{soft homomorphism} \citet{Sorg:2009:TVS:1558109.1558114}. Homomorphism between two MDPs is a way of modeling equivalences between the states of the MDPs. This formulation helps us to transfer a policy on one MDP to an equivalent policy in another MDP. However, conventionally homomorphism between two MDPs is computed using our knowledge about both the transition functions and the reward functions of the MDP. The authors here ignore the constraint on the reward functions to study the homomorphism between the MDP corresponding to the demonstrated space and the whole MDP. \\
+
+
+\citet{DBLP:conf/pkdd/MeloL10} consider a relatively simpler approach to generalization for model-free imitation learning that is based on kernels corresponding to a state space metric. (An example function for the kernel would be the bisimulation metric studied by \citet{DBLP:journals/corr/abs-1207-4114}.)
+The intuition behind the authors' algorithm is that experience for an unseen state is drawn from all states but is weighted according to the distance of the state. Based on this, the
+authors also suggest an active learning algorithm that queries on states based on the variance in the estimate of the generalized parameters. 
+
+
+
+
+\subsection{Generalizing Apprenticeship Learning across Hypothesis Classes}
+\label{sec:walsh}
+It is necessary to cite the work of \citet{DBLP:conf/icml/WalshSLD10} which might be confused to be overlapping with our contribution to KWIK-learning for inverse reinforcement learning. The authors in this work design a protocol for a learning agent to be assisted by the teacher. The teacher also provides $\epsilon-$optimal traces to guide the learner. They define formally an appropriate model for  apprenticeship learning model and link it to KWIK and Mistake Bound. 
+
+The work however is very different from our goal as they do not deal with an inverse reinforcement learning agent. The agent has access to the rewards themselves and instead is enriched with information about the teacher's policy. Despite access to rewards, the authors call it apprenticeship learning possibly because the learner gains demonstrations from the teacher. 
+
+ In fact the authors themselves state explicitly in their work that their scenario is different from inverse reinforcement learning studied by \citet{Abbeel:2004:ALV:1015330.1015430} where the reward function is deduced from trajectories. However, the authors here deal with an agent which can observe the actual rewards and transitions induced by the teacher's policy and learns to maximize this known reward.

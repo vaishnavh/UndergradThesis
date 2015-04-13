@@ -1,0 +1,273 @@
+
+\documentclass[BTech,thesis]{iitmdiss}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{color}
+\usepackage[dvipsnames,usenames]{xcolor}
+\usepackage{etex}
+
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb} % easier math formulae, align, subequation
+\usepackage{fullpage}
+\usepackage{bm}
+\usepackage{t1enc}
+\usepackage{epstopdf}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{bold-extra}
+\usepackage{color}
+\usepackage{multicol}
+\usepackage{caption}
+\usepackage{subcaption}
+
+\usepackage{todonotes}
+
+\usepackage[all]{hypcap}
+%\usepackage{complexity}
+%\usepackage[named]{algo}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{mathtools}
+
+\renewcommand{\vec}[1]{\bm{\mathbf{#1}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\newtheorem{thm}{Theorem}
+\newtheorem{assumption}{Assumption}
+\newtheorem{problem}{Problem}
+\newtheorem{corr}{Corollary}
+\newtheorem{lemma}{Lemma}
+\newtheorem{case}{Case}
+\newtheorem{rmrk}{Remark}
+\newtheorem{prp}{Proposition}
+\newtheorem{dfn}{Definition}
+\newtheorem{qn}{Question}
+\newtheorem{att}{Attempt}
+\newtheorem{ex}{Example}
+                   %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\qed}{\rule{7pt}{7pt}}
+\newenvironment{proof}{\noindent{\bf Proof}\hspace*{1em}}{\hfill\qed\bigskip}
+
+\captionsetup{labelfont=bf}
+
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+
+\hypersetup{
+    colorlinks=true, %set true if you want colored links
+    linktoc=all,     %set to all if you want both sections and subsections linked
+    linkcolor=violet,  %choose some color if you want links to stand out
+    citecolor=blue,
+    linkbordercolor=red,
+    pdftoolbar=true,
+    pdfmenubar=true
+}
+
+
+% Strut macros for skipping spaces above and below text in tables. 
+\def\abovestrut#1{\rule[0in]{0in}{#1}\ignorespaces}
+\def\belowstrut#1{\rule[-#1]{0in}{#1}\ignorespaces}
+\newcommand\defeq{\stackrel{\mathclap{\normalfont\mbox{\footnotesize def}}}{=}}
+
+\def\abovespace{\abovestrut{0.20in }}
+\def\aroundspace{\abovestrut{0.20in}\belowstrut{0.10in}}
+\def\belowspace{\belowstrut{0.10in}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%			AUTHOR DEFINED COMMANDS AND MACROS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newlength{\LPlhbox}
+\newcommand\problemfont[1]{{\scshape #1}}
+\newcommand\problemfontbold[1]{\large {\textbf{\textsc{#1}}}}
+
+
+\newcommand\segment[4]{
+\coordinate (#3) at (#1);
+\coordinate (#4) at (#2);
+\path (#3) edge[|-|] (#4);
+}
+
+\newcommand\lblsegment[5]{
+\coordinate (#3) at (#1);
+\coordinate (#4) at (#2);
+\path (#3) edge[|-|] node[above] {#5} (#4) ;
+}
+
+\newcommand\lblsegmenttwo[5]{
+\coordinate (#3) at (#1);
+\coordinate (#4) at (#2);
+\path (#3) edge[|-|] node[at start, above] {#5} (#4) ;
+}
+
+\newcommand\lblsegmentthree[5]{
+\coordinate (#3) at (#1);
+\coordinate (#4) at (#2);
+\path (#3) edge[|-|] node[left] {#5} (#4) ;
+}
+
+\newcommand\lblsegmentfour[5]{
+\coordinate (#3) at (#1);
+\coordinate (#4) at (#2);
+\path (#3) edge[|-|] node[right] {#5} (#4) ;
+}
+
+\newcommand\dashsegment[4]{
+\coordinate (#3) at (#1);
+\coordinate (#4) at (#2);
+\path (#3) edge[|-|,dashed] (#4);
+}
+
+\newcommand\lblsegmentdir[6]{
+\coordinate (#3) at (#1);
+\coordinate (#4) at (#2);
+\path (#3) edge[|-|] node[#6] {#5} (#4) ;
+}
+
+\newcommand\segmenttwo[4]{
+\coordinate (#3) at (#1);
+\coordinate (#4) at (#2);
+\path (#3) edge[-] (#4);
+}
+
+\newcommand\invsegment[4]{
+\coordinate (#3) at (#1);
+\coordinate (#4) at (#2);
+\path [opacity = 0] (#3) edge (#4);
+}
+
+\newsavebox{\tempbox}
+\newcommand{\cbox}[2]{%
+  \fcolorbox{black}{#1}{\texttt{#2\strut}}\kern-\fboxrule}% Coloured box
+  
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\setcounter{tocdepth}{4}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\def\thesistitle{A Knows-What-It-Knows Algorithm for Inverse Reinforcement Learning}
+\def\thesisauthor{Vaishnavh N CS11B026}
+
+\begin{document}
+%\bibliographystyle{plain}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Title page
+
+\title{\thesistitle}
+\author{\thesisauthor}
+\date{MAY 2015}
+\department{COMPUTER SCIENCE AND ENGINEERING}
+%\nocite{*}
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Certificate
+\certificate
+
+\vspace*{0.5in}
+
+\noindent This is to certify that the thesis titled {\bf {\thesistitle}}, submitted by {\bf {\thesisauthor}}, to the Indian Institute of Technology,
+Madras, for the award of the degree of {\bf Bachelors of Technology}, is a bonafide record of the research work done by him under my
+supervision. The contents of this thesis, in full or in parts, have not been submitted to any other Institute or University for the award of any
+degree or diploma.
+
+\vspace*{1in}
+\hspace*{-0.25in}
+\begin{singlespace}
+\noindent {\bf Dr. Balaraman Ravindran}\\
+\noindent Research Guide\\ 
+\noindent Associate Professor\\
+\noindent Dept. of Computer Science and Engineering\\
+\noindent IIT-Madras, 600 036 \\
+\end{singlespace}
+\vspace*{0.20in}
+\noindent Place: Chennai\\ 
+Date: May 2015
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Acknowledgements
+\acknowledgements
+
+\input{texs/acknowledgement.tex}
+
+\hfill Vaishnavh Nagarajan
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Abstract
+\input{texs/abstract.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Table of contents etc.
+
+\begin{singlespace}
+\tableofcontents
+\thispagestyle{empty}
+
+%\listoftables
+%\addcontentsline{toc}{chapter}{LIST OF TABLES}
+%\listoffigures
+
+%\addcontentsline{toc}{chapter}{LIST OF FIGURES}
+
+\listofalgorithms
+\addcontentsline{toc}{chapter}{LIST OF ALGORITHMS}
+
+\end{singlespace}
+
+
+\newpage
+\listoftodos
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Abbreviations
+\input{texs/abbreviations.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Notation
+\input{texs/notations.tex}
+
+\pagenumbering{arabic}
+\chapter{\centerline{INTRODUCTION}}
+\input{texs/introduction.tex}
+\chapter{\centerline{PRELIMINARIES}}
+\input{texs/preliminaries.tex}
+\chapter{\centerline{RELATED WORK}}
+\input{texs/related_work.tex}
+
+\chapter{\centerline{KWIK Inverse Reinforcement Learning}}
+\input{texs/kwik_irl.tex}
+
+\chapter{\centerline{FUTURE WORK}}
+\input{texs/future_work.tex}
+
+\chapter{\centerline{APPENDIX}}
+\input{texs/appendix.tex}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% List of papers
+
+\listofpapers
+
+\begin{enumerate}  
+  \item Vaishnavh Nagarajan and Balaraman Ravindran \newblock
+  "KWIK Inverse Reinforcement Learning", \newblock {\em
+  The 2nd Multidisciplinary Conference on Reinforcement Learning and Decision Making. (RLDM), 2015} (Accepted).
+\end{enumerate}
+
+
+	
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Bibliography.
+\pagebreak
+%\nocite{*}
+\begin{singlespace}
+  \begin{small}
+  	\bibliographystyle{iitm}
+	\bibliography{thesis}
+%	\bibliography{iccad}
+  \end{small}
+\end{singlespace}
+
+
+\end{document}

@@ -1,0 +1,77 @@
+We list some theorems from probability theory and statistics that have been referred to in our discussion.
+
+\begin{lemma} \textbf{Union Bound}
+\label{lemma:union_bound}
+If events $E_i$, $i=1,2 \hdots m$ have respective probability of occurrences $p_i$, $i=1,2 \hdots m$, then the probability that at least one of the events happens is at most 
+\begin{equation}
+\displaystyle\sum\limits_{i=1}^{m} p_i
+\end{equation}
+The probability that none of the events occur is at least
+\begin{equation}
+1- \displaystyle\sum\limits_{i=1}^{m} p_i
+\end{equation}
+\end{lemma}	
+
+
+\begin{lemma} \textbf{Hoeffding Bound}
+\label{lemma:hoeffding_bound}
+If $x_1, x_2, \hdots x_m$ are $m$ independent random variables such that $x_i \in \left[L_i, U_i \right]$
+and $\mathbb{E}[x_i] = \mu_i$, $\forall i$, and if 	
+\[
+\hat{\mu} = \frac{1}{m}\displaystyle\sum\limits_{i=1}^{m} x_i
+\]
+then, 
+\begin{equation}
+Pr\left( \hat{\mu} - \mu \geq \epsilon \right) \leq  \exp \left( - \frac{2m^2\epsilon^2}{\sum_{i=1}^{m} (U_i - L_i)^2} \right)
+\end{equation}
+
+\begin{equation}
+Pr\left( \hat{\mu} - \mu \leq \epsilon \right) \leq \exp \left( - \frac{2m^2\epsilon^2}{\sum_{i=1}^{m} (U_i - L_i)^2} \right)
+\end{equation}
+\end{lemma}
+
+
+We state an implication of the Hoeffding Bound for a specific case which will be of use to us.
+\begin{lemma} 
+\label{lemma:bernoulli}
+If $x_1, x_2, \hdots x_m$ are $m$ independent Bernoulli trials such that $\mathbb{E}[x_i] = \mu$
+and if 
+\[\hat{\mu} = \frac{1}{m}\displaystyle\sum\limits_{i=1}^{m} x_i
+\]
+then, 
+\begin{equation}
+Pr\left( \hat{\mu} - \mu \geq \epsilon \right) \leq  \exp \left( - {2m\epsilon^2} \right)
+\end{equation}
+
+\begin{equation}
+Pr\left( \hat{\mu} - \mu \leq \epsilon \right) \leq \exp \left( - {2m\epsilon^2}  \right)
+\end{equation}
+\end{lemma}
+
+\begin{lemma} \textbf{Coin Learning Lemma}
+\label{lemma:bernoulli}
+If $x_1, x_2, \hdots x_m$ are $m$ independent Bernoulli trials such that $\mathbb{E}[x_i] > \epsilon/2 + 1/2$
+and if 
+\[\hat{\mu} = \frac{1}{m}\displaystyle\sum\limits_{i=1}^{m} x_i
+\]		
+then, 
+
+\begin{equation}
+Pr\left( \hat{\mu} \leq 1/2 \right) \leq  \exp \left( - {m\epsilon^2/2} \right)
+\end{equation}
+
+Thus, when 
+\begin{equation}
+m = \frac{2}{\epsilon^2} \ln \left( \frac{1}{\delta} \right)
+\end{equation}
+
+
+we can ensure that
+\begin{equation}
+Pr( \hat{\mu} > 1/2) > 1 - \delta
+\end{equation}
+
+
+
+\end{lemma}
+
