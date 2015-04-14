@@ -54,5 +54,6 @@
 \contentsline {paragraph}{Visualizing the problem}{54}{section*.20}
 \contentsline {subsection}{\numberline {4.3.1}A simple KWIK 1-D classification algorithm}{56}{subsection.4.3.1}
 \contentsline {section}{\numberline {4.4}KWIK Inverse Reinforcement Learning Protocol}{56}{section.4.4}
-\contentsline {chapter}{\numberline {5}\hbox to\hsize {\hss FUTURE WORK\hss }}{63}{chapter.5}
-\contentsline {chapter}{\numberline {6}\hbox to\hsize {\hss APPENDIX\hss }}{64}{chapter.6}
+\contentsline {chapter}{\numberline {5}\hbox to\hsize {\hss OVERVIEW\hss }}{64}{chapter.5}
+\contentsline {chapter}{\numberline {6}\hbox to\hsize {\hss FUTURE WORK\hss }}{66}{chapter.6}
+\contentsline {chapter}{\numberline {7}\hbox to\hsize {\hss APPENDIX\hss }}{68}{chapter.7}

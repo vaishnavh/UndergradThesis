@@ -64,7 +64,7 @@ The input space is defined to be $\{\vec{x} | \vec{x} \in \mathbb{R}^k, ||\vec{\
 
 Intuitively, we require that the algorithm predicts correctly on all the points that are sufficiently far away from the separating hyperplane. However, if the sample point is within the $\epsilon-$margin of the hyperplane, we allow the classifier to make mistakes. Furthermore, the classifier can make unbounded number of mistakes within this region.
 
-\paragraph{Visualizing the problem} It is important to understand the specifications of the algorithm precisely. We first of all constrain the input points to the surface of a hypersphere of radius $1$ unit in $\mathbb{R}^k$ and centered in the origin. The separating hyperplane is a plane in this space that passes through the origin of the sphere and slices the hypersphere surface into two halves each corresponding to one of the labels, $+1$ or $-1$. $\vec{\theta}_E$ corresponds to the normal of the hyperplane. The value $|\vec{\theta}_E \cdot \vec{x}| = ||\vec{\theta}_E||_2 ||\vec{x} ||_2 \cos\phi = 1 \cdot 1 \cdot \cos \phi  $ corresponds to the cosine of the angle $\phi$ between the normal of the hyperplane and the point $\vec{x}$ itself. When this value is low, it means that the point lies orthogonal to the normal and is hence very close to the hypersphere itself. 
+\paragraph{Visualizing the problem} It is important to understand the specifications of the algorithm precisely. We first of all constrain the input points to the surface of a hypersphere of radius $1$ unit in $\mathbb{R}^k$ and centered in the origin. The separating hyperplane is a plane in this space that passes through the origin of the sphere and slices the hypersphere surface into two halves each corresponding to one of the labels, $+1$ or $-1$. $\vec{\theta}_E$ corresponds to the normal of the hyperplane. The value $|\vec{\theta}_E \cdot \vec{x}| = ||\vec{\theta}_E||_2 ||\vec{x} ||_2 \cos\vec{\Phi} = 1 \cdot 1 \cdot \cos \vec{\Phi}  $ corresponds to the cosine of the angle $\vec{\Phi}$ between the normal of the hyperplane and the point $\vec{x}$ itself. When this value is low, it means that the point lies orthogonal to the normal and is hence very close to the hypersphere itself. 
 Note that we could allow the inputs to be anywhere in $\mathbb{R}^k$ but still project the point onto the unit hypersphere. Or, we could appropriately modify the accuracy condition to be the following:
 \begin{equation}
  |\vec{\theta}_E \cdot \vec{x}| \leq ||\vec{x}||_2 \epsilon
@@ -98,91 +98,144 @@ We analyse a naive algorithm for 1-D classification to demonstrate how the KWIK 
 
 
 \section{KWIK Inverse Reinforcement Learning Protocol}
-\todo{MDP assumptions}
+
 
 We now present the reduction of IRL to KWIK classification. 
 \begin{assumption}
-We assume that the MDP is specified using the $\phi_Q$ parametrization as discussed in Section \ref{sec:formal_generalization}. 
+We assume that the MDP is specified using the $\vec{\Phi}_Q$ parametrization as discussed in Section \ref{sec:formal_generalization}. 
 \end{assumption}
 
-While often it is the case that the problem is parametrized in terms of $\phi_R$, that is the rewards, here we follow the approach of \citet{DBLP:conf/icra/SilverBS12} in \textit{directly} assigning long-term cost parametrization to the decisions taken. Note that this by default encodes the MDP structure. We might however be interested in beginning with the $\phi_R$ parametrization which we will leave for future work. \\
+While often it is the case that the problem is parametrized in terms of $\vec{\Phi}_R$, that is the rewards, here we follow the approach of \citet{DBLP:conf/icra/SilverBS12} in \textit{directly} assigning long-term cost parametrization to the decisions taken. Note that this by default encodes the MDP structure. We might however be interested in beginning with the $\vec{\Phi}_R$ parametrization which we will leave for future work. \\
 
 \begin{assumption}
-$\forall (s,a) \in \mathcal{S} \times \mathcal{A}$,  $||\phi_Q(s,a)||_2 \leq 1$  
+$\forall (s,a) \in \mathcal{S} \times \mathcal{A}$,  $||\vec{\Phi}_Q(s,a)||_2 \leq 1$  
 \end{assumption}
 
 The above assumption is valid because any parametrization that we begin with can be made to satisfy this by a simple scaling \textit{without  changing the task at hand}.\\
 
 
-At any state $s \in \mathcal{S}$, the learner is presented with a set of at most $|\mathcal{A}|$ actions of which the learner is required to pick an $\epsilon-$optimal action. Let $\vec{\theta}_E$ be the unknown weight vector for the rewards.  We assume that the learner has access to a KWIK classification algorithm $\mathcal{C}$ whose input space is $\mathbb{R}^k$ and whose accuracy parameter is set to be $\epsilon/(|\mathcal{A}|-1)$.  
-
-For some $a^*,a' \in \mathcal{A}$, we expect the classifier to predict $\text{SGN}[\vec{\theta}_E \cdot(\phi_Q(s,a^*) - \phi_Q(s,a'))]$ given $(\phi_Q(s,a^*) - \phi_Q(s,a'))$ as input. 
+At any state $s \in \mathcal{S}$, the learner is presented with a set of at most $|\mathcal{A}|$ actions of which the learner is required to pick an $\epsilon-$optimal action. Let $\vec{\theta}_E$ be the unknown weight vector for the rewards.  We assume that the learner has access to a KWIK classification algorithm $\mathcal{C}$ whose input space is $\mathbb{R}^k$. For some $a^*,a' \in \mathcal{A}$, we expect the classifier to predict $\text{SGN}[\vec{\theta}_E \cdot(\vec{\Phi}_Q(s,a^*) - \vec{\Phi}_Q(s,a'))]$ given $(\vec{\Phi}_Q(s,a^*) - \vec{\Phi}_Q(s,a'))$ as input. 
 
 \begin{assumption}
 We will assume that the input to the classifier is always scaled to a magnitude of 1. 
 \end{assumption}
 
-The above assumption does not change our problem because scaling $\phi_Q(s,a^*) - \phi_Q(s,a')$ to \[\frac{\phi_Q(s,a^*) - \phi_Q(s,a')}{||\phi_Q(s,a^*) - \phi_Q(s,a') ||}\]
-does not change the sign of $\text{SGN}[\vec{\theta}_E \cdot(\phi_Q(s,a^*) - \phi_Q(s,a'))]$.
+The above assumption does not change our problem because scaling $\vec{\Phi}_Q(s,a^*) - \vec{\Phi}_Q(s,a')$ to \[\frac{\vec{\Phi}_Q(s,a^*) - \vec{\Phi}_Q(s,a')}{||\vec{\Phi}_Q(s,a^*) - \vec{\Phi}_Q(s,a') ||_2}\]
+does not change the sign of $\text{SGN}[\vec{\theta}_E \cdot(\vec{\Phi}_Q(s,a^*) - \vec{\Phi}_Q(s,a'))]$.
 That is,
 
 \[
-\text{SGN} \left[ \frac{\phi_Q(s,a^*) - \phi_Q(s,a')}{||\phi_Q(s,a^*) - \phi_Q(s,a') ||}\right]
-=\text{SGN} \left[\phi_Q(s,a^*) - \phi_Q(s,a') \right] 
+\text{SGN} \left[ \frac{\vec{\Phi}_Q(s,a^*) - \vec{\Phi}_Q(s,a')}{||\vec{\Phi}_Q(s,a^*) - \vec{\Phi}_Q(s,a') ||_2}\right]
+=\text{SGN} \left[\vec{\Phi}_Q(s,a^*) - \vec{\Phi}_Q(s,a') \right] 
 \]
 
  Thus, in the rest of the discussion we assume that the input to the classifier is scaled appropriately without explicitly mentioning it. \\
-\begin{thm}
-
-For the input $\phi_Q(s,a^*) - \phi_Q(s,a')$, if $\mathcal{C}$ predicts $+1$, then 
+ 
+\begin{lemma}
+\label{lemma:diam}
+$\forall (s,a^*), (s,a') \in \mathcal{S} \times \mathcal{A}$
 \begin{equation}
-\vec{\theta}_E \cdot (\phi_Q(s,a^*) - \phi_Q(s,a')) \geq - \frac{\epsilon}{|\mathcal{A}|-1}
+||\vec{\Phi}_Q(s,a^*) - \vec{\Phi}_Q(s,a') ||_2 \leq 2
 \end{equation}
+\end{lemma} 
+ 
+ 
+
+\begin{thm}
+\label{thm:kwik_converse}
+If the accuracy parameter of $\mathcal{C}$ is set at
+\[
+\frac{\epsilon}{2(|\mathcal{A}|-1)}
+\]
+then:
+
+ for the input $\vec{\Phi}_Q(s,a^*) - \vec{\Phi}_Q(s,a')$, if
+\begin{equation}
+\vec{\theta}_E \cdot (\vec{\Phi}_Q(s,a^*) - \vec{\Phi}_Q(s,a')) \geq  \frac{\epsilon}{|\mathcal{A}|-1}
+\end{equation}
+
+then $\mathcal{C}$ predicts $+1$ if it makes a valid prediction;
+
+and if
+\begin{equation}
+\vec{\theta}_E \cdot (\vec{\Phi}_Q(s,a') - \vec{\Phi}_Q(s,a^*)) \geq  \frac{\epsilon}{|\mathcal{A}|-1}
+\end{equation}
+then $\mathcal{C}$ predicts $-1$ if it makes a valid prediction.
+
+\end{thm} 
+ 
+ 
+\begin{proof}
+If 
+\begin{equation}
+\vec{\theta}_E \cdot (\vec{\Phi}_Q(s,a^*) - \vec{\Phi}_Q(s,a')) \geq  \frac{\epsilon}{|\mathcal{A}|-1}
+\end{equation}
+then
+\[
+\begin{array}{rcl}
+{\vec{\theta}_E \cdot \displaystyle \frac{(\vec{\Phi}_Q(s,a^*) - \vec{\Phi}_Q(s,a'))}{||\vec{\Phi}_Q(s,a^*) - \vec{\Phi}_Q(s,a')||_2 } } & 
+>& \displaystyle \frac{\epsilon}{|\mathcal{A}-1|} \times \frac{1}{||\vec{\Phi}_Q(s,a^*) - \vec{\Phi}_Q(s,a')||_2} \\
+&&\\
+&\geq& \displaystyle\frac{\epsilon}{|\mathcal{A}-1|}  \times \frac{1}{2}
+\end{array}
+\]
+The first inequality here comes from the assumption we made. The second inequality comes from Lemma \ref{lemma:diam}. Thus, the dot product between the normalized input and the true weight vector is strictly greater than $\frac{\epsilon}{2(|\mathcal{A}-1|)}$ which is the accuracy parameter of the classifier. Hence, we know that the KWIK classification algorithm, if at all made a valid prediction, had to make the right prediction, which is $+1$.
+
+We skip the proof for the second result as it is identical.
+\end{proof} 
+ 
+ 
+\begin{thm}
+\label{thm:kwik_condition}
+If the accuracy parameter of $\mathcal{C}$ is set at
+\[
+\frac{\epsilon}{2(|\mathcal{A}|-1)}
+\]
+then:
+
+ for the input $\vec{\Phi}_Q(s,a^*) - \vec{\Phi}_Q(s,a')$, if $\mathcal{C}$ predicts $+1$, then 
+\begin{equation}
+\vec{\theta}_E \cdot (\vec{\Phi}_Q(s,a^*) - \vec{\Phi}_Q(s,a')) \geq - \frac{\epsilon}{|\mathcal{A}|-1}
+\end{equation}
+
 If $\mathcal{C}$ predicts $-1$, then
 \begin{equation}
-\vec{\theta}_E \cdot (\phi_Q(s,a') - \phi_Q(s,a^*)) \geq - \frac{\epsilon}{|\mathcal{A}|-1}
+\vec{\theta}_E \cdot (\vec{\Phi}_Q(s,a') - \vec{\Phi}_Q(s,a^*)) \geq - \frac{\epsilon}{|\mathcal{A}|-1}
 \end{equation}
 
 \end{thm}
 
 \begin{proof}
-The proof for the above results are identical. Hence, we prove the first result. Thus, the prediction made by the KWIK classifier was $+1$. Assume on the contrary that 
+The proof for the above results are identical. Hence, we prove the first result. Let the prediction made by the KWIK classifier be $+1$. Assume on the contrary that 
 \[
-\vec{\theta}_E \cdot (\phi_Q(s,a^*) - \phi_Q(s,a')) < - \frac{\epsilon}{|\mathcal{A}|-1}
+\vec{\theta}_E \cdot (\vec{\Phi}_Q(s,a^*) - \vec{\Phi}_Q(s,a')) < - \frac{\epsilon}{|\mathcal{A}|-1}
 \]
-Then, 
-\[
-\begin{array}{rcl}
-{\left|\vec{\theta}_E \cdot \frac{(\phi_Q(s,a^*) - \phi_Q(s,a'))}{||\phi_Q(s,a^*) - \phi_Q(s,a')||_2 } \right|} & 
->& \displaystyle \frac{\epsilon}{|\mathcal{A}-1|} \times \frac{1}{||\phi_Q(s,a^*) - \phi_Q(s,a')||_2} \\
-&&\\
-&\geq& \displaystyle\frac{\epsilon}{|\mathcal{A}-1|}  \times \frac{1}{4}
-\end{array}
-\]
-Thus, the dot product between the normalized input and the true weight vector is strictly greater than $\frac{\epsilon}{4(|\mathcal{A}-1|)}$. In this case, the know that the KWIK classification algorithm, if at all makes a valid prediction, has to make the right prediction, which is $-1$ according to our assumption. Since this contradicts that fact that $\mathcal{C}$ predicted $+1$, we prov that our assumption is wrong. 
-
+Then, from Theorem \ref{thm:kwik_converse}, we know that the classifier has to have output $-1$.  Since this contradicts the fact that $\mathcal{C}$ predicted $+1$, we prove that our assumption is wrong. 
 \end{proof}
 
- If it predicts, say, $+1$, from the conditions we stipulated, we know that $\vec{\theta}_E \cdot (\phi_Q(s,a^*) - \phi_Q(s,a')) > -\epsilon$. We will use this property to use the classifier to identify the action that corresponds to nearly the highest $Q$-value. 
+Thus, whenever the classifier makes a valid prediction and favors one action over the other, we see that the preferred action cannot be worse than the  other action by a value of more than $\epsilon/(|\mathcal{A}|-1)$. 
+
 
 If the classifier is unable to predict, and instead outputs a $\perp$ we request expert advice in the form of a preference over these pair of actions. We note that we could study various other modifications of this algorithm, where the expert only provides knowledge about the best action amongst all actions instead of pairwise preferences. 
 
 
+We present below the protocol followed by the learner in order to choose the $\epsilon-$optimal action 
+if it takes a decision autonomously. 
 
 
 \begin{algorithm}[H]
 \caption{KWIK Inverse Reinforcement Learning Protocol}
 \label{alg:imilearn}
 \begin{algorithmic}
-\Require {Teacher $\mathcal{T}(\epsilon_Y)$ with true weight vector for rewards ${\vec{\theta}}_E$, Admissible KWIK Classifier $\mathcal{C}(\frac{\epsilon}{|\mathcal{A}|-1},\delta)$ with weight estimate for rewards $\hat{\vec{\theta}}$}
+\Require {Teacher $\mathcal{T}(\epsilon_Y)$ with true weight vector for rewards ${\vec{\theta}}_E$, Admissible KWIK Classifier $\mathcal{C}(\frac{\epsilon}{2(|\mathcal{A}|-1)},\delta)$ with weight estimate for rewards $\hat{\vec{\theta}}$}
     \For{$t=1,2,\hdots$}
         \State $s = $ Current State of the Environment
         \State $\hat{a}_{best} = a_1$
         \For{i = $2, \hdots |\mathcal{A}|$}
-            \State Present $\phi_Q(s,a_i) - \phi_Q(s,\hat{a}_{best})$ to $\mathcal{C}$
+            \State Present $\vec{\Phi}_Q(s,a_i) - \vec{\Phi}_Q(s,\hat{a}_{best})$ to $\mathcal{C}$
             \If{Output of $\mathcal{C} = \perp$}
-                \State Present  $\phi_Q(s,a_i) - \phi_Q(s,\hat{a}_{best})$ to  $\mathcal{T}$
-               \State $\mathcal{T}$ outputs  $\text{SGN}[{\vec{\theta}}_E \cdot(\phi_Q(s,a_i) - \phi_Q(s,a_{best}))]$
+                \State Present  $\vec{\Phi}_Q(s,a_i) - \vec{\Phi}_Q(s,\hat{a}_{best})$ to  $\mathcal{T}$
+               \State $\mathcal{T}$ outputs  $\text{SGN}[{\vec{\theta}}_E \cdot(\vec{\Phi}_Q(s,a_i) - \vec{\Phi}_Q(s,\hat{a}_{best}))]$
 
                 \State $\mathcal{C}$ learns from output of $\mathcal{T}$ and updates $\hat{\vec{\theta}}$
                 \If{Output of $\mathcal{T} = +1$}
@@ -190,7 +243,7 @@ If the classifier is unable to predict, and instead outputs a $\perp$ we request
                 \EndIf
             
             \Else
-                \State $\mathcal{C}$ outputs $\text{SGN}[\hat{\vec{\theta}}_E \cdot(\phi_Q(s,a_i) - \phi_Q(s,a_{best}))]$
+                \State $\mathcal{C}$ outputs $\text{SGN}[\hat{\vec{\theta}}_E \cdot(\vec{\Phi}_Q(s,a_i) - \vec{\Phi}_Q(s,\hat{a}_{best}))]$
                 \If{Output of $\mathcal{C} = +1$}
                     \State $\hat{a}_{best} = a_i$
                 \EndIf
@@ -205,40 +258,49 @@ If the classifier is unable to predict, and instead outputs a $\perp$ we request
 
 In Algorithm \ref{alg:imilearn}, at any state the learner scans all the possible actions (which is at most $|\mathcal{A}|$) and maintains a candidate action that it considers to be the best amongst the actions that have been iterated through. The correctness of this algorithm would follow if we show that after iterating over all the actions, if the algorithm has not queried the teacher, it always chooses an $\epsilon$-optimal action. We prove the following lemma from which the above statement follows directly by setting $i=|\mathcal{A}|$. 
 
-\begin{lemma} After iterating over the first $i$ actions, if the algorithm has not made any queries, the candidate action picked by the algorithm is $(i-1)\displaystyle\frac{\epsilon}{|\mathcal{A}|-1}-$ optimal with respect to the best action amongst the first $i$ actions.
-\end{lemma}
+\begin{thm} After iterating over the first $i$ actions, if the algorithm has not made any queries, the candidate action picked by the algorithm is $(i-1)\displaystyle\frac{\epsilon}{|\mathcal{A}|-1}-$ optimal with respect to the best action amongst the first $i$ actions.
+\end{thm}
 
 \begin{proof}
-The claim clearly holds good when $i=1$. For any arbitrary round $i < |\mathcal{A}|$ assume that the claim is true. That is, if $\hat{a}_i$ is the candidate action picked by the algorithm, and $a_i^*$ is the best action amongst the first $i$ actions, then:
+The claim trivially holds good when $i=1$. 
+For any arbitrary round $i < |\mathcal{A}|$ assume that the claim is true. This is our inductions hypothesis. That is, if $\hat{a}_i$ is the candidate action picked by the algorithm, and $a_i^*$ is the best action amongst the first $i$ actions, then:
 \begin{equation}\label{eq:ind}
-\vec{\theta}_E\cdot \phi_Q(s,\hat{a}_i) \geq \vec{\theta}_E\cdot \phi_Q(s,a_i^*) - (i-1)\frac{\epsilon}{|\mathcal{A}|-1} 
+\vec{\theta}_E\cdot \vec{\Phi}_Q(s,\hat{a}_i) \geq \vec{\theta}_E\cdot \vec{\Phi}_Q(s,a_i^*) - (i-1)\frac{\epsilon}{|\mathcal{A}|-1} 
 \end{equation}
 
-If the algorithm chose $a_{i+1}$ over $\hat{a}_i$, we know from the KWIK classifier conditions that
+If the algorithm chose $a_{i+1}$ over $\hat{a}_i$, we know from Theorem \ref{thm:kwik_condition}  that
 \begin{equation}\label{eq:changeaction}
-\vec{\theta}_E\cdot \phi_Q(s,a_{i+1}) \geq \vec{\theta}_E\cdot \phi_Q(s,\hat{a}_i) - \frac{\epsilon}{|\mathcal{A}|-1}
+\vec{\theta}_E\cdot \vec{\Phi}_Q(s,a_{i+1}) \geq \vec{\theta}_E\cdot \vec{\Phi}_Q(s,\hat{a}_i) - \frac{\epsilon}{|\mathcal{A}|-1}
 \end{equation}
 
 
-If this decision were to be inconsistent with our claim, $a_{i+1}$ must not be an $i \frac{\epsilon}{|\mathcal{A}|-1}$-optimal action (among the $i+1$ actions). Then $a^*$ must still be the best action amongst the first $i+1$ actions. However, from inequalities (\ref{eq:ind}) and (\ref{eq:changeaction}), we can see that:
+If the decision of choosing $a_{i+1}$ over $\hat{a}_i$ were to be inconsistent with our claim, $a_{i+1}$ must not be an $i \frac{\epsilon}{|\mathcal{A}|-1}$-optimal action (among the first $i+1$ actions). Then $a^*$ must \textit{still} be the best action amongst the first $i+1$ actions. However, from inequalities (\ref{eq:ind}) and (\ref{eq:changeaction}), we can see that:
 \[
-\vec{\theta}_E\cdot \phi_Q(s,{a}_{i+1}) \geq \vec{\theta}_E\cdot \phi_Q(s,a^*) - i\frac{\epsilon}{|\mathcal{A}|-1}
+\vec{\theta}_E\cdot \vec{\Phi}_Q(s,{a}_{i+1}) \geq \vec{\theta}_E\cdot \vec{\Phi}_Q(s,a^*) - i\frac{\epsilon}{|\mathcal{A}|-1}
 \]
-which makes $a_{i+1}$ an $i \frac{\epsilon}{|\mathcal{A}|-1}$-optimal action amongst the first $i+1$ actions, which is a contradiction. 
+which makes $a_{i+1}$ an $i \frac{\epsilon}{|\mathcal{A}|-1}$-optimal action amongst the first $i+1$ actions, which is a contradiction. Thus, if the algorithm chose  $a_{i+1}$ over $\hat{a}_i$, it must have been right.
 
 On the other hand, if the algorithm still chose $\hat{a}_i$ over $a_{i+1}$, it would be inconsistent with our claim only if $a_{i+1}$ was the best action amongst the $i+1$ actions and if $\hat{a}_i$ was not sufficiently optimal. That is,
 
 \begin{equation}\label{eq:notoptimal}
-\vec{\theta}_E\cdot \phi_Q(s,\hat{a}_{i}) < \vec{\theta}_E\cdot \phi_Q(s,a_{i+1}) - i\frac{\epsilon}{|\mathcal{A}|-1}
+\vec{\theta}_E\cdot \vec{\Phi}_Q(s,\hat{a}_{i}) < \vec{\theta}_E\cdot \vec{\Phi}_Q(s,a_{i+1}) - i\frac{\epsilon}{|\mathcal{A}|-1}
 \end{equation}
 
 However, this implies a much weaker inequality:
 \[
-\vec{\theta}_E\cdot \phi_Q(s,\hat{a}_{i}) < \vec{\theta}_E\cdot \phi_Q(s,a_{i+1}) - \frac{\epsilon}{|\mathcal{A}|-1}
+\vec{\theta}_E\cdot \vec{\Phi}_Q(s,\hat{a}_{i}) < \vec{\theta}_E\cdot \vec{\Phi}_Q(s,a_{i+1}) - \frac{\epsilon}{|\mathcal{A}|-1}
 \]
 which would have ensured that the KWIK classifier indicated that $a_{i+1}$
-was a better action. Hence, by induction we show that the lemma holds good for all $i = 1, \hdots |\mathcal{A}|$. 
+was a better action (Lemma \ref{thm:kwik_converse}). Hence, by induction we show that the lemma holds good for all $i = 1, \hdots |\mathcal{A}|$. 
 
 \end{proof}
 
+\begin{corr}
+After scanning over all the actions, if the algorithm has not made any queries, the candidate action picked by the algorithm is an ${\epsilon}-$ optimal action.
+\end{corr}
 
+\begin{remark}
+The KWIK classifier imposes stricter restrictions on the learner than that is required of the learner for it to be near optimal. 
+\end{remark}
+Consider the space of input points which are not normalized. Visually, the subspace where infinitely many mistakes are allowed by the near-optimal learner is a cylindrical margin around the separating hyperplane. The cylinder is of radius $\epsilon/2(|\mathcal{A}-1|)$. However, the classifier $\mathcal{C}$ allows infinitely many mistakes only in a conical region centred at the origin with the base subtended at the unit hypersphere of radius $\epsilon/2(|\mathcal{A}-1|)$. There is space outside of this cone that can still be misclassified for the near-optimality requirements of the learner. This discrepancy comes from the fact that the classifier takes in normalized inputs.
+However the discrepancy is not invalid in any sense because,  the classifier is known to pass through the origin, and any sort of perturbation will be only with respect to its `angle'; if the classifier is perturbed the space it sweeps is only a conical region and hence we must allow errors to occur only in this region. \\
