@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2015.2.23)  14 APR 2015 13:56
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2015.2.23)  17 APR 2015 01:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -446,27 +446,11 @@ Package: subcaption 2012/01/12 v1.1d Sub-captions (AR)
 \c@subfigure=\count126
 \c@subtable=\count127
 )
-(/usr/share/texlive/texmf-dist/tex/latex/todonotes/todonotes.sty
-Package: todonotes 2011/10/22 .dtx Todonotes source and documentation.
-Package: todonotes 2011/10/22
-
-(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
-Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
-)
-(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
-Package: xkeyval 2008/08/13 v2.6a package option processing (HA)
-
-(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
-\XKV@toks=\toks21
-\XKV@tempa@toks=\toks22
-\XKV@depth=\count128
-File: xkeyval.tex 2008/08/13 v2.6a key=value parser (HA)
-))
 (/usr/share/texmf/tex/latex/pgf/frontendlayer/tikz.sty
 (/usr/share/texmf/tex/latex/pgf/basiclayer/pgf.sty
 (/usr/share/texmf/tex/latex/pgf/utilities/pgfrcs.sty
 (/usr/share/texmf/tex/generic/pgf/utilities/pgfutil-common.tex
-\pgfutil@everybye=\toks23
+\pgfutil@everybye=\toks21
 )
 (/usr/share/texmf/tex/generic/pgf/utilities/pgfutil-latex.def
 \pgfutil@abb=\box54
@@ -485,11 +469,11 @@ Package: pgf 2008/01/15 v2.10 (rcs-revision 1.12)
 Package: pgfsys 2010/06/30 v2.10 (rcs-revision 1.37)
 
 (/usr/share/texmf/tex/generic/pgf/utilities/pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks24
-\pgfkeys@temptoks=\toks25
+\pgfkeys@pathtoks=\toks22
+\pgfkeys@temptoks=\toks23
 
 (/usr/share/texmf/tex/generic/pgf/utilities/pgfkeysfiltered.code.tex
-\pgfkeys@tmptoks=\toks26
+\pgfkeys@tmptoks=\toks24
 ))
 \pgf@x=\dimen139
 \pgf@y=\dimen140
@@ -501,10 +485,10 @@ Package: pgfsys 2010/06/30 v2.10 (rcs-revision 1.37)
 \pgf@yc=\dimen146
 \w@pgf@writea=\write3
 \r@pgf@reada=\read1
-\c@pgf@counta=\count129
-\c@pgf@countb=\count130
-\c@pgf@countc=\count131
-\c@pgf@countd=\count132
+\c@pgf@counta=\count128
+\c@pgf@countb=\count129
+\c@pgf@countc=\count130
+\c@pgf@countd=\count131
 
 (/usr/share/texmf/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
@@ -519,8 +503,8 @@ File: pgfsys-common-pdf.def 2008/05/19  (rcs-revision 1.10)
 )))
 (/usr/share/texmf/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
 File: pgfsyssoftpath.code.tex 2008/07/18  (rcs-revision 1.7)
-\pgfsyssoftpath@smallbuffer@items=\count133
-\pgfsyssoftpath@bigbuffer@items=\count134
+\pgfsyssoftpath@smallbuffer@items=\count132
+\pgfsyssoftpath@bigbuffer@items=\count133
 )
 (/usr/share/texmf/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
 File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
@@ -533,11 +517,11 @@ Package: pgfcore 2010/04/11 v2.10 (rcs-revision 1.7)
 (/usr/share/texmf/tex/generic/pgf/math/pgfmathutil.code.tex)
 (/usr/share/texmf/tex/generic/pgf/math/pgfmathparser.code.tex
 \pgfmath@dimen=\dimen147
-\pgfmath@count=\count135
+\pgfmath@count=\count134
 \pgfmath@box=\box55
-\pgfmath@toks=\toks27
-\pgfmath@stack@operand=\toks28
-\pgfmath@stack@operation=\toks29
+\pgfmath@toks=\toks25
+\pgfmath@stack@operand=\toks26
+\pgfmath@stack@operation=\toks27
 )
 (/usr/share/texmf/tex/generic/pgf/math/pgfmathfunctions.code.tex
 (/usr/share/texmf/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex)
@@ -548,7 +532,7 @@ Package: pgfcore 2010/04/11 v2.10 (rcs-revision 1.7)
 (/usr/share/texmf/tex/generic/pgf/math/pgfmathfunctions.round.code.tex)
 (/usr/share/texmf/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex)))
 (/usr/share/texmf/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count136
+\c@pgfmathroundto@lastzeros=\count135
 ))
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
 File: pgfcorepoints.code.tex 2010/04/09  (rcs-revision 1.20)
@@ -582,7 +566,7 @@ File: pgfcorescopes.code.tex 2010/09/08  (rcs-revision 1.34)
 \pgfpic=\box56
 \pgf@hbox=\box57
 \pgf@layerbox@main=\box58
-\pgf@picture@serial@count=\count137
+\pgf@picture@serial@count=\count136
 )
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2008/04/22  (rcs-revision 1.9)
@@ -609,7 +593,7 @@ File: pgfcorearrows.code.tex 2008/04/23  (rcs-revision 1.11)
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2008/11/23  (rcs-revision 1.13)
 \pgf@max=\dimen170
-\pgf@sys@shading@range@num=\count138
+\pgf@sys@shading@range@num=\count137
 )
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2010/03/25  (rcs-revision 1.16)
@@ -649,15 +633,15 @@ Package: pgfcomp-version-1-18 2007/07/23 v2.10 (rcs-revision 1.1)
 Package: pgffor 2010/03/23 v2.10 (rcs-revision 1.18)
 \pgffor@iter=\dimen173
 \pgffor@skip=\dimen174
-\pgffor@stack=\toks30
-\pgffor@toks=\toks31
+\pgffor@stack=\toks28
+\pgffor@toks=\toks29
 ))
 (/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
 Package: tikz 2010/10/13 v2.10 (rcs-revision 1.76)
 
 (/usr/share/texmf/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2010/05/31 v2.10 (rcs-revision 1.15)
-\pgf@plot@mark@count=\count139
+\pgf@plot@mark@count=\count138
 \pgfplotmarksize=\dimen175
 )
 \tikz@lastx=\dimen176
@@ -668,32 +652,136 @@ File: pgflibraryplothandlers.code.tex 2010/05/31 v2.10 (rcs-revision 1.15)
 \tikzsiblingdistance=\dimen181
 \tikz@figbox=\box61
 \tikz@tempbox=\box62
-\tikztreelevel=\count140
-\tikznumberofchildren=\count141
-\tikznumberofcurrentchild=\count142
-\tikz@fig@count=\count143
+\tikztreelevel=\count139
+\tikznumberofchildren=\count140
+\tikznumberofcurrentchild=\count141
+\tikz@fig@count=\count142
 
 (/usr/share/texmf/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2010/08/24  (rcs-revision 1.4)
-\pgfmatrixcurrentrow=\count144
-\pgfmatrixcurrentcolumn=\count145
-\pgf@matrix@numberofcolumns=\count146
+\pgfmatrixcurrentrow=\count143
+\pgfmatrixcurrentcolumn=\count144
+\pgf@matrix@numberofcolumns=\count145
 )
-\tikz@expandcount=\count147
+\tikz@expandcount=\count146
 
 (/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopat
 hs.code.tex
 File: tikzlibrarytopaths.code.tex 2008/06/17 v2.10 (rcs-revision 1.2)
 )))
+(/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryautom
+ata.code.tex
+File: tikzlibraryautomata.code.tex 2008/07/14 v2.10 (rcs-revision 1.3)
+
+(/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshape
+s.multipart.code.tex
+File: tikzlibraryshapes.multipart.code.tex 2008/01/09 v2.10 (rcs-revision 1.1)
+
+(/usr/share/texmf/tex/generic/pgf/libraries/shapes/pgflibraryshapes.multipart.c
+ode.tex
+File: pgflibraryshapes.multipart.code.tex 2010/01/07 v2.10 (rcs-revision 1.2)
+\pgfnodepartlowerbox=\box63
+\pgfnodeparttwobox=\box64
+\pgfnodepartthreebox=\box65
+\pgfnodepartfourbox=\box66
+\pgfnodeparttwentybox=\box67
+\pgfnodepartnineteenbox=\box68
+\pgfnodeparteighteenbox=\box69
+\pgfnodepartseventeenbox=\box70
+\pgfnodepartsixteenbox=\box71
+\pgfnodepartfifteenbox=\box72
+\pgfnodepartfourteenbox=\box73
+\pgfnodepartthirteenbox=\box74
+\pgfnodeparttwelvebox=\box75
+\pgfnodepartelevenbox=\box76
+\pgfnodeparttenbox=\box77
+\pgfnodepartninebox=\box78
+\pgfnodeparteightbox=\box79
+\pgfnodepartsevenbox=\box80
+\pgfnodepartsixbox=\box81
+\pgfnodepartfivebox=\box82
+)))
 (/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryposit
 ioning.code.tex
 File: tikzlibrarypositioning.code.tex 2008/10/06 v2.10 (rcs-revision 1.7)
-) (/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
+)
+(/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryarrow
+s.code.tex
+File: tikzlibraryarrows.code.tex 2008/01/09 v2.10 (rcs-revision 1.1)
+
+(/usr/share/texmf/tex/generic/pgf/libraries/pgflibraryarrows.code.tex
+File: pgflibraryarrows.code.tex 2008/10/27 v2.10 (rcs-revision 1.9)
+\arrowsize=\dimen182
+))
+(/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarychain
+s.code.tex
+File: tikzlibrarychains.code.tex 2008/02/27 v2.10 (rcs-revision 1.5)
+)
+(/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryfit.c
+ode.tex
+File: tikzlibraryfit.code.tex 2008/06/21 v2.10 (rcs-revision 1.3)
+)
+(/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshape
+s.code.tex
+File: tikzlibraryshapes.code.tex 2008/01/09 v2.10 (rcs-revision 1.1)
+
+(/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshape
+s.geometric.code.tex
+File: tikzlibraryshapes.geometric.code.tex 2008/01/09 v2.10 (rcs-revision 1.1)
+
+(/usr/share/texmf/tex/generic/pgf/libraries/shapes/pgflibraryshapes.geometric.c
+ode.tex
+File: pgflibraryshapes.geometric.code.tex 2008/06/26 v2.10 (rcs-revision 1.1)
+))
+(/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshape
+s.misc.code.tex
+File: tikzlibraryshapes.misc.code.tex 2008/01/09 v2.10 (rcs-revision 1.1)
+
+(/usr/share/texmf/tex/generic/pgf/libraries/shapes/pgflibraryshapes.misc.code.t
+ex
+File: pgflibraryshapes.misc.code.tex 2008/10/07 v2.10 (rcs-revision 1.3)
+))
+(/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshape
+s.symbols.code.tex
+File: tikzlibraryshapes.symbols.code.tex 2008/01/09 v2.10 (rcs-revision 1.1)
+
+(/usr/share/texmf/tex/generic/pgf/libraries/shapes/pgflibraryshapes.symbols.cod
+e.tex
+File: pgflibraryshapes.symbols.code.tex 2009/10/27 v2.10 (rcs-revision 1.3)
+))
+(/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshape
+s.arrows.code.tex
+File: tikzlibraryshapes.arrows.code.tex 2008/01/09 v2.10 (rcs-revision 1.1)
+
+(/usr/share/texmf/tex/generic/pgf/libraries/shapes/pgflibraryshapes.arrows.code
+.tex
+File: pgflibraryshapes.arrows.code.tex 2008/06/26 v2.10 (rcs-revision 1.1)
+))
+(/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryshape
+s.callouts.code.tex
+(/usr/share/texmf/tex/generic/pgf/libraries/shapes/pgflibraryshapes.callouts.co
+de.tex))) (/usr/share/texlive/texmf-dist/tex/latex/todonotes/todonotes.sty
+Package: todonotes 2011/10/22 .dtx Todonotes source and documentation.
+Package: todonotes 2011/10/22
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2008/08/13 v2.6a package option processing (HA)
+
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+\XKV@toks=\toks30
+\XKV@tempa@toks=\toks31
+\XKV@depth=\count147
+File: xkeyval.tex 2008/08/13 v2.6a key=value parser (HA)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
 \calc@Acount=\count148
 \calc@Bcount=\count149
-\calc@Adimen=\dimen182
-\calc@Bdimen=\dimen183
+\calc@Adimen=\dimen183
+\calc@Bdimen=\dimen184
 \calc@Askip=\skip52
 \calc@Bskip=\skip53
 LaTeX Info: Redefining \setlength on input line 76.
@@ -713,9 +801,9 @@ nment
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count152
 \float@exts=\toks32
-\float@box=\box63
+\float@box=\box83
 \@float@everytoks=\toks33
-\@floatcapt=\box64
+\@floatcapt=\box84
 )
 \@float@every@algorithm=\toks34
 \c@algorithm=\count153
@@ -746,14 +834,14 @@ Package: mathtools 2012/04/24 v1.12 mathematical typesetting tools
 Package: mhsetup 2010/01/21 v1.2a programming setup (MH)
 )
 \g_MT_multlinerow_int=\count161
-\l_MT_multwidth_dim=\dimen184
+\l_MT_multwidth_dim=\dimen185
 \origjot=\skip58
-\l_MT_shortvdotswithinadjustabove_dim=\dimen185
-\l_MT_shortvdotswithinadjustbelow_dim=\dimen186
-\l_MT_above_intertext_dim=\dimen187
-\l_MT_below_intertext_dim=\dimen188
-\l_MT_above_shortintertext_dim=\dimen189
-\l_MT_below_shortintertext_dim=\dimen190
+\l_MT_shortvdotswithinadjustabove_dim=\dimen186
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen187
+\l_MT_above_intertext_dim=\dimen188
+\l_MT_below_intertext_dim=\dimen189
+\l_MT_above_shortintertext_dim=\dimen190
+\l_MT_below_shortintertext_dim=\dimen191
 )
 \c@thm=\count162
 \c@assumption=\count163
@@ -761,17 +849,17 @@ Package: mhsetup 2010/01/21 v1.2a programming setup (MH)
 \c@corr=\count165
 \c@lemma=\count166
 \c@case=\count167
-\c@rmrk=\count168
+\c@remark=\count168
 \c@prp=\count169
 \c@dfn=\count170
 \c@qn=\count171
 \c@att=\count172
 \c@ex=\count173
-Package hyperref Info: Option `colorlinks' set `true' on input line 65.
-Package hyperref Info: Option `pdftoolbar' set `true' on input line 65.
-Package hyperref Info: Option `pdfmenubar' set `true' on input line 65.
+Package hyperref Info: Option `colorlinks' set `true' on input line 67.
+Package hyperref Info: Option `pdftoolbar' set `true' on input line 67.
+Package hyperref Info: Option `pdfmenubar' set `true' on input line 67.
 \LPlhbox=\skip59
-\tempbox=\box65
+\tempbox=\box85
 
 
 LaTeX Warning: Unused global option(s):
@@ -779,25 +867,25 @@ LaTeX Warning: Unused global option(s):
 
 (./thesis.aux
 
-LaTeX Warning: Label `lemma:bernoulli' multiply defined.
+LaTeX Warning: Label `eq:kwiksegment' multiply defined.
 
 )
 \openout1 = `thesis.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 152.
-LaTeX Font Info:    ... okay on input line 152.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 152.
-LaTeX Font Info:    ... okay on input line 152.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 152.
-LaTeX Font Info:    ... okay on input line 152.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 152.
-LaTeX Font Info:    ... okay on input line 152.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 152.
-LaTeX Font Info:    ... okay on input line 152.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 152.
-LaTeX Font Info:    ... okay on input line 152.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 152.
-LaTeX Font Info:    ... okay on input line 152.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 154.
+LaTeX Font Info:    ... okay on input line 154.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 154.
+LaTeX Font Info:    ... okay on input line 154.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 154.
+LaTeX Font Info:    ... okay on input line 154.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 154.
+LaTeX Font Info:    ... okay on input line 154.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 154.
+LaTeX Font Info:    ... okay on input line 154.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 154.
+LaTeX Font Info:    ... okay on input line 154.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 154.
+LaTeX Font Info:    ... okay on input line 154.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -841,19 +929,19 @@ Package caption Info: End \AtBeginDocument code.
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count174
-\scratchdimen=\dimen191
-\scratchbox=\box66
+\scratchdimen=\dimen192
+\scratchbox=\box86
 \nofMPsegments=\count175
 \nofMParguments=\count176
 \everyMPshowfont=\toks35
 \MPscratchCnt=\count177
-\MPscratchDim=\dimen192
+\MPscratchDim=\dimen193
 \MPnumerator=\count178
 \makeMPintoPDFobject=\count179
 \everyMPtoPDFconversion=\toks36
 )
-\AtBeginShipoutBox=\box67
-Package hyperref Info: Link coloring ON on input line 152.
+\AtBeginShipoutBox=\box87
+Package hyperref Info: Link coloring ON on input line 154.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2010/04/30 v2.40 Cross-referencing by name of section
 
@@ -862,26 +950,26 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count180
 )
-LaTeX Info: Redefining \ref on input line 152.
-LaTeX Info: Redefining \pageref on input line 152.
-LaTeX Info: Redefining \nameref on input line 152.
+LaTeX Info: Redefining \ref on input line 154.
+LaTeX Info: Redefining \pageref on input line 154.
+LaTeX Info: Redefining \nameref on input line 154.
 
 (./thesis.out) (./thesis.out)
 \@outlinefile=\write4
 \openout4 = `thesis.out'.
 
  ABD: EveryShipout initializing macros
-<iitm.pdf, id=228, 332.24126pt x 332.24126pt>
+<iitm.pdf, id=232, 332.24126pt x 332.24126pt>
 File: iitm.pdf Graphic file (type pdf)
  <use iitm.pdf>
-Package pdftex.def Info: iitm.pdf used on input line 163.
+Package pdftex.def Info: iitm.pdf used on input line 165.
 (pdftex.def)             Requested size: 99.67314pt x 99.67314pt.
  [0
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./iitm.pdf>]
 Certificate
 
-Underfull \hbox (badness 10000) in paragraph at lines 178--183
+Underfull \hbox (badness 10000) in paragraph at lines 180--185
 
  []
 
@@ -889,7 +977,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.}) has b
 een already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.191 \acknowledgements
+l.193 \acknowledgements
                         [0
 
 ] (./texs/acknowledgement.tex) (./texs/abstract.tex
@@ -934,17 +1022,17 @@ Overfull \hbox (51.36246pt too wide) in paragraph at lines 47--47
  []
 
 [4]
-Overfull \hbox (51.36246pt too wide) in paragraph at lines 57--57
- [] [][][][][][] []  
- []
-
-
 Overfull \hbox (51.36246pt too wide) in paragraph at lines 58--58
  [] [][][][][][] []  
  []
 
 
 Overfull \hbox (51.36246pt too wide) in paragraph at lines 59--59
+ [] [][][][][][] []  
+ []
+
+
+Overfull \hbox (51.36246pt too wide) in paragraph at lines 60--60
  [] [][][][][][] []  
  []
 
@@ -976,19 +1064,19 @@ ine 2.
 CHAPTER 1.
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\hbox' on input line 232.
+(hyperref)                removing `\hbox' on input line 234.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\hsize' on input line 232.
+(hyperref)                removing `\hsize' on input line 234.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\hss' on input line 232.
+(hyperref)                removing `\hss' on input line 234.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\hss' on input line 232.
+(hyperref)                removing `\hss' on input line 234.
 
 (./texs/introduction.tex
 Overfull \hbox (13.90912pt too wide) in paragraph at lines 3--3
@@ -1140,19 +1228,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 67--68
 CHAPTER 2.
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\hbox' on input line 234.
+(hyperref)                removing `\hbox' on input line 236.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\hsize' on input line 234.
+(hyperref)                removing `\hsize' on input line 236.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\hss' on input line 234.
+(hyperref)                removing `\hss' on input line 236.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\hss' on input line 234.
+(hyperref)                removing `\hss' on input line 236.
 
 (./texs/preliminaries.tex
 Underfull \hbox (badness 10000) in paragraph at lines 3--4
@@ -1226,19 +1314,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 197--198
 CHAPTER 3.
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\hbox' on input line 236.
+(hyperref)                removing `\hbox' on input line 238.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\hsize' on input line 236.
+(hyperref)                removing `\hsize' on input line 238.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\hss' on input line 236.
+(hyperref)                removing `\hss' on input line 238.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\hss' on input line 236.
+(hyperref)                removing `\hss' on input line 238.
 
 (./texs/related_work.tex
 Overfull \hbox (1.02202pt too wide) in paragraph at lines 1--1
@@ -1515,19 +1603,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 519--520
 CHAPTER 4.
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\hbox' on input line 239.
+(hyperref)                removing `\hbox' on input line 241.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\hsize' on input line 239.
+(hyperref)                removing `\hsize' on input line 241.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\hss' on input line 239.
+(hyperref)                removing `\hss' on input line 241.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\hss' on input line 239.
+(hyperref)                removing `\hss' on input line 241.
 
 (./texs/kwik_irl.tex [49
 
@@ -1553,186 +1641,114 @@ Package natbib Warning: Citation `Dekel:2012:SSA:2503308.2503327' on page 53 un
 defined on input line 47.
 
 [53] [54] [55]
-Overfull \hbox (6.14294pt too wide) in paragraph at lines 89--89
-[][][][]\T1/cmr/m/n/12 Finish 
- []
-
-
-Overfull \hbox (6.14294pt too wide) in paragraph at lines 89--89
-[][][][]\T1/cmr/m/n/12 Finish 
- []
-
-
-Overfull \hbox (6.14294pt too wide) in paragraph at lines 89--89
-[][][][]\T1/cmr/m/n/12 Finish 
- []
-
-
-Overfull \hbox (6.14294pt too wide) in paragraph at lines 89--89
-[][][][]\T1/cmr/m/n/12 Finish 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 89--91
+Underfull \hbox (badness 10000) in paragraph at lines 92--93
 
  []
 
+[56] <texs/simple_classification.pdf, id=949, 310.43129pt x 57.38438pt>
+File: texs/simple_classification.pdf Graphic file (type pdf)
 
-Overfull \hbox (1.99263pt too wide) in paragraph at lines 101--101
-[][][][]\T1/cmr/m/n/12 MDP 
+<use texs/simple_classification.pdf>
+Package pdftex.def Info: texs/simple_classification.pdf used on input line 104.
+
+(pdftex.def)             Requested size: 465.64578pt x 86.07634pt.
+
+Overfull \hbox (12.67789pt too wide) in paragraph at lines 104--105
+ [][] 
  []
 
 
-Overfull \hbox (5.65561pt too wide) in paragraph at lines 101--101
-\T1/cmr/m/n/12 sump- 
- []
-
-
-Overfull \hbox (1.99263pt too wide) in paragraph at lines 101--101
-[][][][]\T1/cmr/m/n/12 MDP 
- []
-
-
-Overfull \hbox (5.65561pt too wide) in paragraph at lines 101--101
-\T1/cmr/m/n/12 sump- 
- []
-
-
-Overfull \hbox (1.99263pt too wide) in paragraph at lines 101--101
-[][][][]\T1/cmr/m/n/12 MDP 
- []
-
-
-Overfull \hbox (5.65561pt too wide) in paragraph at lines 101--101
-\T1/cmr/m/n/12 sump- 
- []
-
-
-Overfull \hbox (1.99263pt too wide) in paragraph at lines 101--101
-[][][][]\T1/cmr/m/n/12 MDP 
- []
-
-
-Overfull \hbox (5.65561pt too wide) in paragraph at lines 101--101
-\T1/cmr/m/n/12 sump- 
- []
-
-[56]
-Underfull \hbox (badness 10000) in paragraph at lines 108--109
+Underfull \hbox (badness 10000) in paragraph at lines 123--124
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 114--115
+Underfull \hbox (badness 10000) in paragraph at lines 129--130
 
  []
 
-[57]
-Underfull \hbox (badness 10000) in paragraph at lines 132--133
+[57 <./texs/simple_classification.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 147--148
 
  []
 
+[58] [59] [60] [61] [62] [63]
+Underfull \hbox (badness 10000) in paragraph at lines 319--320
 
-Overfull \hbox (13.90912pt too wide) in paragraph at lines 167--167
-[][][][]\T1/cmr/m/n/12 Explain 
  []
 
+[64] <texs/classification.pdf, id=1032, 447.67952pt x 523.89525pt>
+File: texs/classification.pdf Graphic file (type pdf)
 
-Overfull \hbox (16.09752pt too wide) in paragraph at lines 167--167
-\T1/cmr/m/n/12 stronger  
+<use texs/classification.pdf>
+Package pdftex.def Info: texs/classification.pdf used on input line 344.
+(pdftex.def)             Requested size: 268.60977pt x 314.33957pt.
+ [65])
+Underfull \hbox (badness 10000) in paragraph at lines 353--243
+
  []
 
-
-Overfull \hbox (13.90912pt too wide) in paragraph at lines 167--167
-[][][][]\T1/cmr/m/n/12 Explain 
- []
-
-
-Overfull \hbox (16.09752pt too wide) in paragraph at lines 167--167
-\T1/cmr/m/n/12 stronger  
- []
-
-
-Overfull \hbox (13.90912pt too wide) in paragraph at lines 167--167
-[][][][]\T1/cmr/m/n/12 Explain 
- []
-
-
-Overfull \hbox (16.09752pt too wide) in paragraph at lines 167--167
-\T1/cmr/m/n/12 stronger  
- []
-
-
-Overfull \hbox (13.90912pt too wide) in paragraph at lines 167--167
-[][][][]\T1/cmr/m/n/12 Explain 
- []
-
-
-Overfull \hbox (16.09752pt too wide) in paragraph at lines 167--167
-\T1/cmr/m/n/12 stronger  
- []
-
-[58] [59] [60] [61] [62]) [63]
+[66 <./texs/classification.pdf>] [67]
 CHAPTER 5.
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\hbox' on input line 245.
+(hyperref)                removing `\hbox' on input line 247.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\hsize' on input line 245.
+(hyperref)                removing `\hsize' on input line 247.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\hss' on input line 245.
+(hyperref)                removing `\hss' on input line 247.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\hss' on input line 245.
+(hyperref)                removing `\hss' on input line 247.
 
-(./texs/overview.tex [64
+(./texs/overview.tex [68
 
-]) [65]
+]) [69]
 CHAPTER 6.
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\hbox' on input line 249.
+(hyperref)                removing `\hbox' on input line 251.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\hsize' on input line 249.
+(hyperref)                removing `\hsize' on input line 251.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\hss' on input line 249.
+(hyperref)                removing `\hss' on input line 251.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\hss' on input line 249.
+(hyperref)                removing `\hss' on input line 251.
 
-(./texs/future_work.tex [66
+(./texs/future_work.tex [70
 
-]) [67]
+]) [71]
 CHAPTER 7.
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\hbox' on input line 252.
+(hyperref)                removing `\hbox' on input line 254.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\hsize' on input line 252.
+(hyperref)                removing `\hsize' on input line 254.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\hss' on input line 252.
+(hyperref)                removing `\hss' on input line 254.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `\hss' on input line 252.
+(hyperref)                removing `\hss' on input line 254.
 
-(./texs/appendix.tex [68
+(./texs/appendix.tex [72
 
-]) [69] [70
+]) [73] [74
 
 ] (./thesis.bbl
 LaTeX Font Info:    Try loading font information for T1+cmtt on input line 13.
@@ -1758,9 +1774,9 @@ Underfull \hbox (badness 1983) in paragraph at lines 90--97
 Is-land, CA, USA, Au-gust 14-18,
  []
 
-[71
+[75
 
-] [72]
+] [76]
 Underfull \hbox (badness 4429) in paragraph at lines 198--206
 []\T1/cmr/bx/n/10.95 Strehl, A. L. \T1/cmr/m/n/10.95 and \T1/cmr/bx/n/10.95 M. 
 L. Littman\T1/cmr/m/n/10.95 , On-line lin-ear re-gres-sion and its ap-pli-ca-
@@ -1800,28 +1816,28 @@ n-[]to-[]model-[]based-[]reinforcement-[]learning$[][]\T1/cmr/m/n/10.95 .
 
 Package natbib Warning: There were undefined citations.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 280.
-[73]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 280.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 282.
+[77]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 282.
  (./thesis.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 280.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 280.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 282.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 282.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
-(rerunfilecheck)             Checksum: C95B944512BBD25B8C78DA65EE4F7EE2;4238.
+(rerunfilecheck)             Checksum: 24D53E2FAF40F57DE8A411005DEEE1B9;4317.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 280.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 282.
  ) 
 Here is how much of TeX's memory you used:
- 18802 strings out of 493493
- 325224 string characters out of 3143797
- 421545 words of memory out of 3000000
- 21392 multiletter control sequences out of 15000+200000
+ 20884 strings out of 493493
+ 384942 string characters out of 3143797
+ 514414 words of memory out of 3000000
+ 23409 multiletter control sequences out of 15000+200000
  32375 words of font info for 87 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
- 63i,14n,74p,1679b,933s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 56i,14n,74p,1679b,936s stack positions out of 5000i,500n,10000p,200000b,50000s
 pdfTeX warning (dest): name{algorithm.7} has been referenced but does not exi
 st, replaced by a fixed one
 
@@ -1854,28 +1870,30 @@ sfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
 8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb
 ></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super
-/sfbi1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1095.pfb></usr/
-share/texmf/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/ty
-pe1/public/cm-super/sfbx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/
-sfbx1728.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/s
-hare/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/typ
-e1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/s
-frm1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/sh
-are/texmf/fonts/type1/public/cm-super/sfti1095.pfb></usr/share/texmf/fonts/type
-1/public/cm-super/sfti1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sf
-tt1095.pfb>
-Output written on thesis.pdf (84 pages, 671393 bytes).
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
+/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbol
+s/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols
+/msbm10.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbi1200.pfb></usr/sh
+are/texmf/fonts/type1/public/cm-super/sfbx1095.pfb></usr/share/texmf/fonts/type
+1/public/cm-super/sfbx1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sf
+bx1440.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfbx1728.pfb></usr/sha
+re/texmf/fonts/type1/public/cm-super/sfrm0700.pfb></usr/share/texmf/fonts/type1
+/public/cm-super/sfrm0800.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfr
+m1000.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1095.pfb></usr/shar
+e/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></usr/share/texmf/fonts/type1/
+public/cm-super/sfti1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfti
+1200.pfb></usr/share/texmf/fonts/type1/public/cm-super/sftt1095.pfb>
+Output written on thesis.pdf (88 pages, 721453 bytes).
 PDF statistics:
- 1272 PDF objects out of 1440 (max. 8388607)
- 1141 compressed objects within 12 object streams
- 270 named destinations out of 1000 (max. 500000)
- 458 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1335 PDF objects out of 1440 (max. 8388607)
+ 1191 compressed objects within 12 object streams
+ 278 named destinations out of 1000 (max. 500000)
+ 476 words of extra memory for PDF output out of 10000 (max. 10000000)
 

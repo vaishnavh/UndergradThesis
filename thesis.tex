@@ -1,4 +1,4 @@
-
+	
 \documentclass[BTech,thesis]{iitmdiss}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{color}
@@ -8,7 +8,7 @@
 \usepackage{graphicx}
 \usepackage{amsmath,amssymb} % easier math formulae, align, subequation
 \usepackage{fullpage}
-\usepackage{bm}
+\usepackage{bm}		
 \usepackage{t1enc}
 \usepackage{epstopdf}
 \usepackage{hyperref}
@@ -18,7 +18,9 @@
 \usepackage{multicol}
 \usepackage{caption}
 \usepackage{subcaption}
-
+\usepackage{tikz}
+\usetikzlibrary{automata,positioning,arrows}
+\usetikzlibrary{chains,fit,shapes}
 \usepackage{todonotes}
 
 \usepackage[all]{hypcap}
@@ -39,7 +41,7 @@
 \newtheorem{corr}{Corollary}
 \newtheorem{lemma}{Lemma}
 \newtheorem{case}{Case}
-\newtheorem{rmrk}{Remark}
+\newtheorem{remark}{Remark}
 \newtheorem{prp}{Proposition}
 \newtheorem{dfn}{Definition}
 \newtheorem{qn}{Question}
@@ -94,7 +96,7 @@
 }
 
 \newcommand\lblsegmenttwo[5]{
-\coordinate (#3) at (#1);
+\coordinate (#3) at (#1);	
 \coordinate (#4) at (#2);
 \path (#3) edge[|-|] node[at start, above] {#5} (#4) ;
 }

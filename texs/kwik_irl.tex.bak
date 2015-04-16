@@ -53,7 +53,9 @@ We also discuss ideas for a possible mutli-dimensional classifier.
 
 \section{KWIK-Learner for Binary Classification}
 
-\begin{dfn} We define \textbf{an admissible KWIK-learner for binary classification} as follows. We assume that the hypothesis class is the set of separating hyperplanes $\{\vec{\theta} | \vec{\theta} \in \mathbb{R}^k, ||\vec{\theta}||_2 =  1\}$ that pass through the origin.
+\begin{dfn} 
+\label{defn:kwik_classifier}
+We define \textbf{an admissible KWIK-learner for binary classification} as follows. We assume that the hypothesis class is the set of separating hyperplanes $\{\vec{\theta} | \vec{\theta} \in \mathbb{R}^k, ||\vec{\theta}||_2 =  1\}$ that pass through the origin.
 The input space is defined to be $\{\vec{x} | \vec{x} \in \mathbb{R}^k, ||\vec{\theta}||_2 = 1\}$.
  If the adversary picks a $\vec{\theta}_E$, the correct label of $\vec{x} \in \mathbb{R}^k$ is given by $\text{SGN}[\vec{\theta}_E \cdot x] \in \{+1, -1\}$. For the learner to be admissible, the following must hold good for every run, with probability $1-\delta$ : 
 \begin{itemize}
@@ -86,11 +88,24 @@ In the KWIK framework, we assume that the noisy observation produced by the expe
 In other words, we expect that for any input point, the expert labels it correctly with probability at least $1/2 + \epsilon_Y/2$.  A good teacher will ofcourse have a high $\epsilon_Y$. We note that this is a possibly relaxed assumption when compared to the selective sampling approach of \citet{Cesa-Bianchi:2009:RBC:1553374.1553390} where they assume that the accuracy of the expert increases with the distance from the separating hyperplane. However, in regions close to the hyperplane the teacher is noisier in the latter. 
 
 \subsection{A simple KWIK 1-D classification algorithm}
-\todo{Finish section appropriately}
-We analyse a naive algorithm for 1-D classification to demonstrate how the KWIK conditions we proposed  allow us to design a	lgorithms with a KWIK-bound polynomial in $1/\epsilon$ and $1/\delta$ even under the relaxed noise assumption of the teacher's outputs.\\
+\label{sec:simple}
+We analyse a naive algorithm for 1-D classification to demonstrate how the KWIK conditions we proposed  allow us to design a	lgorithms with a KWIK-bound polynomial in $1/\epsilon$ and $1/\delta$ even under the relaxed noise assumption of the teacher's outputs. Here $\epsilon$ is the accuracy requirement of the KWIK algorithm; $\epsilon_Y$ is the noise parameter of the teacher. \\
 
- Assume the input space spans unit length. The learning algorithm discretizes the input space into $\frac{2}{\epsilon}$  segments. When the adversary presents a sample belonging to a segment, the algorithm emits $\perp$ when the number of samples already queried in this segment is fewer than $\mathcal{O}(\frac{1}{\epsilon^2} \ln(\frac{2}{\epsilon\delta}))$. When the number of samples is however greater than this, we can show that if the segment is completely outside the $\epsilon_T$-margin around the separating point, the proportion of queried points in this segment that would have been labelled correctly by the expert will be at least $1/2 + \epsilon_Y/2 - \epsilon > 1/2$ with a high probability  of $1-\epsilon\delta/2$. Thus, after acquiring sufficient samples in each of the segments, we will correctly learn the labels of all the segments outside an $\epsilon-$ margin of the separating point with probability $1-\delta$. Thus, the number of queries made will be $\mathcal{O}(\frac{1}{\epsilon^3} \ln(\frac{2}{\epsilon\delta}))$.
+ Assume the input space spans unit length. The learning algorithm discretizes the input space into $\frac{1}{\epsilon}$  segments as shown in Figure \ref{fig:simple_classification}. When the adversary presents a sample belonging to a segment, the algorithm emits $\perp$ when the number of samples already queried in this segment is fewer than $\mathcal{O}(\frac{1}{\epsilon_Y^2} \ln(\frac{2}{\epsilon_Y\delta}))$ (these are the segments marked with a question mark in Figure \ref{fig:simple_classification}). When the number of samples is however greater than this  we can show that if the segment does not contain the separating point, the proportion of queried points in this segment that would have been labeled correctly by the expert will be at least $1/2 + \epsilon_Y/2 - \epsilon_Y > 1/2$ with a high probability  of $1-\epsilon_Y\delta/2$ (Refer Lemma \ref{lemma:coinlearn} in Appendix). Thus, after acquiring sufficient samples in each of the segments, we will correctly learn the labels of all the segments \textit{outside an} $\epsilon-$ \textit{margin }of the separating point with probability at least $1-\delta$, which is what we want. Thus, the number of queries made will be $\mathcal{O}(\frac{1}{\epsilon_Y\epsilon^2} \ln(\frac{1}{\epsilon_Y\delta}))$.
+ 
+ \begin{remark}
+ The above example is not truly consistent with the KWIK classifier conditions as described in Definition \ref{defn:kwik_classifier}. In the definition, we enforced that the separating plane must pass through the origin. Hence for the 1D case, there is only one allowed separating point which is nothing but the origin itself. We however do not make this assumption just to illustrate the situation.
+ \end{remark}
 
+
+
+\begin{figure}[H]
+\centering
+   \includegraphics[scale=1.5]{texs/simple_classification.pdf}
+   \caption{Visualization of the naive 1D classification}
+\label{fig:simple_classification}
+
+\end{figure}
 
 
 
@@ -102,7 +117,7 @@ We analyse a naive algorithm for 1-D classification to demonstrate how the KWIK 
 
 We now present the reduction of IRL to KWIK classification. 
 \begin{assumption}
-We assume that the MDP is specified using the $\vec{\Phi}_Q$ parametrization as discussed in Section \ref{sec:formal_generalization}. 
+We assume that the MDP is specified using the $\vec{\Phi}_Q$ parametrization as discussed in Section ~\ref{sec:formal_generalization}. 
 \end{assumption}
 
 While often it is the case that the problem is parametrized in terms of $\vec{\Phi}_R$, that is the rewards, here we follow the approach of \citet{DBLP:conf/icra/SilverBS12} in \textit{directly} assigning long-term cost parametrization to the decisions taken. Note that this by default encodes the MDP structure. We might however be interested in beginning with the $\vec{\Phi}_R$ parametrization which we will leave for future work. \\
@@ -179,7 +194,7 @@ then
 &\geq& \displaystyle\frac{\epsilon}{|\mathcal{A}-1|}  \times \frac{1}{2}
 \end{array}
 \]
-The first inequality here comes from the assumption we made. The second inequality comes from Lemma \ref{lemma:diam}. Thus, the dot product between the normalized input and the true weight vector is strictly greater than $\frac{\epsilon}{2(|\mathcal{A}-1|)}$ which is the accuracy parameter of the classifier. Hence, we know that the KWIK classification algorithm, if at all made a valid prediction, had to make the right prediction, which is $+1$.
+The first inequality here comes from the assumption we made. The second inequality comes from Lemma ~\ref{lemma:diam}. Thus, the dot product between the normalized input and the true weight vector is strictly greater than $\frac{\epsilon}{2(|\mathcal{A}-1|)}$ which is the accuracy parameter of the classifier. Hence, we know that the KWIK classification algorithm, if at all made a valid prediction, had to make the right prediction, which is $+1$.
 
 We skip the proof for the second result as it is identical.
 \end{proof} 
@@ -210,7 +225,7 @@ The proof for the above results are identical. Hence, we prove the first result.
 \[
 \vec{\theta}_E \cdot (\vec{\Phi}_Q(s,a^*) - \vec{\Phi}_Q(s,a')) < - \frac{\epsilon}{|\mathcal{A}|-1}
 \]
-Then, from Theorem \ref{thm:kwik_converse}, we know that the classifier has to have output $-1$.  Since this contradicts the fact that $\mathcal{C}$ predicted $+1$, we prove that our assumption is wrong. 
+Then, from Theorem ~\ref{thm:kwik_converse}, we know that the classifier has to have output $-1$.  Since this contradicts the fact that $\mathcal{C}$ predicted $+1$, we prove that our assumption is wrong. 
 \end{proof}
 
 Thus, whenever the classifier makes a valid prediction and favors one action over the other, we see that the preferred action cannot be worse than the  other action by a value of more than $\epsilon/(|\mathcal{A}|-1)$. 
@@ -256,7 +271,7 @@ if it takes a decision autonomously.
 
 
 
-In Algorithm \ref{alg:imilearn}, at any state the learner scans all the possible actions (which is at most $|\mathcal{A}|$) and maintains a candidate action that it considers to be the best amongst the actions that have been iterated through. The correctness of this algorithm would follow if we show that after iterating over all the actions, if the algorithm has not queried the teacher, it always chooses an $\epsilon$-optimal action. We prove the following lemma from which the above statement follows directly by setting $i=|\mathcal{A}|$. 
+In Algorithm ~\ref{alg:imilearn}, at any state the learner scans all the possible actions (which is at most $|\mathcal{A}|$) and maintains a candidate action that it considers to be the best amongst the actions that have been iterated through. The correctness of this algorithm would follow if we show that after iterating over all the actions, if the algorithm has not queried the teacher, it always chooses an $\epsilon$-optimal action. We prove the following lemma from which the above statement follows directly by setting $i=|\mathcal{A}|$. 
 
 \begin{thm} After iterating over the first $i$ actions, if the algorithm has not made any queries, the candidate action picked by the algorithm is $(i-1)\displaystyle\frac{\epsilon}{|\mathcal{A}|-1}-$ optimal with respect to the best action amongst the first $i$ actions.
 \end{thm}
@@ -268,13 +283,13 @@ For any arbitrary round $i < |\mathcal{A}|$ assume that the claim is true. This 
 \vec{\theta}_E\cdot \vec{\Phi}_Q(s,\hat{a}_i) \geq \vec{\theta}_E\cdot \vec{\Phi}_Q(s,a_i^*) - (i-1)\frac{\epsilon}{|\mathcal{A}|-1} 
 \end{equation}
 
-If the algorithm chose $a_{i+1}$ over $\hat{a}_i$, we know from Theorem \ref{thm:kwik_condition}  that
+If the algorithm chose $a_{i+1}$ over $\hat{a}_i$, we know from Theorem ~\ref{thm:kwik_condition}  that
 \begin{equation}\label{eq:changeaction}
 \vec{\theta}_E\cdot \vec{\Phi}_Q(s,a_{i+1}) \geq \vec{\theta}_E\cdot \vec{\Phi}_Q(s,\hat{a}_i) - \frac{\epsilon}{|\mathcal{A}|-1}
 \end{equation}
 
 
-If the decision of choosing $a_{i+1}$ over $\hat{a}_i$ were to be inconsistent with our claim, $a_{i+1}$ must not be an $i \frac{\epsilon}{|\mathcal{A}|-1}$-optimal action (among the first $i+1$ actions). Then $a^*$ must \textit{still} be the best action amongst the first $i+1$ actions. However, from inequalities (\ref{eq:ind}) and (\ref{eq:changeaction}), we can see that:
+If the decision of choosing $a_{i+1}$ over $\hat{a}_i$ were to be inconsistent with our claim, $a_{i+1}$ must not be an $i \frac{\epsilon}{|\mathcal{A}|-1}$-optimal action (among the first $i+1$ actions). Then $a^*$ must \textit{still} be the best action amongst the first $i+1$ actions. However, from inequalities (~\ref{eq:ind}) and (~\ref{eq:changeaction}), we can see that:
 \[
 \vec{\theta}_E\cdot \vec{\Phi}_Q(s,{a}_{i+1}) \geq \vec{\theta}_E\cdot \vec{\Phi}_Q(s,a^*) - i\frac{\epsilon}{|\mathcal{A}|-1}
 \]
@@ -291,7 +306,7 @@ However, this implies a much weaker inequality:
 \vec{\theta}_E\cdot \vec{\Phi}_Q(s,\hat{a}_{i}) < \vec{\theta}_E\cdot \vec{\Phi}_Q(s,a_{i+1}) - \frac{\epsilon}{|\mathcal{A}|-1}
 \]
 which would have ensured that the KWIK classifier indicated that $a_{i+1}$
-was a better action (Lemma \ref{thm:kwik_converse}). Hence, by induction we show that the lemma holds good for all $i = 1, \hdots |\mathcal{A}|$. 
+was a better action (Lemma ~\ref{thm:kwik_converse}). Hence, by induction we show that the lemma holds good for all $i = 1, \hdots |\mathcal{A}|$. 
 
 \end{proof}
 
@@ -299,9 +314,41 @@ was a better action (Lemma \ref{thm:kwik_converse}). Hence, by induction we show
 After scanning over all the actions, if the algorithm has not made any queries, the candidate action picked by the algorithm is an ${\epsilon}-$ optimal action.
 \end{corr}
 
-\begin{remark}
-The KWIK classifier imposes stricter restrictions on the learner than that is required of the learner for it to be near optimal. 
-\end{remark}
 
-Visually, the space where infinitely many mistakes are allowed by the near-optimal learner is a cylindrical margin around the separating hyperplane. The cylinder is of radius $\epsilon/2(|\mathcal{A}-1|)$. However, the classifier $\mathcal{C}$ allows infinitely many mistakes only in a conical region 
-This comes from the fact that the classifier takes in normalized inputs.
+\section{Multidimensional KWIK Classifier}
+We discuss in this section preliminary ideas on how a classifier could be designed for a $k-$dimensional input space. \\
+
+
+Let us describe a naive idea first. We follow an idea similar to that of the 1-D classifier discussed in Section ~\ref{sec:simple}. The idea is to split the input space into $N$ appropriate subspaces, and make predictions in these subspaces only after making sufficient number of queries in each of them.
+We want each segment to fail with atmost $\delta/N$ probability so that the total failure probability is atmost $\delta$ (Lemma ~\ref{lemma:union_bound}). From Lemma $~\ref{lemma:coinlearn}$, each subspace will thus require $\frac{1}{\epsilon_Y^2} \ln \left( \frac{N}{\delta}\right)$ points to ensure that the majority of labels is correct. Thus, we will make as many queries as:
+\begin{equation}
+\label{eq:kwiksegment}
+N \times\frac{1}{\epsilon_Y^2} \ln \left( \frac{N}{\delta}\right)
+\end{equation}
+
+The constraint with splitting the space is that the subspaces must be of width not more than $\epsilon$. We could come up with many different ways of splitting the unit hypersphere surface. We skip discussing these ideas here as they do not form the core of our discussion. However, we must note that such a splitting will always be of of the order $\mathcal{O}(1/\epsilon^k)$. Thus, we will end up making queries of the order:
+
+\begin{equation}
+\label{eq:kwiksegment}
+\frac{1}{\epsilon^k\epsilon_Y^2} \ln \left( \frac{1}{\epsilon^k\delta}\right)
+\end{equation}
+
+which is \textit{\textbf{exponential}}!
+
+Our aim in this discussion is to gain insights about how we can \textit{characterize} regions in the input space by generalizing from experience across the space and not just from the local neighborhood. This might \textit{perhaps} lead us to a polynomial bound. 
+
+
+
+\begin{figure}[H]
+\centering
+   \includegraphics[scale=0.6]{texs/classification.pdf}
+   \caption{Visualization of the k-D classification}
+\label{fig:classification}
+\end{figure}
+
+
+\begin{remark}
+The KWIK classifier imposes stricter restrictions on the learner in imitation learning than that is required of the learner for it to be near-optimal. 
+\end{remark}
+Consider the space of input points which are not normalized. Visually, the subspace where infinitely many mistakes are allowed by the near-optimal learner is a cylindrical margin around the separating hyperplane. The cylinder is of radius $\epsilon/2(|\mathcal{A}-1|)$. However, the classifier $\mathcal{C}$ allows infinitely many mistakes only in a conical region centred at the origin with the base subtended at the unit hypersphere of radius $\epsilon/2(|\mathcal{A}-1|)$. There is space outside of this cone that can still be misclassified for the near-optimality requirements of the learner. This discrepancy comes from the fact that the classifier takes in normalized inputs.
+However the discrepancy is not invalid in any sense because,  the classifier is known to pass through the origin, and any sort of perturbation will be only with respect to its `angle'; if the classifier is perturbed the space it sweeps is only a conical region and hence we must allow errors to occur only in this region. \\
