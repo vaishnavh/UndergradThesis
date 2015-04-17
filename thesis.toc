@@ -55,6 +55,6 @@
 \contentsline {subsection}{\numberline {4.3.1}A simple KWIK 1-D classification algorithm}{56}{subsection.4.3.1}
 \contentsline {section}{\numberline {4.4}KWIK Inverse Reinforcement Learning Protocol}{57}{section.4.4}
 \contentsline {section}{\numberline {4.5}Multidimensional KWIK Classifier}{64}{section.4.5}
-\contentsline {chapter}{\numberline {5}\hbox to\hsize {\hss OVERVIEW\hss }}{68}{chapter.5}
-\contentsline {chapter}{\numberline {6}\hbox to\hsize {\hss FUTURE WORK\hss }}{70}{chapter.6}
-\contentsline {chapter}{\numberline {7}\hbox to\hsize {\hss APPENDIX\hss }}{72}{chapter.7}
+\contentsline {chapter}{\numberline {5}\hbox to\hsize {\hss OVERVIEW\hss }}{72}{chapter.5}
+\contentsline {chapter}{\numberline {6}\hbox to\hsize {\hss FUTURE WORK\hss }}{74}{chapter.6}
+\contentsline {chapter}{\numberline {7}\hbox to\hsize {\hss APPENDIX\hss }}{76}{chapter.7}

@@ -72,7 +72,7 @@ Note that we could allow the inputs to be anywhere in $\mathbb{R}^k$ but still p
  |\vec{\theta}_E \cdot \vec{x}| \leq ||\vec{x}||_2 \epsilon
 \end{equation}
 
-This may be compared to the KWIK-MB model proposed by \citet{DBLP:conf/nips/SayediZB10}  where the KWIK algorithm is also allowed to make a fixed number of mistakes. However, our model is significantly different in that we allow infinitely many mistakes but restrict them to a very small space around the separating hyperplane. If we did not allow the learner to make infinitely many mistakes, we would expect the learner to perennially refine its knowledge in the small space around the hyperplane. This might require exponentially many queries to accurately place the hyperplane. Furthermore, we will see that our condition also eventually suits our imitation learning problem where the learner is required to be $\epsilon$-optimal.   
+This may be compared to the KWIK-MB model proposed by \citet{DBLP:conf/nips/SayediZB10} who also assume that the inputs lies on the unit hypersphere and that the classifier passes through the origin. However, they assume that the examples from both classes are separated by a width of $\gamma$. Furthermore,  their KWIK algorithm  is allowed to make a fixed number of mistakes anywhere in the space. Our model is significantly different in that we allow infinitely many mistakes but restrict them to a very small space around the separating hyperplane. If we did not allow the learner to make infinitely many mistakes, we would expect the learner to perennially refine its knowledge in the small space around the hyperplane. This might require exponentially many queries to accurately place the hyperplane. Furthermore, we will see that our condition also eventually suits our imitation learning problem where the learner is required to be $\epsilon$-optimal.   
 
 
 Next, we discuss assumptions about noise in the expert's labels. 
@@ -91,13 +91,17 @@ In other words, we expect that for any input point, the expert labels it correct
 \label{sec:simple}
 We analyse a naive algorithm for 1-D classification to demonstrate how the KWIK conditions we proposed  allow us to design a	lgorithms with a KWIK-bound polynomial in $1/\epsilon$ and $1/\delta$ even under the relaxed noise assumption of the teacher's outputs. Here $\epsilon$ is the accuracy requirement of the KWIK algorithm; $\epsilon_Y$ is the noise parameter of the teacher. \\
 
- Assume the input space spans unit length. The learning algorithm discretizes the input space into $\frac{1}{\epsilon}$  segments as shown in Figure \ref{fig:simple_classification}. When the adversary presents a sample belonging to a segment, the algorithm emits $\perp$ when the number of samples already queried in this segment is fewer than $\mathcal{O}(\frac{1}{\epsilon_Y^2} \ln(\frac{2}{\epsilon_Y\delta}))$ (these are the segments marked with a question mark in Figure \ref{fig:simple_classification}). When the number of samples is however greater than this  we can show that if the segment does not contain the separating point, the proportion of queried points in this segment that would have been labeled correctly by the expert will be at least $1/2 + \epsilon_Y/2 - \epsilon_Y > 1/2$ with a high probability  of $1-\epsilon_Y\delta/2$ (Refer Lemma \ref{lemma:coinlearn} in Appendix). Thus, after acquiring sufficient samples in each of the segments, we will correctly learn the labels of all the segments \textit{outside an} $\epsilon-$ \textit{margin }of the separating point with probability at least $1-\delta$, which is what we want. Thus, the number of queries made will be $\mathcal{O}(\frac{1}{\epsilon_Y\epsilon^2} \ln(\frac{1}{\epsilon_Y\delta}))$.
+Throughout the discussion we will follow this convention: the points belonging to negative class will be represented by {\color{red} squares filled with red} and the points belonging to the positive class will be represented by {\color{blue} rings in blue.}\\
+
+ Assume the input space spans unit length. The learning algorithm discretizes the input space into $\frac{1}{\epsilon}$  segments as shown in Figure \ref{fig:simple_classification}. When the adversary presents a sample belonging to a segment, the algorithm emits $\perp$ when the number of samples already queried in this segment is fewer than $\mathcal{O}(\frac{8}{\epsilon_Y^2} \ln(\frac{1}{\epsilon\delta}))$ (these are the segments marked with a question mark in Figure \ref{fig:simple_classification}). When the number of samples is however greater than this  we can show that if the segment does not contain the separating point, the proportion of queried points in this segment that would have been labeled correctly by the expert will be at least $1/2 + \epsilon_Y/2 - \epsilon_Y > 1/2$ with a high probability  of $1-\epsilon\delta/2$ (Refer Lemma \ref{lemma:coinlearn} in Appendix). Thus, after acquiring sufficient samples in each of the segments, we will correctly learn the labels of all the segments \textit{outside an} $\epsilon-$ \textit{margin }of the separating point with probability at least $1-\delta$, which is what we want. Thus, the number of queries made will be $\mathcal{O}(\frac{1}{\epsilon_Y\epsilon^2} \ln(\frac{1}{\epsilon_Y\delta}))$.
  
  \begin{remark}
  The above example is not truly consistent with the KWIK classifier conditions as described in Definition \ref{defn:kwik_classifier}. In the definition, we enforced that the separating plane must pass through the origin. Hence for the 1D case, there is only one allowed separating point which is nothing but the origin itself. We however do not make this assumption just to illustrate the situation.
  \end{remark}
 
-
+\begin{remark}
+One might suspect that the above solution is inefficient in that we do not generalize beyond the small square of width $\epsilon$. That is, once we have two squares identified as belonging to the positive and negative class respectively, we could incorporate the idea that this knowledge can be generalized to all squares belonging to the extremes of this space (beyond these two squares). While this might practically result in a better algorithm, its performance in an adversarial setting is still the same. The teacher can still position the queries in  a manner that this generalization never occurs.
+\end{remark}
 
 \begin{figure}[H]
 \centering
@@ -335,20 +339,112 @@ The constraint with splitting the space is that the subspaces must be of width n
 
 which is \textit{\textbf{exponential}}!
 
-Our aim in this discussion is to gain insights about how we can \textit{characterize} regions in the input space by generalizing from experience across the space and not just from the local neighborhood. This might \textit{perhaps} lead us to a polynomial bound. 
+Our aim in this discussion is to gain insights about how we could possibly \textit{characterize} regions in the input space according to how confident the learner is about the class that the space belongs to. While we can continue the discussion comfortably for the 2D case, it is unclear as to how it would generalize to multiple dimensions. 
+
+While earlier we resorted to splitting up the space into small regions, which is naive because it does not lead to generalization, we will now look at a more sophisticated way of doing this. We must however note that the solution is still exponential if somehow generalized to multiple dimensions. We believe that with appropriate assumptions in the model this approach might \textit{perhaps} lead us to a polynomial KWIK bound. 
 
 
+We will now define a few terms which will be required for the discussion that follows. Assume that the learning algorithm is running  and has acquired experience through some queries. As earlier, we will follow the convention that the points belonging to negative class will be represented by {\color{red} squares filled with red} and the points belonging to the positive class will be represented by {\color{blue} rings in blue.} Also, we will present the figures in 2D for the sake of visualization. In Figure ~\ref{fig:classification} $AB$ is the estimated classifier $\hat{\vec{\theta}}$. While the input to the classifier is always normalized, we will present the inputs as unnormalized in the figures, again for the sake of visualization. The significance of  the lines other than $AB$ will be discussed further. \\
+
+We will use a failure probability of $\delta'$ during the following discussion to distinguish it from $\delta$, the global failure probability i.e., the probability of failure of the KWIK algorithm.  $\delta'$ would have to be set accordingly so that applying union bound across all applications of this failure probability during the run leads to a failure of at most $\delta$.
+
+\begin{dfn}
+We define $\mathcal{N}_{\epsilon'}(\vec{\theta})$, the $\epsilon'-$neighbourhood of $\vec{\theta}$ such  that:
+\begin{equation}
+\mathcal{N}_{\epsilon'}(\vec{\theta}) = \left\lbrace \vec{\theta}' \text{ s.t. } ||\vec{\theta}'||_2=1, | \vec{\theta}^T \vec{\theta}' | \leq \sqrt{1-\epsilon'^2} \right\rbrace
+\end{equation}
+ 
+\end{dfn}
+
+
+\begin{assumption}
+\label{ass:objective}
+The estimated classifier is arrived at by minimizing the number of mistakes on the training datapoints $\mathcal{D}$.
+That is 
+\begin{equation}
+\hat{\vec{\theta}} = \arg \min_{\vec{\theta}: ||\vec{\theta}||_2=1} \displaystyle\sum\limits_{(\vec{x},y) \in \mathcal{D}} \mathbb{I}\left( \text{SGN}[\vec{\theta}^T \vec{x}] \neq y \right)
+\end{equation}
+\end{assumption}
+
+
+\begin{assumption}
+\label{ass:population}
+The region swept between $A_+B_-$ and $AB$ (along $\alpha'$), and the region swept between $A_-B_+$ and $AB$ (along $\alpha'$) respectively have at least $M =\frac{32}{\epsilon_Y^2} \ln\frac{1}{\delta'}$ queried points in them \textit{each}.
+\end{assumption}
+
+
+\begin{dfn}
+The regions swept between $A_+ B_-$ and $A_-B_+$ (along $\alpha$) are called the \textbf{known regions}. The rest of the space is considered \textbf{unknown}. 
+\end{dfn}
+
+We use the word \textit{known} because we will see that the learner can identify the label of this space correctly with high probability.
+
+\begin{assumption}
+The angle between $A_-'B_+'$ and $A_-B_+$, and the angle between $A_+'B_-'$ and $A_+B_-$ are such that:
+\begin{equation}
+ |\vec{A_-'B_+'} \cdot \vec{A_-B_+} | = |\vec{A_+'B_-'} \cdot \vec{A_+B_-}| = \sqrt{1-\epsilon^2}
+\end{equation}
+Thus, the pairs of lines belong to each other's $\epsilon-$neighborhoods.
+\end{assumption}
+
+Note that it is unclear as to how the above assumptions generalizes to more dimensions.
+
+
+\begin{dfn}
+The regions swept between $A_+' B_-'$ and $A_-'B_+'$ (along $\\beta$) are called the \textbf{safe regions}. The rest of the space is considered \textbf{unsafe}. 
+\end{dfn}
+We use the word \textit{safe} because this space includes the \textit{known} region which the learner can safely and correctly predict on; and also includes the `mistake' region around the true classifier where the learner is allowed to predict safely but not necessarily correctly.
 
 \begin{figure}[H]
 \centering
-   \includegraphics[scale=0.6]{texs/classification.pdf}
+   \includegraphics[scale=0.5]{texs/classification.pdf}
    \caption{Visualization of the k-D classification}
 \label{fig:classification}
 \end{figure}
 
 
+Based on the above assumptions, we make the following claim.
+\begin{thm}
+With high probability of at least $1-\delta'$,  if the true classifier $\vec{\theta}_E$ lied in the \textbf{known region}, our estimate  of the separating hyperplane would not be $AB$.
+\end{thm}
+
+
+
+\begin{proof}
+We begin by assuming that the true classifier is $CD$ as shown in Figure ~\ref{fig:true}. Here we assume a specific configuration of $+$ and $-$ as labeled by $CD$. However, this is without loss of generality, which will be evident from the manner of this proof.\\
+
+\begin{figure}[H]
+\centering
+   \includegraphics[scale=0.5]{texs/true_classifier.pdf}
+   \caption{The true classifier assumed to be in the known region}
+\label{fig:true}
+\end{figure}
+
+
+We will show that if it were the case that $CD$ was the true classifier, then empirically our estimated classifier will not be the result of the optimnization in Assumption ~\ref{ass:objective}. In fact, $A_+ B_-$ will minimize the number of mistakes strictly better than our own estimate $AB$. In the following discussion, we will use the definition of $M$ from Assumption ~\ref{ass:population}. \\
+
+Consider only the points in the region swept between $AB$ and $A_+B_-$ as shown in Figure ~\ref{fig:proof}. We will make use of the fact that if $AB$ was perturbed anti-clockwise to $A_+B_-$, the only points that the new classifier labels different are those in this region.
+
+If $CD$ were the true classifier, from Lemma ~\ref{coinlearning} with high probability  a majority of these points will be `correctly' labeled by the teacher where correctness equates to being consistent with the labeling of $CD$. More precisely, with high probability of at least $\delta'$, $M(1/2+\epsilon_Y/4)$ points are labeled correctly by the teacher. It can be shown that the classifier along $A_+B_-$ will make $M\epsilon_Y/4$ fewer mistakes than $AB$ thus contradicting the assumption that $AB$ is the classifier chosen according to the requirement that it minimizes the mistakes on the training points.  
+\begin{figure}[H]
+\centering
+   \includegraphics[scale=0.5]{texs/proof.pdf}
+   \caption{The points that the classifiers disagree on}
+\label{fig:proof}
+\end{figure}
+
+
+\end{proof}
+
+\begin{remark}
+In the above proof we assumed that the true classifier lied in a specific position, and for that position a high probability theorem is applied. Thus if we want to consider each parameter setting of the true classifier in the known space, we might have to consider infinitely many such settings! While 
+\end{remark}
+
+
+
+
 \begin{remark}
 The KWIK classifier imposes stricter restrictions on the learner in imitation learning than that is required of the learner for it to be near-optimal. 
 \end{remark}
-Consider the space of input points which are not normalized. Visually, the subspace where infinitely many mistakes are allowed by the near-optimal learner is a cylindrical margin around the separating hyperplane. The cylinder is of radius $\epsilon/2(|\mathcal{A}-1|)$. However, the classifier $\mathcal{C}$ allows infinitely many mistakes only in a conical region centred at the origin with the base subtended at the unit hypersphere of radius $\epsilon/2(|\mathcal{A}-1|)$. There is space outside of this cone that can still be misclassified for the near-optimality requirements of the learner. This discrepancy comes from the fact that the classifier takes in normalized inputs.
+Consider the space of input points which are not normalized. Visually, the subspace where infinitely many mistakes are allowed by the near-optimal learner is a cylindrical margin around the separating hyperplane. The cylinder is of radius $\epsilon/2(|\mathcal{A}-1|)$. However, the classifier $\mathcal{C}$ allows infinitely many mistakes only in a conical region centered at the origin with the base subtended at the unit hypersphere of radius $\epsilon/2(|\mathcal{A}-1|)$. There is space outside of this cone that can still be misclassified for the near-optimality requirements of the learner. This discrepancy comes from the fact that the classifier takes in normalized inputs.
 However the discrepancy is not invalid in any sense because,  the classifier is known to pass through the origin, and any sort of perturbation will be only with respect to its `angle'; if the classifier is perturbed the space it sweeps is only a conical region and hence we must allow errors to occur only in this region. \\

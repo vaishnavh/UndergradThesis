@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70005" creator="Ipe 7.1.1">
-<info created="D:20150417000556" modified="D:20150417125537"/>
+<info created="D:20150417000556" modified="D:20150417125657"/>
 <ipestyle name="basic">
 <symbol name="arrow/arc(spx)">
 <path stroke="sym-stroke" fill="sym-stroke" pen="sym-pen">
@@ -247,17 +247,6 @@ h
 347.575 758.346 m
 169.678 377.514 l
 </path>
-<use name="mark/square(sx)" pos="282.794 714" size="normal" stroke="red"/>
-<use name="mark/square(sx)" pos="276.794 732" size="normal" stroke="red"/>
-<use name="mark/square(sx)" pos="301.794 736" size="normal" stroke="red"/>
-<use name="mark/square(sx)" pos="299.794 699" size="normal" stroke="red"/>
-<use name="mark/square(sx)" pos="272.794 679" size="normal" stroke="red"/>
-<use name="mark/square(sx)" pos="268.794 696" size="normal" stroke="red"/>
-<use name="mark/square(sx)" pos="284.794 682" size="normal" stroke="red"/>
-<use name="mark/square(sx)" pos="276.794 655" size="normal" stroke="red"/>
-<use name="mark/square(sx)" pos="269.794 633" size="normal" stroke="red"/>
-<use name="mark/square(sx)" pos="283.794 666" size="normal" stroke="red"/>
-<use name="mark/square(sx)" pos="264.794 661" size="normal" stroke="red"/>
 <use name="mark/square(sx)" pos="301.794 437" size="normal" stroke="red"/>
 <use name="mark/square(sx)" pos="268.794 510" size="normal" stroke="red"/>
 <use name="mark/square(sx)" pos="303.794 514" size="normal" stroke="red"/>
@@ -271,22 +260,12 @@ h
 <use name="mark/square(sx)" pos="281.794 492" size="normal" stroke="red"/>
 <use name="mark/square(sx)" pos="318.794 480" size="normal" stroke="red"/>
 <use name="mark/square(sx)" pos="331.794 454" size="normal" stroke="red"/>
-<use name="mark/square(sx)" pos="220.794 452" size="normal" stroke="red"/>
-<use name="mark/square(sx)" pos="234.794 482" size="normal" stroke="red"/>
-<use name="mark/square(sx)" pos="239.794 438" size="normal" stroke="red"/>
 <use name="mark/square(sx)" pos="209.794 699" size="normal" stroke="red"/>
 <use name="mark/square(sx)" pos="193.794 722" size="normal" stroke="red"/>
 <use name="mark/square(sx)" pos="211.794 713" size="normal" stroke="red"/>
 <use name="mark/square(sx)" pos="244.794 655" size="normal" stroke="red"/>
 <use name="mark/square(sx)" pos="214.794 646" size="normal" stroke="red"/>
 <use name="mark/square(sx)" pos="148.794 689" size="normal" stroke="red"/>
-<use name="mark/square(sx)" pos="170.794 543" size="normal" stroke="red"/>
-<use name="mark/square(sx)" pos="132.794 577" size="normal" stroke="red"/>
-<use name="mark/square(sx)" pos="144.794 610" size="normal" stroke="red"/>
-<use name="mark/square(sx)" pos="208.794 591" size="normal" stroke="red"/>
-<use name="mark/square(sx)" pos="197.794 537" size="normal" stroke="red"/>
-<use name="mark/square(sx)" pos="172.794 499" size="normal" stroke="red"/>
-<use name="mark/fdisk(sfx)" pos="115.794 647" size="large" stroke="blue" fill="white"/>
 <use name="mark/fdisk(sfx)" pos="212.794 689" size="large" stroke="blue" fill="white"/>
 <use name="mark/fdisk(sfx)" pos="159.794 705" size="large" stroke="blue" fill="white"/>
 <use name="mark/fdisk(sfx)" pos="214.794 730" size="large" stroke="blue" fill="white"/>
@@ -311,38 +290,8 @@ h
 <use name="mark/fdisk(sfx)" pos="243.794 691" size="large" stroke="blue" fill="white"/>
 <use name="mark/fdisk(sfx)" pos="250.794 660" size="large" stroke="blue" fill="white"/>
 <use name="mark/fdisk(sfx)" pos="243.794 634" size="large" stroke="blue" fill="white"/>
-<use name="mark/fdisk(sfx)" pos="242.794 479" size="large" stroke="blue" fill="white"/>
-<use name="mark/fdisk(sfx)" pos="245.794 514" size="large" stroke="blue" fill="white"/>
-<use name="mark/fdisk(sfx)" pos="241.794 459" size="large" stroke="blue" fill="white"/>
-<use name="mark/fdisk(sfx)" pos="235.794 449" size="large" stroke="blue" fill="white"/>
-<use name="mark/fdisk(sfx)" pos="221.794 416" size="large" stroke="blue" fill="white"/>
-<use name="mark/fdisk(sfx)" pos="131.794 549" size="large" stroke="blue" fill="white"/>
-<use name="mark/fdisk(sfx)" pos="197.794 560" size="large" stroke="blue" fill="white"/>
-<use name="mark/fdisk(sfx)" pos="172.794 586" size="large" stroke="blue" fill="white"/>
-<use name="mark/fdisk(sfx)" pos="408.794 589" size="large" stroke="blue" fill="white"/>
-<use name="mark/fdisk(sfx)" pos="379.794 621" size="large" stroke="blue" fill="white"/>
-<use name="mark/fdisk(sfx)" pos="377.794 575" size="large" stroke="blue" fill="white"/>
-<use name="mark/fdisk(sfx)" pos="366.794 526" size="large" stroke="blue" fill="white"/>
-<use name="mark/fdisk(sfx)" pos="309.794 560" size="large" stroke="blue" fill="white"/>
-<use name="mark/square(sx)" pos="322.794 590" size="normal" stroke="red"/>
-<use name="mark/square(sx)" pos="311.794 620" size="normal" stroke="red"/>
-<use name="mark/square(sx)" pos="367.794 656" size="normal" stroke="red"/>
-<use name="mark/square(sx)" pos="414.794 589" size="normal" stroke="red"/>
-<use name="mark/square(sx)" pos="390.794 562" size="normal" stroke="red"/>
-<use name="mark/square(sx)" pos="345.794 584" size="normal" stroke="red"/>
-<use name="mark/square(sx)" pos="333.794 620" size="normal" stroke="red"/>
-<use name="mark/square(sx)" pos="350.794 637" size="normal" stroke="red"/>
-<use name="mark/square(sx)" pos="404.794 636" size="normal" stroke="red"/>
-<use name="mark/square(sx)" pos="341.794 703" size="normal" stroke="red"/>
-<use name="mark/square(sx)" pos="330.794 673" size="normal" stroke="red"/>
-<use name="mark/square(sx)" pos="384.794 469" size="normal" stroke="red"/>
-<use name="mark/square(sx)" pos="317.794 531" size="normal" stroke="red"/>
-<use name="mark/square(sx)" pos="270.794 577" size="normal" stroke="red"/>
 <use name="mark/fdisk(sfx)" pos="286.794 519" size="large" stroke="blue" fill="white"/>
 <use name="mark/fdisk(sfx)" pos="269.794 479" size="large" stroke="blue" fill="white"/>
-<use name="mark/fdisk(sfx)" pos="297.794 698" size="large" stroke="blue" fill="white"/>
-<use name="mark/fdisk(sfx)" pos="261.794 702" size="large" stroke="blue" fill="white"/>
-<use name="mark/fdisk(sfx)" pos="289.794 743" size="large" stroke="blue" fill="white"/>
 <text matrix="1 0 0 1 141 -255" transformations="translations" pos="120.794 800" stroke="black" type="label" width="19.222" height="16.938" depth="0" valign="baseline">{\Huge $O$}</text>
 <text matrix="1 0 0 1 329 65" transformations="translations" pos="28.7943 737" stroke="black" type="label" width="34.763" height="16.938" depth="5.44" valign="baseline">{\Huge $A_-$}</text>
 <text matrix="1 0 0 1 -289 -444" transformations="translations" pos="425.794 786" stroke="black" type="label" width="33.81" height="16.938" depth="5.03" valign="baseline">{\Huge $B_+$}</text>
